@@ -18,7 +18,7 @@
 - [x] Add checkout-ready purchase flows for individual downloads, bundle downloads, and subscription-style access where supported by payment integration.
 - [x] Add seller/admin guidance explaining what is generated locally, what requires payment setup, and how to publish assets for sale.
 - [x] Add clear in-app instructions so paying users understand how to use each generator.
-- [ ] Validate the app builds successfully and create a final checkpoint.
+- [x] Validate the app builds successfully and create a final checkpoint.
 - [x] Add copy-to-clipboard controls for every generated skill, prompt, workflow, and bundle output.
 - [x] Add Markdown download export for generated skills, prompts, workflows, bundles, manifests, and usage guides.
 - [x] Add polished PDF download export for generated skills, prompts, workflows, and bundles so users can sell, share, or archive the assets.
@@ -46,7 +46,7 @@
 - [x] Fix any QA issues discovered before delivery and document remaining limitations clearly.
 - [x] Package the complete app source, build notes, database notes, deployment notes, and user-facing deliverables for migration or GitHub export.
 - [x] Prepare GitHub delivery instructions and, if repository access is available, push or guide export to a GitHub repository.
-- [ ] Create a checkpoint so the app can be published from the Manus interface.
+- [x] Create a checkpoint so the app can be published from the Manus interface.
 - [x] Create a social media marketing package for Skills Magic AI, including positioning copy, launch posts, short-form captions, promotional angles, hashtags, and buyer segment messaging.
 - [x] Use the available GitHub access to prepare repository delivery or push the finished QA-approved Skills Magic AI app after final validation.
 - [x] Add industry-aware and role-aware recommendation logic so category asset maps respond to industry and business-type context, not only profession.
