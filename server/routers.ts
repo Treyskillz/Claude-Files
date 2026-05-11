@@ -96,21 +96,35 @@ export const appRouter = router({
     create: publicProcedure.input(generateInputSchema).mutation(async ({ input, ctx }) => {
       const system = "You are Skills Magic AI, a senior AI automation product architect. Create retail-ready Master Operating Systems, AI skills, prompts, workflows, and bundles that are practical, specific, copy-ready, and adaptable for Claude, ChatGPT, Manus, Grok/Groq, and general AI platform usage. Return Markdown only.";
       const categoryContext = [input.professionCategory, input.industryCategory, input.businessType, input.industry, input.customCategoryContext].filter(Boolean).join(" / ") || "general business automation";
+      const promptTitle = input.title || "Invent a commercially useful title";
+      const professionCategory = input.professionCategory || "Auto-select a high-value profession";
+      const industryCategory = input.industryCategory || "Auto-select a high-value industry";
+      const recommendedAssetFocus = input.recommendedAssetFocus || "Recommend the Master Operating System, skills, prompts, and workflows this professional, industry, or business buyer needs most";
+      const targetPlatform = input.targetPlatform || "All Platforms";
+      const businessType = input.businessType || "Use the selected category context";
+      const customCategoryContext = input.customCategoryContext || "None provided";
+      const role = input.role || "AI automation strategist";
+      const industry = input.industry || categoryContext;
+      const audience = input.audience || "business owners, creators, and operators";
+      const goal = input.goal || "generate a practical AI operating system or automation asset that can be used or sold";
+      const constraints = input.constraints || "clear, non-generic, professional, practical, safe, and easy to customize";
+      const monetization = input.monetization || "package as a downloadable digital product";
+      const tone = input.tone || "professional, direct, premium";
       const userPrompt = `Create a ${input.assetType} in ${input.mode} mode.
-Title: ${input.title || "Invent a commercially useful title"}
-Profession category: ${input.professionCategory || "Auto-select a high-value profession"}
-Industry category: ${input.industryCategory || "Auto-select a high-value industry"}
-Recommended asset focus: ${input.recommendedAssetFocus || "Recommend the Master Operating System, skills, prompts, and workflows this professional, industry, or business buyer needs most"}
-Target platform: ${input.targetPlatform || "All Platforms"}
-Business type: ${input.businessType || "Use the selected category context"}
-Other custom category context: ${input.customCategoryContext || "None provided"}
-Role: ${input.role || "AI automation strategist"}
-Industry: ${input.industry || categoryContext}
-Audience: ${input.audience || "business owners, creators, and operators"}
-Goal: ${input.goal || "generate a practical AI operating system or automation asset that can be used or sold"}
-Constraints: ${input.constraints || "clear, non-generic, professional, practical, safe, and easy to customize"}
-Monetization: ${input.monetization || "package as a downloadable digital product"}
-Tone: ${input.tone || "professional, direct, premium"}
+Title: ${promptTitle}
+Profession category: ${professionCategory}
+Industry category: ${industryCategory}
+Recommended asset focus: ${recommendedAssetFocus}
+Target platform: ${targetPlatform}
+Business type: ${businessType}
+Other custom category context: ${customCategoryContext}
+Role: ${role}
+Industry: ${industry}
+Audience: ${audience}
+Goal: ${goal}
+Constraints: ${constraints}
+Monetization: ${monetization}
+Tone: ${tone}
 
 Before the main asset, include a brief "Category Fit" section explaining why this profession, industry, or business type needs the asset. Include a "Recommended Asset Map" section listing at least 3 operating system modules, 3 skills, 3 prompts, and 3 workflows relevant to the chosen category. If asset type is master_os, return a complete Master Operating System with operating principles, skills library, prompt library, workflow SOPs, QA rules, platform adaptation guide, and implementation roadmap. If asset type is skill, use a valid SKILL.md style with YAML front matter where appropriate, purpose, when-to-use, instructions, output format, QA, and platform adaptation notes. If prompt, return a complete reusable prompt system. If workflow, return trigger, inputs, steps, decisions, outputs, QA, and handoff. If bundle, include all assets and a package index. Always include adaptation notes for Claude, ChatGPT, Manus, Grok/Groq, and General AI if target platform is All Platforms.`;
 
