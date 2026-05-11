@@ -1,35 +1,44 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
+import { AppShell } from "./components/AppShell";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import Account from "./pages/Account";
+import Generator from "./pages/Generator";
 import Home from "./pages/Home";
-
+import Instructions from "./pages/Instructions";
+import Library from "./pages/Library";
+import Marketplace from "./pages/Marketplace";
+import Pricing from "./pages/Pricing";
+import NotFound from "./pages/NotFound";
+import Success from "./pages/Success";
+import Upload from "./pages/Upload";
 
 function Router() {
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <AppShell>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/generator" component={Generator} />
+        <Route path="/instructions" component={Instructions} />
+        <Route path="/library" component={Library} />
+        <Route path="/upload" component={Upload} />
+        <Route path="/marketplace" component={Marketplace} />
+        <Route path="/pricing" component={Pricing} />
+        <Route path="/account" component={Account} />
+        <Route path="/success" component={Success} />
+        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+    </AppShell>
   );
 }
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />

@@ -1,0 +1,2 @@
+ALTER TABLE `marketplaceProducts` MODIFY COLUMN `packageType` enum('individual','bundle','one_time_app','subscription_monthly','subscription_annual') NOT NULL DEFAULT 'individual';--> statement-breakpoint
+ALTER TABLE `purchases` MODIFY COLUMN `packageType` enum('individual','bundle','one_time_app','subscription_monthly','subscription_annual') NOT NULL DEFAULT 'individual';

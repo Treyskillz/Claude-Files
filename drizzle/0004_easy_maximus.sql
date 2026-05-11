@@ -1,0 +1,1 @@
+ALTER TABLE `generatedAssets` MODIFY COLUMN `assetType` enum('master_os','skill','prompt','workflow','bundle','resource') NOT NULL;

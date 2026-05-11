@@ -1,0 +1,68 @@
+# Skills Magic AI Todo
+
+- [x] Create a polished app interface for generating Claude skills, prompts, and workflow blueprints.
+- [x] Support detailed user inputs for more customized generation.
+- [x] Support one-click no-input generation using smart defaults and rotating examples.
+- [x] Provide copy-ready outputs for SKILL.md, prompts, and workflow documents.
+- [x] Add a searchable resource library for publicly available Anthropic Claude skills, prompt guidance, workflow references, and official documentation links.
+- [x] Clearly label official public Anthropic resources versus app-generated or user-created outputs.
+- [x] Add an upload/import panel for user-provided Claude prompts, skills, workflows, templates, and related resource files.
+- [x] Store uploaded resources in the browser's local library so users can search, preview, copy, and adapt them without needing a backend.
+- [x] Make the app efficient and client-side first, using local state, localStorage, lightweight templates, and no unnecessary backend dependency.
+- [x] Add retail-ready polish: clear onboarding, professional interface quality, practical use cases, copy/download actions, and error-resistant empty states.
+- [x] Add a Claude-compatible plugin/skill export mode that produces a ready-to-install SKILL.md plus companion manifest and usage guide.
+- [x] Add autonomous generation mode that can create complete new skills, prompts, and workflows from smart defaults without user input.
+- [x] Add assisted generation mode that improves output quality when users provide role, industry, goal, audience, constraints, and monetization details.
+- [x] Add a marketplace/catalog section where generated assets can be packaged as individual products or curated bundle downloads.
+- [x] Add product metadata fields for title, category, price, license terms, included files, preview description, and bundle membership.
+- [x] Add checkout-ready purchase flows for individual downloads, bundle downloads, and subscription-style access where supported by payment integration.
+- [x] Add seller/admin guidance explaining what is generated locally, what requires payment setup, and how to publish assets for sale.
+- [x] Add clear in-app instructions so paying users understand how to use each generator.
+- [ ] Validate the app builds successfully and create a final checkpoint.
+- [x] Add copy-to-clipboard controls for every generated skill, prompt, workflow, and bundle output.
+- [x] Add Markdown download export for generated skills, prompts, workflows, bundles, manifests, and usage guides.
+- [x] Add polished PDF download export for generated skills, prompts, workflows, and bundles so users can sell, share, or archive the assets.
+- [x] Ensure exported PDFs preserve readable formatting and make the generated content easy to copy and paste into Claude.
+- [x] Rename the product from Skills Magic AI to Skills Magic AI across app UI, metadata, documentation, generated exports, product architecture notes, and marketplace language.
+- [x] Create a professional public-facing website for Skills Magic AI that explains the autonomous generator, Claude-compatible exports, resource library, and marketplace download features.
+- [x] Create a Skills Magic AI logo and visual identity using red, black, grey, and white, with black writing on light backgrounds and retail-ready brand polish.
+- [x] Apply the Skills Magic AI logo, colors, and brand language across the website, app interface, downloadable PDFs, Markdown exports, and marketplace product previews.
+- [x] Add category-driven generation for professions, industries, and role-based asset needs.
+- [x] Add recommended skills, prompts, and workflows for selected professionals, industries, and professions.
+- [x] Add competitive pricing options for one-time app access, monthly and annual subscriptions, and one-off downloads.
+- [x] Update marketplace checkout products and website pricing language to reflect app fees, subscription fees, and one-off download fees.
+- [x] Add a market viability assessment explaining whether Skills Magic AI meets a real pain point and is a strong opportunity.
+- [x] Add a positioning and go-to-market strategy for selling Skills Magic AI to professional, industry, and creator segments.
+- [x] Add in-app or attached guidance explaining the best buyer segments, marketing message, pricing rationale, and sales funnel.
+- [x] Rename the product from Skills Magic AI to Skills Magic AI across app UI, metadata, navigation, exports, pricing, marketplace language, and market assessment.
+- [x] Add master Claude operating system generation based on a selected industry, profession, or business type.
+- [x] Ensure master Claude operating system outputs include a category map, core operating principles, skills, prompts, workflows, SOPs, QA rules, implementation roadmap, and export-ready documentation.
+- [x] Add marketplace and pricing language for master Claude operating system downloads and bundles.
+- [x] Make Claude Master Operating Systems a named core output type, pricing category, marketplace product type, and homepage value proposition.
+- [x] Expand asset generation beyond Claude so users can create Master Operating Systems, skills, prompts, and workflows for Claude, ChatGPT, Manus, Grok/Groq, and general AI platforms.
+- [x] Add platform selectors and platform-specific export guidance for Claude, ChatGPT, Manus, Grok/Groq, and general AI platform assets.
+- [x] Update pricing, marketplace language, and product positioning so multi-platform Master Operating Systems are treated as premium downloadable assets and bundles.
+- [x] Perform a full retail-readiness QA review covering efficiency, professionalism, core capabilities, export quality, pricing, marketplace readiness, and user experience.
+- [x] Fix any QA issues discovered before delivery and document remaining limitations clearly.
+- [x] Package the complete app source, build notes, database notes, deployment notes, and user-facing deliverables for migration or GitHub export.
+- [x] Prepare GitHub delivery instructions and, if repository access is available, push or guide export to a GitHub repository.
+- [ ] Create a checkpoint so the app can be published from the Manus interface.
+- [x] Create a social media marketing package for Skills Magic AI, including positioning copy, launch posts, short-form captions, promotional angles, hashtags, and buyer segment messaging.
+- [ ] Use the available GitHub access to prepare repository delivery or push the finished QA-approved Skills Magic AI app after final validation.
+- [x] Add industry-aware and role-aware recommendation logic so category asset maps respond to industry and business-type context, not only profession.
+- [x] Ensure fallback Master Operating System generation always includes an explicit Category Map / Recommended Asset Map section.
+- [x] Add a dedicated premium Master Operating System pricing offer and align pricing copy with the marketplace.
+- [x] Update the homepage to make multi-platform Master Operating Systems the primary value proposition and reduce outdated Claude-only framing.
+- [x] Add generic Other / Custom profession and industry categories with manual input fields so users can generate assets for categories not included in the preset lists.
+- [x] Extend Other / Custom manual input support to every category selector used for generation and packaging, including platform and asset/category context where applicable.
+- [x] Add a dedicated Instructions page to the app/website with user guidance for generating assets, custom categories, exports, marketplace listings, pricing, and checkout.
+- [x] Add the Instructions page to the app routing and global navigation so users can find it easily.
+- [x] Replace stale external Skills Maker AI logo and hero images with inline Skills Magic AI brand visuals during QA.
+- [x] Add explicit QA evidence for export quality and efficiency, covering PDF, Markdown, ZIP packaging, loading/error/empty states, and performance-sensitive areas.
+- [x] Re-run and document a comprehensive QA sweep across generator, exports, pricing, marketplace, and UX paths before final checkpoint.
+- [x] Add focused QA evidence for export empty states and common unavailable-action cases before generation.
+- [x] Add explicit efficiency and performance QA evidence covering heavy bundle contributors, code-splitting opportunities, and mitigations or rationale.
+- [x] Add targeted QA evidence for pricing, marketplace, and broader UX paths so the final retail-readiness sweep is verifiably comprehensive.
+- [ ] Complete GitHub delivery by either pushing the QA-approved source to the user's repository or documenting a repository-specific export guide with confirmed owner/repo, remote URL, branch, and exact push steps/output evidence.
+- [ ] Re-check GitHub access after the user confirmed GitHub is open, then complete repository-specific delivery evidence or update the documented export path.
+- [ ] Update GitHub delivery materials with the confirmed Treyskillz account context, known repositories, suggested repository name, and exact next-step export path.
