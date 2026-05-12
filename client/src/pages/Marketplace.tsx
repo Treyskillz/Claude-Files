@@ -291,7 +291,10 @@ function ProductCard({ product, loading, isAdmin, onBuy, onAdminDownload }: { pr
         <CardDescription className="leading-6">{product.description}</CardDescription>
       </CardHeader>
       <CardContent className="grow">
-        <div className="mb-5 text-4xl font-black tracking-[-0.04em] text-zinc-950">{isAdmin ? "Admin included" : formatPrice(product.priceCents, product.packageType)}</div>
+        <div className="mb-5">
+          <div className="text-4xl font-black tracking-[-0.04em] text-zinc-950">{formatPrice(product.priceCents, product.packageType)}</div>
+          {isAdmin ? <div className="mt-1 text-sm font-bold text-red-600">Admin included — no checkout required</div> : null}
+        </div>
         {platformFeePercent ? <p className="mb-4 rounded-2xl bg-emerald-50 p-3 text-sm font-semibold leading-6 text-emerald-700">Connect sale: seller receives the sale net of the {platformFeePercent}% app-owner platform fee.</p> : null}
         {isAdmin ? <p className="mb-4 rounded-2xl bg-red-50 p-3 text-sm font-semibold leading-6 text-red-700">Owner/admin accounts can download this package for internal review without creating a customer purchase.</p> : null}
         <div className="grid gap-2 text-sm text-zinc-600">

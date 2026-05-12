@@ -185,7 +185,10 @@ export default function Pricing() {
                 <CardDescription className="leading-6">{plan.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex grow flex-col">
-                <div className="mb-4 text-4xl font-black tracking-[-0.04em] text-zinc-950">{isAdmin ? "Admin included" : formatPrice(plan.priceCents, plan.cadence)}</div>
+                <div className="mb-4">
+                  <div className="text-4xl font-black tracking-[-0.04em] text-zinc-950">{formatPrice(plan.priceCents, plan.cadence)}</div>
+                  {isAdmin ? <div className="mt-1 text-sm font-bold text-red-600">Admin included — no checkout required</div> : null}
+                </div>
                 {isAdmin ? <p className="mb-4 rounded-2xl bg-red-50 p-3 text-sm font-semibold leading-6 text-red-700">This owner/admin account can use this offer without checkout. Customers still see and use the paid Stripe flow.</p> : null}
                 <p className="mb-5 rounded-2xl bg-zinc-50 p-4 text-sm leading-6 text-zinc-700"><strong className="text-zinc-950">Best for:</strong> {plan.bestFor}</p>
                 <div className="mb-6 grid gap-2 text-sm text-zinc-600">

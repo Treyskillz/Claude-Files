@@ -149,3 +149,10 @@
 
 - [x] Fix mobile homepage horizontal overflow so hero text and CTAs are fully readable on small phones
 
+- [x] Fix marketplace product cards to show actual prices for admin users alongside "Admin included" label
+- [x] Fix pricing page cards to show actual prices for admin users alongside "Admin included" label
+- [x] Add contact email (freedom1.digital@gmail.com) to the site footer
+- [x] Add useful footer links (Instructions, Marketplace, Pricing, Generator)
+- [x] Update the QA findings document with accurate pass/fail statuses for all 13 audit areas
+- [x] Run tests, production build, and visual verification after all fixes
+- [ ] Save checkpoint and push corrected state to GitHub (in progress)

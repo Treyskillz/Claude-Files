@@ -141,20 +141,52 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </header>
       <main>{children}</main>
       <footer className="border-t bg-white">
-        <div className="container grid gap-6 py-10 text-sm text-zinc-600 md:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="container grid gap-6 py-10 text-sm text-zinc-600 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <div className="mb-4"><BrandMark /></div>
             <p className="max-w-xl leading-6">
               Skillz Magic AI Studio helps creators, consultants, agencies, and teams generate multi-platform AI operating assets, prompt systems, workflows, PDF exports, and marketplace-ready bundles with clear instructions and a clean professional brand system.
             </p>
+            <p className="mt-4 text-sm text-zinc-700">
+              <strong className="text-zinc-950">Contact:</strong>{" "}
+              <a href="mailto:freedom1.digital@gmail.com" className="text-red-600 underline hover:text-red-700">freedom1.digital@gmail.com</a>
+            </p>
           </div>
           <div>
             <h3 className="mb-3 font-bold text-zinc-950">Build</h3>
-            <p>Multi-platform Master Operating Systems, autonomous generator, assisted forms, custom categories, uploads, instructions, and resource library.</p>
+            <nav className="grid gap-2">
+              <Link href="/generator" className="hover:text-red-600">Generator / Builder</Link>
+              <Link href="/library" className="hover:text-red-600">Resource Library</Link>
+              <Link href="/upload" className="hover:text-red-600">Upload Resources</Link>
+              <Link href="/instructions" className="hover:text-red-600">Instructions</Link>
+            </nav>
           </div>
           <div>
             <h3 className="mb-3 font-bold text-zinc-950">Sell</h3>
-            <p>Bundle assets, compare one-time app access, subscriptions, and one-off downloads, then route purchases through Stripe Checkout.</p>
+            <nav className="grid gap-2">
+              <Link href="/marketplace" className="hover:text-red-600">Marketplace</Link>
+              <Link href="/pricing" className="hover:text-red-600">Pricing</Link>
+            </nav>
+            <p className="mt-3 leading-6">Bundle assets, compare one-time app access, subscriptions, and one-off downloads, then route purchases through Stripe Checkout.</p>
+          </div>
+          <div>
+            <h3 className="mb-3 font-bold text-zinc-950">Account</h3>
+            <nav className="grid gap-2">
+              {isAuthenticated ? (
+                <>
+                  <Link href="/account" className="hover:text-red-600">My Account</Link>
+                  <button onClick={() => logout()} className="text-left hover:text-red-600">Sign Out</button>
+                </>
+              ) : (
+                <button onClick={() => (window.location.href = getLoginUrl())} className="text-left hover:text-red-600">Sign In</button>
+              )}
+            </nav>
+          </div>
+        </div>
+        <div className="border-t">
+          <div className="container flex flex-col items-center gap-2 py-4 text-xs text-zinc-500 md:flex-row md:justify-between">
+            <p>&copy; {new Date().getFullYear()} Skillz Magic AI Studio. All rights reserved.</p>
+            <p>Powered by Freedom One Academy</p>
           </div>
         </div>
       </footer>
