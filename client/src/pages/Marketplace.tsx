@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -46,17 +46,32 @@ export default function Marketplace() {
   const isAdmin = user?.role === "admin";
   const utils = trpc.useUtils();
   const [listing, setListing] = useState(emptyListing);
+  const [onboardingFallbackUrl, setOnboardingFallbackUrl] = useState<string | null>(null);
   const catalog = trpc.marketplace.catalog.useQuery();
   const purchases = trpc.marketplace.purchases.useQuery(undefined, { retry: false });
   const sellerStatus = trpc.marketplace.sellerStatus.useQuery(undefined, { enabled: isAuthenticated && !isAdmin, retry: false });
   const connect = trpc.marketplace.startSellerOnboarding.useMutation({
     onSuccess(data: { onboardingUrl?: string; message?: string }) {
-      if (data.onboardingUrl) window.open(data.onboardingUrl, "_blank", "noopener,noreferrer");
-      toast.success(data.message || "Stripe Connect onboarding opened in a new tab.");
+      if (data.onboardingUrl) {
+        setOnboardingFallbackUrl(data.onboardingUrl);
+        toast.success("Redirecting to secure Stripe Connect setup in this tab. Use the backup link if the redirect is blocked.");
+        window.location.assign(data.onboardingUrl);
+        return;
+      }
+      toast.success(data.message || "Stripe Connect onboarding is ready.");
       sellerStatus.refetch();
     },
     onError(error: { message?: string }) {
       toast.error(error.message || "Unable to start seller onboarding.");
+    },
+  });
+  const refreshConnect = trpc.marketplace.refreshSellerOnboarding.useMutation({
+    onSuccess(data) {
+      toast.success(data.onboardingStatus === "complete" ? "Stripe Connect onboarding is complete." : "Stripe Connect status refreshed. Finish any remaining Stripe steps before submitting listings.");
+      sellerStatus.refetch();
+    },
+    onError(error: { message?: string }) {
+      toast.error(error.message || "Unable to refresh Stripe Connect status.");
     },
   });
   const submitListing = trpc.marketplace.saveProduct.useMutation({
@@ -102,6 +117,20 @@ export default function Marketplace() {
   })) as Product[];
   const products = [...presets, ...saved];
   const sellerReady = sellerStatus.data?.onboardingStatus === "complete" && sellerStatus.data?.payoutsEnabled;
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    const params = new URLSearchParams(window.location.search);
+    const onboardingResult = params.get("seller_onboarding");
+    if (onboardingResult !== "complete" && onboardingResult !== "refresh") return;
+
+    refreshConnect.mutate();
+    params.delete("seller_onboarding");
+    const nextQuery = params.toString();
+    window.history.replaceState({}, "", `${window.location.pathname}${nextQuery ? `?${nextQuery}` : ""}`);
+    // Run only once when the marketplace page is opened from Stripe's return or refresh URL.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
 
   const buildPackageContent = (product: Product) => `# ${product.title}\n\n## Package Summary\n${product.description}\n\n## Package Type\n${product.packageType.replaceAll("_", " ")}\n\n## Category\n${product.category}\n\n## Included Files\n${product.includedFiles.map(file => `- ${file}`).join("\n")}\n\n## License Terms\n${product.licenseTerms || "Commercial use license for the purchasing customer. Owner/admin access is included for internal use and packaging review."}\n\n## Admin Access Note\nThis package was downloaded from the owner/admin version of Skillz Magic AI Studio. Admin access does not create a Stripe checkout session or customer purchase record. Customer accounts continue to use the normal paid checkout flow.`;
 
@@ -200,8 +229,14 @@ export default function Marketplace() {
                       <p><strong className="text-zinc-950">Payouts enabled:</strong> {sellerStatus.data.payoutsEnabled ? "Yes" : "No"}</p>
                     </div>
                   ) : <p className="rounded-2xl bg-zinc-50 p-4">Seller onboarding status appears here after sign-in.</p>}
-                  <Button className="rounded-full bg-red-600 hover:bg-red-700" disabled={connect.isPending} onClick={() => isAuthenticated ? connect.mutate() : (window.location.href = getLoginUrl())}>{connect.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ExternalLink className="mr-2 h-4 w-4" />} Start or resume Stripe Connect</Button>
-                  <p className="text-xs text-zinc-500">Admin approval is still required before a customer-submitted listing appears in the paid catalog.</p>
+                  <Button className="rounded-full bg-red-600 hover:bg-red-700" disabled={connect.isPending || refreshConnect.isPending} onClick={() => isAuthenticated ? connect.mutate() : (window.location.href = getLoginUrl())}>{connect.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ExternalLink className="mr-2 h-4 w-4" />} Continue in Stripe Connect</Button>
+                  {onboardingFallbackUrl ? (
+                    <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-900">
+                      <p className="font-bold">If Stripe did not open, use this backup link.</p>
+                      <a className="mt-2 inline-flex items-center gap-2 font-bold underline" href={onboardingFallbackUrl} rel="noreferrer">Open secure Stripe setup <ExternalLink className="h-4 w-4" /></a>
+                    </div>
+                  ) : null}
+                  <p className="text-xs text-zinc-500">The Connect setup now opens in the current tab to avoid popup blocking. Admin approval is still required before a customer-submitted listing appears in the paid catalog.</p>
                 </CardContent>
               </Card>
 

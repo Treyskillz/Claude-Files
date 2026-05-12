@@ -131,3 +131,7 @@
 - [x] Commit and push all current Claude Skill Studio project files to the selected GitHub repository
 - [x] Save final Manus checkpoint after GitHub delivery validation
 - [ ] Report Stripe sandbox owner-login blocker and remaining owner-side test steps in final handoff
+
+- [x] Change marketplace Stripe Connect seller onboarding behavior so the button provides a clear working action instead of appearing to do nothing
+- [x] Add validation or regression coverage for the revised seller onboarding behavior
+- [ ] Run tests, build, health check, checkpoint, and GitHub push for seller onboarding behavior change

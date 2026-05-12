@@ -70,6 +70,17 @@ describe("Stripe Connect seller onboarding and listing moderation flow", () => {
     expect(routerSource).toContain("Seller payout account is not ready");
   });
 
+  it("redirects seller onboarding in the current tab and renders a backup link", () => {
+    const marketplaceSource = projectFile("client/src/pages/Marketplace.tsx");
+
+    expect(marketplaceSource).toContain("window.location.assign(data.onboardingUrl)");
+    expect(marketplaceSource).toContain("Redirecting to secure Stripe Connect setup in this tab");
+    expect(marketplaceSource).toContain("If Stripe did not open, use this backup link.");
+    expect(marketplaceSource).toContain("Continue in Stripe Connect");
+    expect(marketplaceSource).toContain("refreshSellerOnboarding");
+    expect(marketplaceSource).toContain("seller_onboarding");
+  });
+
   it("submits customer seller listings as pending Connect destination-charge listings for admin review", () => {
     const routerSource = projectFile("server/routers.ts");
     const marketplaceSource = projectFile("client/src/pages/Marketplace.tsx");
