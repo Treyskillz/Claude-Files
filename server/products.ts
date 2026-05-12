@@ -16,8 +16,8 @@ export const DEFAULT_LICENSE =
 
 export const MARKETPLACE_PRODUCTS: CheckoutProduct[] = [
   {
-    slug: "skills-magic-ai-lifetime",
-    title: "Skills Magic AI Lifetime App Access",
+    slug: "skillz-magic-ai-studio-lifetime",
+    title: "Skillz Magic AI Studio Lifetime App Access",
     category: "One-Time App Access",
     packageType: "one_time_app",
     priceCents: 14900,

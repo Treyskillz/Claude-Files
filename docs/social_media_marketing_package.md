@@ -1,10 +1,10 @@
-# Skills Magic AI Social Media Marketing Package
+# Skillz Magic AI Studio Social Media Marketing Package
 
 ## Campaign Positioning
 
-Skills Magic AI should be marketed as a practical **AI operations product builder** for professionals, consultants, agencies, educators, creators, and small business owners who want to turn their expertise into reusable AI systems. The strongest message is not that the app merely writes prompts. The strongest message is that it helps users generate **multi-platform Master Operating Systems, skills, workflows, prompts, bundles, and downloadable AI asset packages** that can be used internally or sold as digital products.
+Skillz Magic AI Studio should be marketed as a practical **AI operations product builder** for professionals, consultants, agencies, educators, creators, and small business owners who want to turn their expertise into reusable AI systems. The strongest message is not that the app merely writes prompts. The strongest message is that it helps users generate **multi-platform Master Operating Systems, skills, workflows, prompts, bundles, and downloadable AI asset packages** that can be used internally or sold as digital products.
 
-The core promise is simple: **turn a profession, industry, niche, or custom business context into a complete AI operating system package without starting from a blank page**. This positions Skills Magic AI above ordinary prompt libraries because it supports structured category maps, platform guidance, export-ready documentation, marketplace packaging, PDF and Markdown exports, and Stripe-connected purchase flows.
+The core promise is simple: **turn a profession, industry, niche, or custom business context into a complete AI operating system package without starting from a blank page**. This positions Skillz Magic AI Studio above ordinary prompt libraries because it supports structured category maps, platform guidance, export-ready documentation, marketplace packaging, PDF and Markdown exports, and Stripe-connected purchase flows.
 
 | Buyer Segment | Primary Pain Point | Messaging Angle | Recommended CTA |
 |---|---|---|---|
@@ -16,7 +16,7 @@ The core promise is simple: **turn a profession, industry, niche, or custom busi
 
 ## Brand Voice
 
-The brand voice should be direct, confident, and practical. Skills Magic AI should avoid sounding like a generic prompt toy. It should sound like a **professional-grade system builder** for people who want to deploy AI into real work. The best tone combines entrepreneurial urgency with operational clarity.
+The brand voice should be direct, confident, and practical. Skillz Magic AI Studio should avoid sounding like a generic prompt toy. It should sound like a **professional-grade system builder** for people who want to deploy AI into real work. The best tone combines entrepreneurial urgency with operational clarity.
 
 > “Stop selling random prompts. Start building complete AI operating systems for real professions, industries, and workflows.”
 
@@ -26,21 +26,21 @@ The marketing language should emphasize finished assets, practical utility, and 
 
 ### Long-Form LinkedIn Launch Post
 
-Skills Magic AI is built for professionals who want more than generic prompts.
+Skillz Magic AI Studio is built for professionals who want more than generic prompts.
 
-With Skills Magic AI, you can turn a profession, industry, niche, or custom business context into a complete multi-platform AI asset package. The app helps generate Master Operating Systems, skills, prompts, workflows, SOP-style guidance, marketplace bundles, Markdown files, PDFs, and platform-ready ZIP packages.
+With Skillz Magic AI Studio, you can turn a profession, industry, niche, or custom business context into a complete multi-platform AI asset package. The app helps generate Master Operating Systems, skills, prompts, workflows, SOP-style guidance, marketplace bundles, Markdown files, PDFs, and platform-ready ZIP packages.
 
-The goal is simple: make AI implementation more practical, more structured, and easier to sell or deploy. Instead of asking users to start from a blank screen, Skills Magic AI guides them through platform selection, profession context, industry context, custom category inputs, asset type, monetization details, and export options.
+The goal is simple: make AI implementation more practical, more structured, and easier to sell or deploy. Instead of asking users to start from a blank screen, Skillz Magic AI Studio guides them through platform selection, profession context, industry context, custom category inputs, asset type, monetization details, and export options.
 
 This is especially useful for consultants, agencies, coaches, operators, educators, and digital product sellers who want reusable AI systems for real work. You can build for Claude, ChatGPT, Manus, Grok/Groq, general AI platforms, or your own custom AI workspace.
 
 If your category is not in the preset list, you can add it manually and still generate a tailored asset package.
 
-**Call to action:** Build your first custom AI operating system with Skills Magic AI.
+**Call to action:** Build your first custom AI operating system with Skillz Magic AI Studio.
 
 ### Short LinkedIn Post
 
-Most prompt tools give you isolated prompts. Skills Magic AI helps you build complete AI operating systems.
+Most prompt tools give you isolated prompts. Skillz Magic AI Studio helps you build complete AI operating systems.
 
 Create multi-platform Master Operating Systems, skills, workflows, prompt packs, SOPs, and downloadable bundles for specific professions, industries, and custom categories.
 
@@ -52,13 +52,13 @@ Use presets or enter your own profession, industry, platform, or asset category 
 
 Stop starting from a blank prompt box.
 
-Skills Magic AI turns a profession, industry, niche, or custom category into a complete AI asset package: Master Operating Systems, prompts, workflows, skills, PDFs, Markdown files, and marketplace-ready bundles.
+Skillz Magic AI Studio turns a profession, industry, niche, or custom category into a complete AI asset package: Master Operating Systems, prompts, workflows, skills, PDFs, Markdown files, and marketplace-ready bundles.
 
 Built for Claude, ChatGPT, Manus, Grok/Groq, and custom AI platforms.
 
 ### Facebook / Community Post
 
-If you use AI for business, consulting, coaching, education, or digital products, Skills Magic AI helps you create structured AI assets faster.
+If you use AI for business, consulting, coaching, education, or digital products, Skillz Magic AI Studio helps you create structured AI assets faster.
 
 You can generate complete Master Operating Systems, prompt packs, workflow kits, skills, SOP-style guidance, and downloadable bundles for specific professions and industries. You can also enter your own custom categories if your field is not listed.
 
@@ -76,7 +76,7 @@ It is designed for people who want practical AI systems they can use, teach, sha
 
 ## Promotional Angles
 
-Skills Magic AI can be promoted through several complementary angles. The first angle is **productized expertise**, where consultants and creators learn to turn their know-how into downloadable AI products. The second angle is **business AI implementation**, where operators use the app to create structured workflows and role-specific AI guidance. The third angle is **multi-platform flexibility**, where users avoid being locked into one AI tool and can generate for Claude, ChatGPT, Manus, Grok/Groq, general AI platforms, or custom AI workspaces.
+Skillz Magic AI Studio can be promoted through several complementary angles. The first angle is **productized expertise**, where consultants and creators learn to turn their know-how into downloadable AI products. The second angle is **business AI implementation**, where operators use the app to create structured workflows and role-specific AI guidance. The third angle is **multi-platform flexibility**, where users avoid being locked into one AI tool and can generate for Claude, ChatGPT, Manus, Grok/Groq, general AI platforms, or custom AI workspaces.
 
 The highest-converting educational angle is likely to be: **“How to turn your profession into an AI operating system.”** This angle is easy to explain, visually demonstrable, and directly aligned with the app’s premium Master Operating System pricing.
 
@@ -84,10 +84,10 @@ The highest-converting educational angle is likely to be: **“How to turn your 
 
 | Use Case | Caption |
 |---|---|
-| Awareness | Skills Magic AI helps you turn a profession, industry, or niche into a complete AI operating system package. |
+| Awareness | Skillz Magic AI Studio helps you turn a profession, industry, or niche into a complete AI operating system package. |
 | Custom categories | If your profession, industry, or platform is not listed, add it manually and generate a tailored AI asset package anyway. |
 | Marketplace | Create skills, prompts, workflows, PDFs, ZIP packages, and bundle listings from one guided workflow. |
-| Consultants | Consultants can use Skills Magic AI to package repeatable expertise into client-ready AI systems. |
+| Consultants | Consultants can use Skillz Magic AI Studio to package repeatable expertise into client-ready AI systems. |
 | Agencies | Agencies can build reusable workflow kits and sellable AI product bundles for client niches. |
 | Digital products | Stop selling isolated prompts. Sell structured AI operating systems, workflow kits, and bundled assets. |
 | Education | Turn any topic or industry into a guided AI learning package with workflows, prompts, and implementation guidance. |
@@ -117,4 +117,4 @@ The landing-page funnel should begin with the outcome: **create multi-platform M
 
 A strong launch should begin with an educational post explaining the concept of a Master Operating System. The second post should demonstrate the generator workflow with custom category inputs. The third post should target consultants and agencies by showing how an AI asset can become a client deliverable. The fourth post should target digital product sellers by showing PDF, Markdown, ZIP, and marketplace packaging. The fifth post should drive users to the Instructions page and pricing page.
 
-This sequence keeps the product from being perceived as another prompt generator. It frames Skills Magic AI as a **retail-ready AI asset production system** for practical work, training, consulting, and digital product monetization.
+This sequence keeps the product from being perceived as another prompt generator. It frames Skillz Magic AI Studio as a **retail-ready AI asset production system** for practical work, training, consulting, and digital product monetization.

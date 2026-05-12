@@ -1,6 +1,6 @@
-# Skills Magic AI Product Architecture
+# Skillz Magic AI Studio Product Architecture
 
-Skills Magic AI is designed as a professional AI automation asset factory. The app has three primary work zones: **Generate**, **Library**, and **Marketplace**. Generate creates Claude-compatible skills, prompts, and workflow blueprints from either detailed user instructions or smart defaults. Library stores official public references, uploaded user resources, and generated assets for later reuse. Marketplace packages generated assets as individual downloads or curated bundles with checkout-ready commerce flows.
+Skillz Magic AI Studio is designed as a professional AI automation asset factory. The app has three primary work zones: **Generate**, **Library**, and **Marketplace**. Generate creates Claude-compatible skills, prompts, and workflow blueprints from either detailed user instructions or smart defaults. Library stores official public references, uploaded user resources, and generated assets for later reuse. Marketplace packages generated assets as individual downloads or curated bundles with checkout-ready commerce flows.
 
 | Zone | Primary User Job | Practical Output |
 |---|---|---|

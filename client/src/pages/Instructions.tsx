@@ -15,11 +15,11 @@ const workflowSteps = [
   },
   {
     title: "Review the recommended category asset map",
-    detail: "The generator shows recommended operating systems, skills, prompts, workflows, and a suggested one-off price before generation. Use this as a quick validation step before creating the asset.",
+    detail: "The generator shows recommended operating systems, skills, prompts, and workflows before generation. Use this as a quick validation step before creating the asset.",
   },
   {
     title: "Generate, refine, and export",
-    detail: "Generate instantly from defaults or add detailed role, audience, goal, constraint, and monetization notes. Export finished content as Markdown, PDF, or a platform ZIP package for use in Claude, ChatGPT, Manus, Grok/Groq, general AI tools, or a custom platform.",
+    detail: "Generate instantly from defaults or add detailed role, audience, goal, and constraint notes. Export finished content as Markdown, PDF, or a platform ZIP package for use in Claude, ChatGPT, Manus, Grok/Groq, general AI tools, or a custom platform.",
   },
 ];
 
@@ -58,24 +58,24 @@ const featureGuide = [
     area: "Exports",
     icon: Download,
     use: "Download Markdown, print-ready PDF, or a ZIP package with manifest, usage guide, platform adaptation guide, prompts, workflows, and documentation.",
-    bestPractice: "Use Markdown for editing, PDF for client delivery, and ZIP for complete implementation handoff packages.",
+    bestPractice: "Use Markdown for editing, PDF for client delivery, and ZIP for complete implementation packages.",
   },
 ];
 
-const pricingGuide = [
-  { offer: "Prompt pack", guidance: "$19 entry offer", purpose: "Use for fast, low-friction downloads and lead-in products." },
-  { offer: "Skill or workflow", guidance: "$39–$49 premium download", purpose: "Use for practical implementation tools with clearer business value." },
-  { offer: "Professional bundle", guidance: "$99 package", purpose: "Use when several prompts, skills, workflows, and guides solve one buyer problem together." },
-  { offer: "Master Operating System", guidance: "$149 premium one-off", purpose: "Use for complete category-specific operating systems with SOPs, QA, roadmap, and platform guidance." },
-  { offer: "Subscription", guidance: "$29 monthly or $290 annual", purpose: "Use for repeat creators who generate, package, and improve assets continuously." },
+const packageGuide = [
+  { offer: "Prompt pack", guidance: "Focused download", purpose: "Use when you need a targeted prompt system and quality checklist for one immediate use case." },
+  { offer: "Skill or workflow", guidance: "Implementation asset", purpose: "Use when you need a practical tool with setup instructions, workflow structure, and usage guidance." },
+  { offer: "Professional bundle", guidance: "Grouped toolkit", purpose: "Use when several prompts, skills, workflows, and guides solve one related problem together." },
+  { offer: "Master Operating System", guidance: "Complete system", purpose: "Use for complete category-specific operating systems with SOPs, QA, roadmap, and platform guidance." },
+  { offer: "Subscription", guidance: "Ongoing creation", purpose: "Use when you generate, package, and improve multiple assets over time." },
 ];
 
 const qualityChecklist = [
   "The selected platform is correct, including any custom platform name.",
   "The profession, industry, business type, and custom category context describe a real buyer or operating environment.",
   "The generated output includes category maps, recommended skills, prompts, workflows, SOPs, QA rules, and implementation guidance when creating a Master Operating System.",
-  "The export format matches the next use: Markdown for editing, PDF for delivery, ZIP for implementation package handoff.",
-  "Marketplace listings explain the outcome, buyer, included files, and pricing logic before checkout is offered.",
+  "The export format matches the next use: Markdown for editing, PDF for delivery, or ZIP for a complete implementation package.",
+  "Marketplace listings explain the outcome, intended user, included files, and package details before checkout is offered.",
 ];
 
 export default function Instructions() {
@@ -88,7 +88,7 @@ export default function Instructions() {
               <FileArchive className="mr-2 h-4 w-4" /> User instructions
             </Badge>
             <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">
-              How to use Skills Magic AI from idea to sellable asset.
+              How to use Skillz Magic AI Studio from idea to sellable asset.
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-600">
               This guide explains the practical workflow for creating multi-platform Master Operating Systems, skills, prompts, workflows, and bundles. It is designed for users who want to work from preset categories or manually enter a custom profession, industry, platform, business type, department, niche, or asset category.
@@ -182,9 +182,9 @@ export default function Instructions() {
 
           <Card className="rounded-3xl bg-white shadow-sm">
             <CardHeader>
-              <CardTitle>Pricing and checkout guidance</CardTitle>
+              <CardTitle>Package and checkout guidance</CardTitle>
               <CardDescription>
-                The app supports one-off downloads, premium Master Operating Systems, bundles, lifetime access, monthly subscriptions, and annual subscriptions.
+                The app supports one-off downloads, Master Operating Systems, bundles, lifetime access, monthly subscriptions, and annual subscriptions.
               </CardDescription>
             </CardHeader>
             <CardContent className="overflow-x-auto">
@@ -192,12 +192,12 @@ export default function Instructions() {
                 <thead>
                   <tr className="border-b text-zinc-950">
                     <th className="py-3 pr-4 font-black">Offer</th>
-                    <th className="py-3 pr-4 font-black">Guidance</th>
-                    <th className="py-3 pr-4 font-black">Purpose</th>
+                    <th className="py-3 pr-4 font-black">Package type</th>
+                    <th className="py-3 pr-4 font-black">Best use</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {pricingGuide.map(item => (
+                  {packageGuide.map(item => (
                     <tr key={item.offer} className="border-b last:border-0">
                       <td className="py-4 pr-4 align-top font-bold text-zinc-950">{item.offer}</td>
                       <td className="py-4 pr-4 align-top text-red-700 font-semibold">{item.guidance}</td>

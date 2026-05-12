@@ -87,7 +87,7 @@ const plans: Plan[] = [
     cta: "Buy bundle",
   },
   {
-    slug: "skills-magic-ai-lifetime",
+    slug: "skillz-magic-ai-studio-lifetime",
     name: "Lifetime App Access",
     eyebrow: "One-time app fee",
     packageType: "one_time_app",
@@ -99,7 +99,7 @@ const plans: Plan[] = [
     cta: "Buy lifetime access",
   },
   {
-    slug: "skills-magic-pro-monthly",
+    slug: "skillz-magic-ai-studio-pro-monthly",
     name: "Pro Monthly",
     eyebrow: "Subscription",
     packageType: "subscription_monthly",
@@ -112,7 +112,7 @@ const plans: Plan[] = [
     highlighted: true,
   },
   {
-    slug: "skills-magic-pro-annual",
+    slug: "skillz-magic-ai-studio-pro-annual",
     name: "Pro Annual",
     eyebrow: "Subscription value",
     packageType: "subscription_annual",
@@ -147,16 +147,16 @@ export default function Pricing() {
       <div className="container">
         <section className="mb-10 grid gap-6 lg:grid-cols-[1fr_0.7fr] lg:items-end">
           <div>
-            <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><Tags className="mr-2 h-4 w-4" /> Competitive pricing model</Badge>
-            <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Sell the app, sell subscriptions, and sell one-off downloads.</h1>
+            <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><Tags className="mr-2 h-4 w-4" /> Simple package options</Badge>
+            <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Choose the Skillz Magic AI Studio package that fits your workflow.</h1>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
-              Skills Magic AI uses a hybrid monetization model: affordable one-off downloads for quick purchases, a higher-value bundle tier, a one-time app access offer for subscription-resistant buyers, and monthly or annual subscriptions for recurring creation.
+              Start with a focused download, choose a complete workflow package, or unlock recurring app access when you need to create AI asset kits across multiple professions, industries, and platforms.
             </p>
           </div>
           <Card className="rounded-3xl border-red-100 bg-white shadow-sm">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2"><Crown className="h-5 w-5 text-red-600" /> Recommended anchor</CardTitle>
-              <CardDescription className="leading-6">Lead with Pro Monthly at $29/month, use the $149 Master Operating System as the premium one-off anchor, then present $149 lifetime access and $19–$99 downloads as flexible conversion options.</CardDescription>
+              <CardTitle className="flex items-center gap-2"><Crown className="h-5 w-5 text-red-600" /> Popular choice</CardTitle>
+              <CardDescription className="leading-6">Pro Monthly is a practical option for creators, consultants, and small teams who expect to build new AI asset kits regularly.</CardDescription>
             </CardHeader>
           </Card>
         </section>
@@ -189,28 +189,28 @@ export default function Pricing() {
         <section className="mt-10 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
           <Card className="rounded-3xl bg-zinc-950 text-white shadow-sm">
             <CardHeader>
-              <CardTitle className="text-2xl">Pricing logic</CardTitle>
-              <CardDescription className="text-zinc-300">The model creates a ladder from low-risk downloads to higher-retention subscriptions.</CardDescription>
+              <CardTitle className="text-2xl">What each option includes</CardTitle>
+              <CardDescription className="text-zinc-300">Compare packages by the amount of structure, documentation, and export support you need.</CardDescription>
             </CardHeader>
             <CardContent className="grid gap-3 text-sm leading-6 text-zinc-200">
-              <p><strong className="text-white">$19</strong> prompt packs reduce purchase friction and work well for paid ads, email offers, and marketplace entry products.</p>
-              <p><strong className="text-white">$39–$49</strong> skills and workflows feel more premium because they save setup time and provide implementation structure.</p>
-              <p><strong className="text-white">$99</strong> bundles improve average order value by packaging a complete professional system.</p>
-              <p><strong className="text-white">$149</strong> Master Operating Systems create a premium one-off offer for custom category maps, SOPs, prompts, skills, workflows, QA rules, and platform adaptation guidance.</p>
-              <p><strong className="text-white">$29/month or $290/year</strong> positions the app as a practical creator tool rather than a high-risk enterprise platform.</p>
+              <p><strong className="text-white">$19</strong> prompt packs include a focused prompt system and quality checklist for one immediate use case.</p>
+              <p><strong className="text-white">$39–$49</strong> skills and workflows add implementation structure, usage notes, and operating guidance.</p>
+              <p><strong className="text-white">$99</strong> bundles package related assets together for a more complete professional toolkit.</p>
+              <p><strong className="text-white">$149</strong> Master Operating Systems include category maps, SOPs, prompts, skills, workflows, QA rules, and platform adaptation guidance.</p>
+              <p><strong className="text-white">$29/month or $290/year</strong> unlocks recurring app access for users who create multiple assets over time.</p>
             </CardContent>
           </Card>
           <Card className="rounded-3xl bg-white shadow-sm">
             <CardHeader>
-              <CardTitle className="text-2xl">Category-based download price guide</CardTitle>
-              <CardDescription>Higher-compliance or higher-value professions can support higher one-off pricing because the assets map directly to revenue, risk reduction, or time savings. Custom professions, industries, platforms, and asset categories use the default guide until enough context is entered for a premium strategy.</CardDescription>
+              <CardTitle className="text-2xl">Category-based package examples</CardTitle>
+              <CardDescription>Different professions and industries may require different asset structures. These examples show how Skillz Magic AI Studio organizes package options by category.</CardDescription>
             </CardHeader>
             <CardContent className="grid gap-3 md:grid-cols-2">
               {Object.entries({ ...assetNeedMap, "Other / Custom Manual Category": defaultNeeds, "Default Professional Category": defaultNeeds }).map(([category, profile]) => (
                 <div key={category} className="rounded-2xl border bg-zinc-50 p-4">
                   <div className="font-bold text-zinc-950">{category}</div>
-                  <div className="mt-1 text-sm text-zinc-600">Suggested one-off skill price: ${(profile.individualPriceCents / 100).toFixed(0)}</div>
-                  <div className="mt-2 text-xs leading-5 text-zinc-500">Bundle floor: ${Math.max(9900, profile.individualPriceCents * 2) / 100}</div>
+                  <div className="mt-1 text-sm text-zinc-600">Example skill package: ${(profile.individualPriceCents / 100).toFixed(0)}</div>
+                  <div className="mt-2 text-xs leading-5 text-zinc-500">Example bundle package: ${Math.max(9900, profile.individualPriceCents * 2) / 100}</div>
                 </div>
               ))}
             </CardContent>
@@ -220,8 +220,8 @@ export default function Pricing() {
         <section className="mt-10 rounded-3xl border bg-white p-6 shadow-sm md:p-8">
           <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <h2 className="text-3xl font-black tracking-[-0.04em] text-zinc-950">Build priced assets from the generator.</h2>
-              <p className="mt-2 max-w-2xl text-zinc-600">Choose a preset profession and industry or enter custom category context, generate a platform-ready asset, then package it as a marketplace listing with suggested price metadata.</p>
+              <h2 className="text-3xl font-black tracking-[-0.04em] text-zinc-950">Build packaged AI assets from the generator.</h2>
+              <p className="mt-2 max-w-2xl text-zinc-600">Choose a preset profession and industry or enter custom category context, generate a platform-ready asset, then prepare it for delivery or marketplace listing.</p>
             </div>
             <Button asChild size="lg" className="rounded-full bg-zinc-950 text-white hover:bg-red-700"><Link href="/generator">Open generator</Link></Button>
           </div>

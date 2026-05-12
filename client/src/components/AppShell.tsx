@@ -7,13 +7,13 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="flex items-center gap-2" aria-label="Skills Magic AI">
+    <div className="flex items-center gap-2" aria-label="Skillz Magic AI Studio">
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-red-600 text-white shadow-sm shadow-red-600/20">
         <Sparkles className="h-5 w-5" />
       </div>
       {!compact && (
           <div className="leading-none">
-          <div className="text-base font-black tracking-[-0.04em] text-zinc-950">Skills Magic</div>
+          <div className="text-base font-black tracking-[-0.04em] text-zinc-950">Skillz Magic</div>
           <div className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-red-600">AI Studio</div>
         </div>
       )}
@@ -60,7 +60,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b bg-white/88 backdrop-blur-xl">
         <div className="container flex h-20 items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-3" aria-label="Skills Magic AI home">
+          <Link href="/" className="flex items-center gap-3" aria-label="Skillz Magic AI Studio home">
             <BrandMark />
           </Link>
           <NavLinks />
@@ -120,7 +120,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <div>
             <div className="mb-4"><BrandMark /></div>
             <p className="max-w-xl leading-6">
-              Skills Magic AI helps creators, consultants, agencies, and teams generate multi-platform AI operating assets, prompt systems, workflows, PDF exports, and marketplace-ready bundles with clear instructions and a clean professional brand system.
+              Skillz Magic AI Studio helps creators, consultants, agencies, and teams generate multi-platform AI operating assets, prompt systems, workflows, PDF exports, and marketplace-ready bundles with clear instructions and a clean professional brand system.
             </p>
           </div>
           <div>

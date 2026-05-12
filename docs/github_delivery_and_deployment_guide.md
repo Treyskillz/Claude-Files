@@ -1,8 +1,8 @@
-# Skills Magic AI GitHub Delivery and Deployment Guide
+# Skillz Magic AI Studio GitHub Delivery and Deployment Guide
 
 ## Purpose
 
-This guide documents how to hand off, migrate, publish, or push the **Skills Magic AI** application source after QA. The app is a React, Express, tRPC, Drizzle, Manus Auth, database, and Stripe-enabled web application that generates multi-platform Master Operating Systems, skills, prompts, workflows, downloadable bundles, and marketplace-ready AI asset packages.
+This guide documents how to hand off, migrate, publish, or push the **Skillz Magic AI Studio** application source after QA. The app is a React, Express, tRPC, Drizzle, Manus Auth, database, and Stripe-enabled web application that generates multi-platform Master Operating Systems, skills, prompts, workflows, downloadable bundles, and marketplace-ready AI asset packages.
 
 The project has passed the current QA validation suite and production build checks. Before publishing or transferring to GitHub, create a Manus checkpoint so the exact source state can be restored from the project interface.
 
@@ -63,14 +63,14 @@ There are two practical GitHub delivery paths. The preferred path depends on whe
 | Option | When to Use | Steps |
 |---|---|---|
 | Push to an existing repository | The destination repository already exists and access is configured. | Add or update the remote, commit the final source, and push to the target branch. |
-| Create a new repository | The user wants a fresh repository for Skills Magic AI. | Create the repository in GitHub, add it as the remote, commit the source, and push the main branch. |
+| Create a new repository | The user wants a fresh repository for Skillz Magic AI Studio. | Create the repository in GitHub, add it as the remote, commit the source, and push the main branch. |
 
-If pushing directly from this environment, confirm the destination repository name and owner before writing to GitHub. A safe repository name is `skills-magic-ai`.
+If pushing directly from this environment, confirm the destination repository name and owner before writing to GitHub. A safe repository name is `skillz-magic-ai-studio`.
 
 ## Suggested Commit Message
 
 ```text
-Finalize Skills Magic AI retail-ready multi-platform generator
+Finalize Skillz Magic AI Studio retail-ready multi-platform generator
 ```
 
 This commit should include the multi-platform generator, custom category support, Instructions page, premium pricing offer, marketplace updates, QA coverage, market assessment, social media marketing package, and handoff documentation.
@@ -90,7 +90,7 @@ This commit should include the multi-platform generator, custom category support
 | Tests passing | Complete |
 | Production build passing | Complete |
 | Manus checkpoint | Pending final checkpoint phase |
-| GitHub push | Complete — pushed to `https://github.com/Treyskillz/skills-magic-ai` on `main` |
+| GitHub push | Complete — pushed to `https://github.com/Treyskillz/skillz-magic-ai-studio` on `main` |
 
 ## Future Optimization Notes
 
@@ -105,12 +105,12 @@ GitHub delivery was completed from the project environment after the GitHub conn
 | Delivery Item | Evidence |
 |---|---|
 | GitHub owner | `Treyskillz` |
-| Repository URL | `https://github.com/Treyskillz/skills-magic-ai` |
+| Repository URL | `https://github.com/Treyskillz/skillz-magic-ai-studio` |
 | Repository visibility | Private at creation time; change visibility in GitHub settings if a public launch repository is desired. |
-| Git remote URL | `https://github.com/Treyskillz/skills-magic-ai.git` |
+| Git remote URL | `https://github.com/Treyskillz/skillz-magic-ai-studio.git` |
 | Default branch pushed | `main` |
 | Initial release commit | `bdaf8a2f3dcd07bf536cdfb9af2c7e78737bd963` (`bdaf8a2`) |
-| Commit message | `feat: initial Skills Magic AI retail-ready release` |
+| Commit message | `feat: initial Skillz Magic AI Studio retail-ready release` |
 | Push result | `git push -u github main` completed successfully and set `main` to track `github/main`. |
 | Validation before push | `pnpm test` and `pnpm build` completed successfully on May 11, 2026. |
 
@@ -118,27 +118,27 @@ The exact push sequence used for this completed delivery was:
 
 ```bash
 cd /home/ubuntu/claude-skill-studio
-gh repo create Treyskillz/skills-magic-ai --private --description "Skills Magic AI — Multi-Platform Master Operating Systems Generator"
-git remote add github https://github.com/Treyskillz/skills-magic-ai.git
+gh repo create Treyskillz/skillz-magic-ai-studio --private --description "Skillz Magic AI Studio — Multi-Platform Master Operating Systems Generator"
+git remote add github https://github.com/Treyskillz/skillz-magic-ai-studio.git
 git add -A
-git commit -m "feat: initial Skills Magic AI retail-ready release"
+git commit -m "feat: initial Skillz Magic AI Studio retail-ready release"
 git push -u github main
 ```
 
-A clean handoff ZIP is also available at `/home/ubuntu/skills-magic-ai-handoff-20260511.zip` for archive or manual transfer workflows. The repository should remain the source-of-truth for future code changes, while Manus checkpointing should still be used before publishing from the Manus interface.
+A clean handoff ZIP is also available at `/home/ubuntu/skillz-magic-ai-studio-handoff-20260511.zip` for archive or manual transfer workflows. The repository should remain the source-of-truth for future code changes, while Manus checkpointing should still be used before publishing from the Manus interface.
 
 ## Confirmed Treyskillz Handoff Context
 
-This delivery used the confirmed GitHub account context for **Treyskillz**. At the start of repository delivery, `Treyskillz/skills-magic-ai` was checked and did not exist. The repository was then created under the Treyskillz account with the recommended repository name `skills-magic-ai` and pushed from the local `main` branch.
+This delivery used the confirmed GitHub account context for **Treyskillz**. At the start of repository delivery, `Treyskillz/skillz-magic-ai-studio` was checked and did not exist. The repository was then created under the Treyskillz account with the recommended repository name `skillz-magic-ai-studio` and pushed from the local `main` branch.
 
 | Handoff Field | Confirmed Value |
 |---|---|
 | Confirmed GitHub account | `Treyskillz` |
-| Known repository state before delivery | `Treyskillz/skills-magic-ai` did not exist when checked. |
-| Suggested repository name | `skills-magic-ai` |
-| Repository created during delivery | Yes — `https://github.com/Treyskillz/skills-magic-ai` |
+| Known repository state before delivery | `Treyskillz/skillz-magic-ai-studio` did not exist when checked. |
+| Suggested repository name | `skillz-magic-ai-studio` |
+| Repository created during delivery | Yes — `https://github.com/Treyskillz/skillz-magic-ai-studio` |
 | Current source branch | `main` |
-| Current GitHub remote | `github` → `https://github.com/Treyskillz/skills-magic-ai.git` |
+| Current GitHub remote | `github` → `https://github.com/Treyskillz/skillz-magic-ai-studio.git` |
 | Export path going forward | Use GitHub as the code handoff source; use a Manus checkpoint plus the Manus **Publish** button for Manus-hosted publishing. |
 
 The next operational path is to keep code changes flowing through the GitHub repository and to use Manus checkpointing for release snapshots. For production payments, the owner should claim the Stripe sandbox, test with Stripe test card `4242 4242 4242 4242`, then complete Stripe KYC and configure live payment settings when ready.

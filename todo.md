@@ -1,4 +1,4 @@
-# Skills Magic AI Todo
+# Skillz Magic AI Studio Todo
 
 - [x] Create a polished app interface for generating Claude skills, prompts, and workflow blueprints.
 - [x] Support detailed user inputs for more customized generation.
@@ -23,18 +23,18 @@
 - [x] Add Markdown download export for generated skills, prompts, workflows, bundles, manifests, and usage guides.
 - [x] Add polished PDF download export for generated skills, prompts, workflows, and bundles so users can sell, share, or archive the assets.
 - [x] Ensure exported PDFs preserve readable formatting and make the generated content easy to copy and paste into Claude.
-- [x] Rename the product from Skills Magic AI to Skills Magic AI across app UI, metadata, documentation, generated exports, product architecture notes, and marketplace language.
-- [x] Create a professional public-facing website for Skills Magic AI that explains the autonomous generator, Claude-compatible exports, resource library, and marketplace download features.
-- [x] Create a Skills Magic AI logo and visual identity using red, black, grey, and white, with black writing on light backgrounds and retail-ready brand polish.
-- [x] Apply the Skills Magic AI logo, colors, and brand language across the website, app interface, downloadable PDFs, Markdown exports, and marketplace product previews.
+- [x] Rename the product from Skillz Magic AI Studio to Skillz Magic AI Studio across app UI, metadata, documentation, generated exports, product architecture notes, and marketplace language.
+- [x] Create a professional public-facing website for Skillz Magic AI Studio that explains the autonomous generator, Claude-compatible exports, resource library, and marketplace download features.
+- [x] Create a Skillz Magic AI Studio logo and visual identity using red, black, grey, and white, with black writing on light backgrounds and retail-ready brand polish.
+- [x] Apply the Skillz Magic AI Studio logo, colors, and brand language across the website, app interface, downloadable PDFs, Markdown exports, and marketplace product previews.
 - [x] Add category-driven generation for professions, industries, and role-based asset needs.
 - [x] Add recommended skills, prompts, and workflows for selected professionals, industries, and professions.
 - [x] Add competitive pricing options for one-time app access, monthly and annual subscriptions, and one-off downloads.
 - [x] Update marketplace checkout products and website pricing language to reflect app fees, subscription fees, and one-off download fees.
-- [x] Add a market viability assessment explaining whether Skills Magic AI meets a real pain point and is a strong opportunity.
-- [x] Add a positioning and go-to-market strategy for selling Skills Magic AI to professional, industry, and creator segments.
+- [x] Add a market viability assessment explaining whether Skillz Magic AI Studio meets a real pain point and is a strong opportunity.
+- [x] Add a positioning and go-to-market strategy for selling Skillz Magic AI Studio to professional, industry, and creator segments.
 - [x] Add in-app or attached guidance explaining the best buyer segments, marketing message, pricing rationale, and sales funnel.
-- [x] Rename the product from Skills Magic AI to Skills Magic AI across app UI, metadata, navigation, exports, pricing, marketplace language, and market assessment.
+- [x] Rename the product from Skillz Magic AI Studio to Skillz Magic AI Studio across app UI, metadata, navigation, exports, pricing, marketplace language, and market assessment.
 - [x] Add master Claude operating system generation based on a selected industry, profession, or business type.
 - [x] Ensure master Claude operating system outputs include a category map, core operating principles, skills, prompts, workflows, SOPs, QA rules, implementation roadmap, and export-ready documentation.
 - [x] Add marketplace and pricing language for master Claude operating system downloads and bundles.
@@ -47,8 +47,8 @@
 - [x] Package the complete app source, build notes, database notes, deployment notes, and user-facing deliverables for migration or GitHub export.
 - [x] Prepare GitHub delivery instructions and, if repository access is available, push or guide export to a GitHub repository.
 - [x] Create a checkpoint so the app can be published from the Manus interface.
-- [x] Create a social media marketing package for Skills Magic AI, including positioning copy, launch posts, short-form captions, promotional angles, hashtags, and buyer segment messaging.
-- [x] Use the available GitHub access to prepare repository delivery or push the finished QA-approved Skills Magic AI app after final validation.
+- [x] Create a social media marketing package for Skillz Magic AI Studio, including positioning copy, launch posts, short-form captions, promotional angles, hashtags, and buyer segment messaging.
+- [x] Use the available GitHub access to prepare repository delivery or push the finished QA-approved Skillz Magic AI Studio app after final validation.
 - [x] Add industry-aware and role-aware recommendation logic so category asset maps respond to industry and business-type context, not only profession.
 - [x] Ensure fallback Master Operating System generation always includes an explicit Category Map / Recommended Asset Map section.
 - [x] Add a dedicated premium Master Operating System pricing offer and align pricing copy with the marketplace.
@@ -57,7 +57,7 @@
 - [x] Extend Other / Custom manual input support to every category selector used for generation and packaging, including platform and asset/category context where applicable.
 - [x] Add a dedicated Instructions page to the app/website with user guidance for generating assets, custom categories, exports, marketplace listings, pricing, and checkout.
 - [x] Add the Instructions page to the app routing and global navigation so users can find it easily.
-- [x] Replace stale external Skills Maker AI logo and hero images with inline Skills Magic AI brand visuals during QA.
+- [x] Replace stale external Skillz Magic AI Studio logo and hero images with inline Skillz Magic AI Studio brand visuals during QA.
 - [x] Add explicit QA evidence for export quality and efficiency, covering PDF, Markdown, ZIP packaging, loading/error/empty states, and performance-sensitive areas.
 - [x] Re-run and document a comprehensive QA sweep across generator, exports, pricing, marketplace, and UX paths before final checkpoint.
 - [x] Add focused QA evidence for export empty states and common unavailable-action cases before generation.
@@ -77,3 +77,18 @@
 - [x] Capture and verify the final public/account/dashboard chrome code shows neutral account/sign-in labels and no personal-name exposure.
 - [x] Add or update a visible owner handoff document that explicitly lists the website/app package contents, GitHub repo, deployment path, downloadable assets, marketing package path, and viability study path.
 - [x] Document where the owner can immediately find the marketing package and viability study in the final handoff materials.
+- [x] Explain the website purpose in plain language for the owner, including what customers are supposed to do on it.
+- [x] Audit all public-facing pages for owner-only business plan, viability, market-positioning, or pricing-strategy content that customers should not see.
+- [x] Remove or rewrite any customer-visible private business-plan and pricing-strategy content so the site shows only appropriate product pricing/offers.
+- [x] Keep owner-facing strategy documents available only in project documentation and the private handoff package, not on the public website.
+- [x] Fix or confirm the previously reported `client/src/pages/Home.tsx` JSX parse issue and ensure the public site compiles cleanly after the latest cleanup.
+- [x] Re-run automated tests and production build after the final Home, Pricing, and Instructions content cleanup.
+- [x] Re-audit rendered public routes and source routes to confirm no owner-only business-plan, viability, positioning, or pricing-strategy content remains customer-visible.
+- [x] Verify owner-facing strategy documents remain only under private project documentation and handoff materials, not linked from public pages.
+- [x] Add and follow an owner-approval rule: never place private business-plan, viability, market-positioning, pricing-strategy, or internal sales-funnel content on customer-facing pages without explicit owner approval.
+- [x] Fix the currently failing public-content validation by updating customer-safe copy or tests without reintroducing private strategy language.
+- [x] Explain the website in plain language after cleanup: what it does, what customers do on it, what is public, and what remains private owner documentation.
+- [x] Rename the public app brand to Skillz Magic AI Studio throughout customer-facing pages, metadata, tests, and owner documents.
+- [x] Change appropriate brand references from Skills to Skillz while preserving technical terms where “skills” means generic AI skill files or user-created assets.
+- [x] Provide a plain-language recommendation on whether the Skillz spelling is advisable for the public brand.
+- [x] Apply the confirmed professional branding rule: use Skillz Magic AI Studio for the brand name, but keep generic product terms like skills, AI skills, and Claude skills spelled normally.

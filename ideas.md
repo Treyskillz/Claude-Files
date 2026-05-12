@@ -1,4 +1,4 @@
-# Skills Magic AI Design Brainstorm
+# Skillz Magic AI Studio Design Brainstorm
 
 <response>
 <text>

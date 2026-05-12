@@ -24,8 +24,8 @@ export default function Library() {
   const mine = trpc.generator.listMine.useQuery(undefined, { retry: false });
 
   useEffect(() => {
-    const generated = JSON.parse(localStorage.getItem("skills-magic-ai-local-assets") || "[]");
-    const uploaded = JSON.parse(localStorage.getItem("skills-magic-ai-uploaded-resources") || "[]");
+    const generated = JSON.parse(localStorage.getItem("skillz-magic-ai-studio-local-assets") || localStorage.getItem("skills-magic-ai-local-assets") || localStorage.getItem("skills-maker-ai-local-assets") || "[]");
+    const uploaded = JSON.parse(localStorage.getItem("skillz-magic-ai-studio-uploaded-resources") || localStorage.getItem("skills-magic-ai-uploaded-resources") || localStorage.getItem("skills-maker-ai-uploaded-resources") || "[]");
     setLocalAssets([...generated, ...uploaded]);
   }, []);
 

@@ -7,7 +7,7 @@ const generatorSource = readFileSync(resolve(process.cwd(), "client/src/pages/Ge
 
 describe("export quality safeguards", () => {
   it("keeps Markdown, PDF, and ZIP exports branded, platform-aware, and package-complete", () => {
-    expect(exportSource).toContain("Generated with Skills Magic AI for multi-platform AI operating systems");
+    expect(exportSource).toContain("Generated with Skillz Magic AI Studio for multi-platform AI operating systems");
     expect(exportSource).toContain("targetPlatform = \"Multi-platform AI\"");
     expect(exportSource).toContain("${targetPlatform} asset generated for copy, PDF archive, buyer delivery, and marketplace packaging.");
     expect(exportSource).toContain("MASTER-OPERATING-SYSTEM.md");
@@ -17,7 +17,7 @@ describe("export quality safeguards", () => {
     expect(exportSource).toContain("PLATFORM-ADAPTATION-GUIDE.md");
     expect(exportSource).toContain("manifest.json");
     expect(exportSource).toContain("USAGE-GUIDE.md");
-    expect(exportSource).toContain("generatedBy: \"Skills Magic AI\"");
+    expect(exportSource).toContain("generatedBy: \"Skillz Magic AI Studio\"");
     expect(exportSource).toContain("platformInstallGuide(targetPlatform)");
   });
 

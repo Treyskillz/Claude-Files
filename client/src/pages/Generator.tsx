@@ -65,7 +65,7 @@ export default function Generator() {
     },
   });
 
-  const generatedTitle = result?.title || title || "Skills Magic AI asset";
+  const generatedTitle = result?.title || title || "Skillz Magic AI Studio asset";
   const promptHint = useMemo(() => quickIdeas[Math.floor(Math.random() * quickIdeas.length)], []);
   const effectiveProfessionCategory = professionCategory === "Other / Custom Profession" ? customProfessionCategory.trim() || "Custom profession" : professionCategory;
   const effectiveIndustryCategory = industryCategory === "Other / Custom Industry" ? customIndustryCategory.trim() || "Custom industry" : industryCategory;
@@ -115,8 +115,8 @@ export default function Generator() {
       manifest: result.manifest,
       createdAt: new Date().toISOString(),
     };
-    const existing = JSON.parse(localStorage.getItem("skills-magic-ai-local-assets") || localStorage.getItem("skills-maker-ai-local-assets") || "[]");
-    localStorage.setItem("skills-magic-ai-local-assets", JSON.stringify([item, ...existing]));
+    const existing = JSON.parse(localStorage.getItem("skillz-magic-ai-studio-local-assets") || localStorage.getItem("skills-magic-ai-local-assets") || localStorage.getItem("skills-maker-ai-local-assets") || "[]");
+    localStorage.setItem("skillz-magic-ai-studio-local-assets", JSON.stringify([item, ...existing]));
     toast.success("Saved to local library.");
   };
 
@@ -140,7 +140,7 @@ export default function Generator() {
             <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><Wand2 className="mr-2 h-4 w-4" /> Multi-platform Master Operating Systems</Badge>
             <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Create Master Operating Systems by profession, industry, and AI platform.</h1>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
-              Generate Master Operating Systems, skills, prompt systems, workflow blueprints, or bundles for Claude, ChatGPT, Manus, Grok/Groq, and general AI use. The app recommends the operating systems, skills, prompts, workflows, and pricing structure those buyers are most likely to need.
+              Generate Master Operating Systems, skills, prompt systems, workflow blueprints, or bundles for Claude, ChatGPT, Manus, Grok/Groq, and general AI use. The app recommends the operating systems, skills, prompts, workflows, and package structure those buyers are most likely to need.
             </p>
           </div>
           <Button size="lg" className="rounded-full bg-red-600 text-white hover:bg-red-700" disabled={createAsset.isPending} onClick={() => generate("autonomous")}>
@@ -153,7 +153,7 @@ export default function Generator() {
           <Card className="premium-card rounded-3xl">
             <CardHeader>
               <CardTitle>Generator controls</CardTitle>
-              <CardDescription>Start from a profession and industry, then refine the asset with role, goal, constraints, and monetization. Suggested idea: {promptHint}.</CardDescription>
+              <CardDescription>Start from a profession and industry, then refine the asset with role, goal, constraints, and package format. Suggested idea: {promptHint}.</CardDescription>
             </CardHeader>
             <CardContent>
                   <Tabs value={assetType} onValueChange={value => setAssetType(value as AssetType)}>
@@ -280,7 +280,7 @@ export default function Generator() {
                   <div className="flex min-h-[520px] flex-col items-center justify-center text-center">
                     <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-3xl bg-red-100 text-red-700"><Sparkles className="h-8 w-8" /></div>
                     <h2 className="text-2xl font-black text-zinc-950">Your generated asset will appear here.</h2>
-                    <p className="mt-3 max-w-xl leading-7 text-zinc-600">Choose an AI platform, profession, industry, or business type, then generate a category-specific Master Operating System, skill, prompt, workflow, or bundle with pricing guidance.</p>
+                    <p className="mt-3 max-w-xl leading-7 text-zinc-600">Choose an AI platform, profession, industry, or business type, then generate a category-specific Master Operating System, skill, prompt, workflow, or bundle with clear package details.</p>
                   </div>
                 )}
               </div>

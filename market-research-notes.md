@@ -1,8 +1,8 @@
-# Skills Magic AI Market Research Notes
+# Skillz Magic AI Studio Market Research Notes
 
 ## Sources Reviewed
 
-1. MIT Sloan, "How AI is reshaping workflows and redefining jobs" (April 22, 2026). Key finding: AI value increasingly comes from workflow-level redesign rather than isolated task automation. The source emphasizes task chaining, clustering AI-friendly tasks, reducing handoffs, and redesigning workflows around AI rather than simply inserting AI into existing processes. This supports positioning Skills Magic AI as a workflow and profession-specific asset system rather than a generic prompt generator.
+1. MIT Sloan, "How AI is reshaping workflows and redefining jobs" (April 22, 2026). Key finding: AI value increasingly comes from workflow-level redesign rather than isolated task automation. The source emphasizes task chaining, clustering AI-friendly tasks, reducing handoffs, and redesigning workflows around AI rather than simply inserting AI into existing processes. This supports positioning Skillz Magic AI Studio as a workflow and profession-specific asset system rather than a generic prompt generator.
 
 2. JPMorgan Chase Institute small business AI adoption page was identified in search results but extraction failed. It should be cited only if verified through browser or another successful extraction.
 

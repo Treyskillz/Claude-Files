@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { APP_BRAND } from "../shared/branding";
 
-describe("Skills Magic AI branding", () => {
+describe("Skillz Magic AI Studio branding", () => {
   it("uses the requested product name and multi-platform Master Operating Systems positioning", () => {
-    expect(APP_BRAND.name).toBe("Skills Magic AI");
+    expect(APP_BRAND.name).toBe("Skillz Magic AI Studio");
     expect(APP_BRAND.primaryAsset).toBe("Master Operating Systems");
     expect(APP_BRAND.supportedPlatforms).toContain("Claude");
     expect(APP_BRAND.supportedPlatforms).toContain("ChatGPT");

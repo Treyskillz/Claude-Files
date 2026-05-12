@@ -1,12 +1,12 @@
 # Viability Source Notes
 
-These notes summarize the external evidence used to update the owner-facing Skills Magic AI viability and market-positioning assessment. They are not intended to be displayed on the public website.
+These notes summarize the external evidence used to update the owner-facing Skillz Magic AI Studio viability and market-positioning assessment. They are not intended to be displayed on the public website.
 
 ## JPMorgan Chase Institute, 2026
 
 JPMorgan Chase Institute's April 14, 2026 report, "Understanding the use of AI among small businesses," uses de-identified Chase Business Banking transaction data from 4.6 million firms operating from 2019 through 2025. The report tracks paid AI service adoption, which likely understates total AI usage because it excludes free tools and embedded AI features.
 
-Key findings relevant to Skills Magic AI:
+Key findings relevant to Skillz Magic AI Studio:
 
 - The 2025 small-business cohort reached 10 percent AI adoption in six months, compared with more than six years for the 2019 cohort.
 - Newer business cohorts are incorporating AI much earlier in their lifecycle; 2025 firms began at 6.5 percent adoption versus 1.2 percent for the 2019 cohort.
@@ -20,7 +20,7 @@ Key findings relevant to Skills Magic AI:
 
 The IAB reported that U.S. creator economy ad spend more than doubled from $13.9B in 2021 to $29.5B in 2024 and was projected to reach $37B in 2025, growing 26 percent year over year. Nearly half of ad spenders considered creators a "must buy," and common creator-campaign goals included brand awareness, new-audience reach, reputation/trust, and online sales/conversions. The report also states that nearly three in four creator ad buyers were already using or planned to use AI within a year, but 95 percent had concerns about AI use in creator marketing, especially loss of human connection.
 
-Implication: Skills Magic AI should avoid pure automation language and position itself as a system-builder that helps humans package, review, and sell better AI work assets.
+Implication: Skillz Magic AI Studio should avoid pure automation language and position itself as a system-builder that helps humans package, review, and sell better AI work assets.
 
 ## ServiceDirect, 2025 Small Business AI Report
 
@@ -32,4 +32,4 @@ Implication: The pain point is not merely access to AI; it is knowing what to bu
 
 The SBA Office of Advocacy's September 2025 research spotlight uses Census Bureau Business Trends and Outlook Survey data. It reports that small-business AI use rose from 6.3 percent six months earlier to 8.8 percent, and it notes that small businesses may be only about a year behind large businesses in adoption trajectory. The report also finds that many small firms not planning to use AI say AI is not applicable to their business, while other barriers include lack of knowledge and privacy concerns.
 
-Implication: Skills Magic AI has a viable wedge if it can make AI feel directly applicable to a user's specific profession, industry, niche, and client workflow.
+Implication: Skillz Magic AI Studio has a viable wedge if it can make AI feel directly applicable to a user's specific profession, industry, niche, and client workflow.

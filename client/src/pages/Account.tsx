@@ -17,7 +17,7 @@ export default function Account() {
       <div className="container">
         <div className="mb-8">
           <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><UserCircle className="mr-2 h-4 w-4" /> Creator account</Badge>
-          <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Manage your Skills Magic AI workspace.</h1>
+          <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Manage your Skillz Magic AI Studio workspace.</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Sign in to sync server-saved assets, save marketplace listings, start Stripe Checkout, and view completed purchases.</p>
         </div>
 

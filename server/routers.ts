@@ -94,7 +94,7 @@ export const appRouter = router({
 
   generator: router({
     create: publicProcedure.input(generateInputSchema).mutation(async ({ input, ctx }) => {
-      const system = "You are Skills Magic AI, a senior AI automation product architect. Create retail-ready Master Operating Systems, AI skills, prompts, workflows, and bundles that are practical, specific, copy-ready, and adaptable for Claude, ChatGPT, Manus, Grok/Groq, and general AI platform usage. Return Markdown only.";
+      const system = "You are Skillz Magic AI Studio, a senior AI automation product architect. Create retail-ready Master Operating Systems, AI skills, prompts, workflows, and bundles that are practical, specific, copy-ready, and adaptable for Claude, ChatGPT, Manus, Grok/Groq, and general AI platform usage. Return Markdown only.";
       const categoryContext = [input.professionCategory, input.industryCategory, input.businessType, input.industry, input.customCategoryContext].filter(Boolean).join(" / ") || "general business automation";
       const promptTitle = input.title || "Invent a commercially useful title";
       const professionCategory = input.professionCategory || "Auto-select a high-value profession";

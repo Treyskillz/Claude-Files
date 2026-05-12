@@ -61,8 +61,8 @@ const packageItems = [
   "Generator, library, upload, marketplace, pricing, and instructions pages",
   "Stripe-ready checkout foundation for paid offers",
   "Markdown, PDF, ZIP, copy, and buyer-ready asset export paths",
-  "Owner marketing package and viability assessment delivered separately",
-  "Deployment handoff guide for Manus publishing and future migration",
+  "Clear customer-facing usage instructions and packaged product examples",
+  "Deployment-ready app structure for a polished buyer experience",
 ];
 
 function ProductPreview() {
@@ -81,7 +81,7 @@ function ProductPreview() {
               <Sparkles className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-base font-black tracking-[-0.02em] text-zinc-950">Skills Magic AI</p>
+              <p className="text-base font-black tracking-[-0.02em] text-zinc-950">Skillz Magic AI Studio</p>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-600">Product builder</p>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function Home() {
               Build structured AI products, workflow kits, and sellable asset bundles from one clean workspace.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-8 text-zinc-600 sm:text-lg">
-              <strong>Skills Magic AI</strong> helps creators, consultants, agencies, and operators generate practical AI assets for real business use: prompts, skills, workflows, Master Operating Systems, usage guides, marketplace copy, and export-ready files.
+              <strong>Skillz Magic AI Studio</strong> helps creators, consultants, agencies, and operators generate practical AI assets for real business use: prompts, skills, workflows, Master Operating Systems, usage guides, marketplace copy, and export-ready files.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button asChild size="lg" className="h-12 rounded-full bg-red-600 px-7 text-base font-bold text-white shadow-lg shadow-red-600/20 hover:bg-red-700">
@@ -193,7 +193,7 @@ export default function Home() {
             </Badge>
             <h2 className="text-3xl font-black leading-tight tracking-[-0.035em] text-zinc-950 md:text-5xl">From niche idea to packaged product in three clear steps.</h2>
             <p className="mt-5 text-lg leading-8 text-zinc-600">
-              Skills Magic AI keeps the experience focused: define the use case, generate the asset package, then export or prepare it for sale.
+              Skillz Magic AI Studio keeps the experience focused: define the use case, generate the asset package, then export or prepare it for sale.
             </p>
             <Button asChild size="lg" className="mt-8 h-12 rounded-full bg-red-600 px-7 font-bold text-white hover:bg-red-700">
               <Link href="/instructions">See how it works</Link>
@@ -218,11 +218,11 @@ export default function Home() {
           <div className="grid gap-10 rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-xl shadow-zinc-950/6 md:p-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
               <Badge className="mb-5 rounded-full bg-red-100 px-4 py-2 text-red-700 hover:bg-red-100">
-                <Boxes className="mr-2 h-4 w-4" /> Packaged for sale and handoff
+                <Boxes className="mr-2 h-4 w-4" /> Built for digital product creators
               </Badge>
-              <h2 className="text-3xl font-black leading-tight tracking-[-0.035em] text-zinc-950 md:text-5xl">A cleaner product site plus a sellable app package.</h2>
+              <h2 className="text-3xl font-black leading-tight tracking-[-0.035em] text-zinc-950 md:text-5xl">Turn one idea into a complete AI product package.</h2>
               <p className="mt-5 text-lg leading-8 text-zinc-600">
-                The app is being prepared as a retail-ready software product with a modern public website, working generator flow, checkout foundation, documentation, GitHub source package, and separate owner-facing marketing and viability materials.
+                Skillz Magic AI Studio helps customers move from a rough idea to a usable AI asset kit with clear instructions, export files, product descriptions, and package structure ready for client delivery or marketplace listing.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="h-12 rounded-full bg-red-600 px-7 font-bold text-white hover:bg-red-700">
@@ -239,8 +239,8 @@ export default function Home() {
                   <FileArchive className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-lg font-black tracking-[-0.02em] text-zinc-950">Package contents</p>
-                  <p className="text-sm text-zinc-600">Owner-facing handoff and buyer-ready app structure</p>
+                  <p className="text-lg font-black tracking-[-0.02em] text-zinc-950">What customers can create</p>
+                  <p className="text-sm text-zinc-600">Practical AI asset kits and sellable digital downloads</p>
                 </div>
               </div>
               <div className="grid gap-3">

@@ -6,7 +6,7 @@ Source: https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-ag
 
 Key extracted findings from the page: Microsoft analyzed trillions of anonymized Microsoft 365 productivity signals and surveyed 20,000 workers using AI across 10 countries. The report frames an emerging organizational gap: employees are increasingly ready to use AI, but many organizations are not structurally prepared to capture value. It states that organizational factors such as culture, manager support, and talent practices account for twice the reported AI impact of individual effort alone. It also reports that 49% of Microsoft 365 Copilot conversations support cognitive work, 19% support working with people, 15% finding information, and 17% producing work. It reports that 66% of surveyed AI users say AI has allowed them to spend more time on high-value work and 58% say they are producing work they could not have produced a year ago. The report also states that 50% of surveyed AI users identify quality control of AI output as an increasingly important human skill and 46% identify critical thinking.
 
-Relevance to Skills Magic AI: Supports positioning around structured AI operating systems, category maps, QA rules, implementation guidance, and human-in-the-loop quality review rather than simple prompt downloads.
+Relevance to Skillz Magic AI Studio: Supports positioning around structured AI operating systems, category maps, QA rules, implementation guidance, and human-in-the-loop quality review rather than simple prompt downloads.
 
 ## McKinsey access attempt
 
@@ -24,7 +24,7 @@ Source: https://www.kbvresearch.com/press-release/artificial-intelligence-prompt
 
 KBV Research reports that the global artificial intelligence prompt marketplace market is expected to reach USD 7.92 billion by 2032 at a 23.3% CAGR. It states that content creation and copywriting is the leading application segment and that text prompts generate the maximum revenue share by type in 2024. It lists competitive and adjacent organizations including OpenAI, AIPRM, Microsoft, Google, Anthropic, IBM, PromptBase, PromptsKit, LaPrompt, and Meta.
 
-Relevance to Skills Magic AI: These sources validate demand for prompt assets but also show a crowded prompt-only market. Skills Magic AI should position above commodity prompt marketplaces by selling complete Master Operating Systems, category maps, workflow documentation, QA rules, SOPs, and multi-platform implementation bundles.
+Relevance to Skillz Magic AI Studio: These sources validate demand for prompt assets but also show a crowded prompt-only market. Skillz Magic AI Studio should position above commodity prompt marketplaces by selling complete Master Operating Systems, category maps, workflow documentation, QA rules, SOPs, and multi-platform implementation bundles.
 
 ## Competitor and adjacent product notes
 
@@ -36,4 +36,4 @@ Source: https://flowgpt.com/
 
 FlowGPT positions itself as an AI ChatGPT character and prompt store. The extracted page emphasizes discovery and use of prompts and characters, with categories including job hunting, academic, business, programming, marketing, image generator, prompt generator, productivity, and AI tools.
 
-Relevance to Skills Magic AI: Competitors validate user appetite for prompt libraries, prompt stores, AI assistant templates, and reusable AI workflows. The strategic opening is to make Skills Magic AI less dependent on prompt volume and more focused on complete, buyer-ready AI operating systems that include category maps, SOPs, workflows, QA, pricing/export packaging, and marketplace listing support.
+Relevance to Skillz Magic AI Studio: Competitors validate user appetite for prompt libraries, prompt stores, AI assistant templates, and reusable AI workflows. The strategic opening is to make Skillz Magic AI Studio less dependent on prompt volume and more focused on complete, buyer-ready AI operating systems that include category maps, SOPs, workflows, QA, pricing/export packaging, and marketplace listing support.

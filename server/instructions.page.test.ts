@@ -17,8 +17,8 @@ describe("Instructions page", () => {
     expect(app).toContain("./pages/Instructions");
     expect(app).toContain('path="/instructions"');
     expect(shell).toContain('{ href: "/instructions", label: "Instructions" }');
-    expect(instructions).toContain("How to use Skills Magic AI from idea to sellable asset");
+    expect(instructions).toContain("How to use Skillz Magic AI Studio from idea to sellable asset");
     expect(instructions).toContain("Other / Custom");
-    expect(instructions).toContain("Pricing and checkout guidance");
+    expect(instructions).toContain("Package and checkout guidance");
   });
 });
