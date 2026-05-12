@@ -119,24 +119,24 @@ export default function Home() {
   return (
     <div className="bg-white text-zinc-950">
       <section className="site-hero relative overflow-hidden border-b border-zinc-200">
-        <div className="container grid gap-12 py-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-20">
-          <div className="max-w-2xl">
-            <Badge className="mb-6 rounded-full border border-red-200 bg-white px-4 py-2 text-sm font-bold text-red-700 shadow-sm hover:bg-white">
+        <div className="container grid min-w-0 gap-12 py-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-20">
+          <div className="w-full min-w-0 max-w-[calc(100vw-2rem)] sm:max-w-2xl">
+            <Badge className="mb-6 max-w-full whitespace-normal rounded-full border border-red-200 bg-white px-4 py-2 text-left text-sm font-bold leading-6 text-red-700 shadow-sm hover:bg-white">
               <Sparkles className="mr-2 h-4 w-4" /> Professional AI asset packaging system
             </Badge>
-            <h1 className="max-w-xl text-4xl font-black leading-[1.12] tracking-[-0.03em] text-zinc-950 sm:text-[2.75rem] lg:text-[2.95rem] xl:text-[3.1rem]">
+            <h1 className="w-full max-w-[calc(100vw-2rem)] text-[2.08rem] font-black leading-[1.08] tracking-[-0.035em] text-zinc-950 break-words min-[420px]:text-4xl sm:max-w-xl sm:text-[2.75rem] sm:leading-[1.12] lg:text-[2.95rem] xl:text-[3.1rem]">
               Build structured AI products, workflow kits, and sellable asset bundles from one clean workspace.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-8 text-zinc-600 sm:text-lg">
+            <p className="mt-6 w-full max-w-[calc(100vw-2rem)] text-base leading-8 text-zinc-600 break-words sm:max-w-xl sm:text-lg">
               <strong>Skillz Magic AI Studio</strong> helps creators, consultants, agencies, and operators generate practical AI assets for real business use: prompts, skills, workflows, Master Operating Systems, usage guides, marketplace copy, and export-ready files.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button asChild size="lg" className="h-12 rounded-full bg-red-600 px-7 text-base font-bold text-white shadow-lg shadow-red-600/20 hover:bg-red-700">
+            <div className="mt-8 flex w-full max-w-[calc(100vw-2rem)] flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center">
+              <Button asChild size="lg" className="h-12 w-full rounded-full bg-red-600 px-7 text-base font-bold text-white shadow-lg shadow-red-600/20 hover:bg-red-700 sm:w-auto">
                 <Link href="/generator">
                   Start building <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-zinc-300 bg-white px-7 text-base font-bold text-zinc-950 hover:bg-zinc-50">
+              <Button asChild size="lg" variant="outline" className="h-12 w-full rounded-full border-zinc-300 bg-white px-7 text-base font-bold text-zinc-900 hover:bg-zinc-50 sm:w-auto">
                 <Link href="/pricing">View packages</Link>
               </Button>
             </div>

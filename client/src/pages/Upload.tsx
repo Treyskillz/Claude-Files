@@ -19,8 +19,8 @@ export default function Upload() {
     setFileName(file.name);
     setTitle(file.name.replace(/\.[^.]+$/, ""));
     if (file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf")) {
-      setContent(`PDF import placeholder for ${file.name}. For best results, paste the key Claude resource text below after reviewing the PDF.`);
-      toast.info("PDF selected. Paste extracted text into the editor before saving.");
+      setContent(`# ${file.name.replace(/\.[^.]+$/, "")}\n\nPDF selected. This browser import stores the title and lets you paste reviewed PDF text below before saving.\n\n## Paste extracted resource text here\n\n`);
+      toast.info("PDF selected. Paste reviewed PDF text into the editor before saving.");
       return;
     }
     const text = await file.text();
@@ -55,7 +55,7 @@ export default function Upload() {
           <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Import your own Claude resources.</h1>
           <p className="mt-4 text-lg leading-8 text-zinc-600">Upload or paste prompts, skills, workflows, templates, and notes. Skillz Magic AI Studio stores them in your browser so they can be searched, copied, and exported from the library without extra backend complexity.</p>
           <Card className="mt-8 rounded-3xl bg-white shadow-sm">
-            <CardHeader><CardTitle>Supported resources</CardTitle><CardDescription>Markdown and plain text files load directly. PDF files can be cataloged, then refined by pasting extracted text.</CardDescription></CardHeader>
+            <CardHeader><CardTitle>Supported resources</CardTitle><CardDescription>Markdown and plain text files load directly. PDF files can be titled and saved after you paste reviewed PDF text into the editor.</CardDescription></CardHeader>
             <CardContent className="grid gap-3 text-sm text-zinc-600">
               <p><strong className="text-zinc-950">Best formats:</strong> .md, .txt, Claude prompt notes, SKILL.md drafts, workflow SOPs, and templates.</p>
               <p><strong className="text-zinc-950">Privacy:</strong> Local imports remain in browser storage unless you manually copy them elsewhere.</p>

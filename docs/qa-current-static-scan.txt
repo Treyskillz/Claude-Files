@@ -1,0 +1,134 @@
+=== placeholder/todo/coming-soon markers ===
+client/src/components/ui/breadcrumb.tsx:57:      aria-disabled="true"
+client/src/components/ui/carousel.tsx:192:      disabled={!canScrollPrev}
+client/src/components/ui/carousel.tsx:222:      disabled={!canScrollNext}
+client/src/components/ui/command.tsx:76:          "placeholder:text-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
+client/src/components/ui/command.tsx:150:        "data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/field.tsx:116:        "group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50",
+client/src/components/ui/field.tsx:131:        "flex w-fit items-center gap-2 text-sm leading-snug font-medium group-data-[disabled=true]/field:opacity-50",
+client/src/components/ui/input-group.tsx:38:  "text-muted-foreground flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium select-none [&>svg:not([class*='size-'])]:size-4 [&>kbd]:rounded-[calc(var(--radius)-5px)] group-data-[disabled=true]/input-group:opacity-50",
+client/src/components/ui/input.tsx:57:        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+client/src/components/ui/label.tsx:14:        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+client/src/components/ui/select.tsx:38:        "border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex w-fit items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/textarea.tsx:56:        "border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+client/src/components/AIChatBox.tsx:38:  placeholder?: string;
+client/src/components/AIChatBox.tsx:117:  placeholder = "Type your message...",
+client/src/components/AIChatBox.tsx:215:                      disabled={isLoading}
+client/src/components/AIChatBox.tsx:316:          placeholder={placeholder}
+client/src/components/AIChatBox.tsx:323:          disabled={!input.trim() || isLoading}
+client/src/index.css:138:  [role="button"]:not([aria-disabled="true"]),
+client/src/pages/ComponentShowcase.tsx:197:    console.log("Dialog submitted with value:", dialogInput);
+client/src/pages/ComponentShowcase.tsx:413:                  <Input id="email" type="email" placeholder="Email" />
+client/src/pages/ComponentShowcase.tsx:419:                    placeholder="Type your message here."
+client/src/pages/ComponentShowcase.tsx:426:                      <SelectValue placeholder="Select a fruit" />
+client/src/pages/ComponentShowcase.tsx:562:                        <CommandInput placeholder="Search frameworks..." />
+client/src/pages/ComponentShowcase.tsx:630:                          <SelectValue placeholder="MM" />
+client/src/pages/ComponentShowcase.tsx:655:                          <SelectValue placeholder="YYYY" />
+client/src/pages/ComponentShowcase.tsx:1039:                            placeholder="Type something..."
+client/src/pages/ComponentShowcase.tsx:1413:                    placeholder="Try sending a message..."
+client/src/pages/Generator.tsx:220:          <Button size="lg" className="w-full justify-center rounded-full bg-red-600 text-white hover:bg-red-700 sm:w-auto" disabled={createAsset.isPending} onClick={() => generate("autonomous")}>
+client/src/pages/Generator.tsx:245:                      <SelectTrigger><SelectValue placeholder="Choose mode" /></SelectTrigger>
+client/src/pages/Generator.tsx:256:                        <SelectTrigger><SelectValue placeholder="Choose platform" /></SelectTrigger>
+client/src/pages/Generator.tsx:260:                        <Input value={customPlatform} onChange={event => setCustomPlatform(event.target.value)} placeholder="Type any AI platform, model, workspace, or tool" />
+client/src/pages/Generator.tsx:265:                      <Input value={businessType} onChange={event => setBusinessType(event.target.value)} placeholder="Agency, solo practice, clinic, local service firm" />
+client/src/pages/Generator.tsx:270:                    <Input value={customAssetCategory} onChange={event => setCustomAssetCategory(event.target.value)} placeholder="Optional: type any product category, department, workflow family, compliance niche, or buyer segment" />
+client/src/pages/Generator.tsx:276:                        <SelectTrigger><SelectValue placeholder="Choose profession" /></SelectTrigger>
+client/src/pages/Generator.tsx:280:                        <Input value={customProfessionCategory} onChange={event => setCustomProfessionCategory(event.target.value)} placeholder="Type any profession, role, or buyer segment" />
+client/src/pages/Generator.tsx:286:                        <SelectTrigger><SelectValue placeholder="Choose industry" /></SelectTrigger>
+client/src/pages/Generator.tsx:290:                        <Input value={customIndustryCategory} onChange={event => setCustomIndustryCategory(event.target.value)} placeholder="Type any industry, market, or niche" />
+client/src/pages/Generator.tsx:309:                    <Input value={title} onChange={event => setTitle(event.target.value)} placeholder="Example: Real Estate Agency Master Operating System" />
+client/src/pages/Generator.tsx:312:                    <div className="grid gap-2"><Label>Specific role</Label><Input value={role} onChange={e => setRole(e.target.value)} placeholder="Agent, broker, office manager" /></div>
+client/src/pages/Generator.tsx:313:                    <div className="grid gap-2"><Label>Specific niche</Label><Input value={industry} onChange={e => setIndustry(e.target.value)} placeholder="Luxury listings, elder care, tax prep" /></div>
+client/src/pages/Generator.tsx:315:                  <div className="grid gap-2"><Label>Audience</Label><Input value={audience} onChange={e => setAudience(e.target.value)} placeholder="Who will use or buy this asset?" /></div>
+client/src/pages/Generator.tsx:316:                  <div className="grid gap-2"><Label>Goal</Label><Textarea value={goal} onChange={e => setGoal(e.target.value)} placeholder="Describe the outcome this asset should create." /></div>
+client/src/pages/Generator.tsx:317:                  <div className="grid gap-2"><Label>Constraints</Label><Textarea value={constraints} onChange={e => setConstraints(e.target.value)} placeholder="Tone, compliance needs, format rules, excluded topics, examples." /></div>
+client/src/pages/Generator.tsx:318:                  <div className="grid gap-2"><Label>Monetization</Label><Input value={monetization} onChange={e => setMonetization(e.target.value)} placeholder="Individual download, bundle, internal SOP, subscription library" /></div>
+client/src/pages/Generator.tsx:319:                  <Button className="w-full rounded-full bg-zinc-950 text-white hover:bg-red-700" disabled={createAsset.isPending} onClick={() => generate()}>
+client/src/pages/Generator.tsx:345:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && copyToClipboard(result.content).then(() => toast.success(`Copied for ${effectiveTargetPlatform}.`))}><Download className="mr-2 h-4 w-4" /> Copy</Button>
+client/src/pages/Generator.tsx:346:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportToMarkdown(result.content, generatedTitle)}><FileDown className="mr-2 h-4 w-4" /> Markdown</Button>
+client/src/pages/Generator.tsx:347:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportToPDF(result.content, generatedTitle, effectiveTargetPlatform)}><FileDown className="mr-2 h-4 w-4" /> PDF</Button>
+client/src/pages/Generator.tsx:348:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportClaudePluginZip({ title: generatedTitle, content: result.content, assetType, manifest: { ...result.manifest, targetPlatform: effectiveTargetPlatform, businessType, customAssetCategory: effectiveAssetCategory } })}><FileArchive className="mr-2 h-4 w-4" /> Platform ZIP</Button>
+client/src/pages/Generator.tsx:349:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={saveToLocalLibrary}><Save className="mr-2 h-4 w-4" /> Save</Button>
+client/src/pages/Generator.tsx:350:                <Button className="justify-center bg-red-600 text-xs hover:bg-red-700 sm:text-sm" disabled={!result || saveProduct.isPending} onClick={addToMarketplace}><PackagePlus className="mr-2 h-4 w-4" /> Add listing</Button>
+client/src/pages/Generator.tsx:352:                  <Button className="justify-center bg-zinc-950 text-xs text-white hover:bg-red-700 sm:text-sm" disabled={!result || publishPackage.isPending} onClick={publishAdminPackage}>
+client/src/pages/Library.tsx:83:            <Input value={query} onChange={event => setQuery(event.target.value)} placeholder="Search assets and resources" className="h-12 rounded-full bg-white pl-10" />
+client/src/pages/Upload.tsx:22:      setContent(`PDF import placeholder for ${file.name}. For best results, paste the key Claude resource text below after reviewing the PDF.`);
+client/src/pages/Upload.tsx:75:            <div className="grid gap-2"><Label>Resource title</Label><Input value={title} onChange={event => setTitle(event.target.value)} placeholder="Example: Sales Call Review Prompt" /></div>
+client/src/pages/Upload.tsx:76:            <div className="grid gap-2"><Label>Resource content</Label><Textarea value={content} onChange={event => setContent(event.target.value)} placeholder="Paste Claude prompt, skill, workflow, or template content here." className="min-h-[360px] font-mono text-sm" /></div>
+client/src/pages/Marketplace.tsx:209:                      <Button variant="outline" className="rounded-full bg-white"><Download className="mr-2 h-4 w-4" /> Download info</Button>
+client/src/pages/Marketplace.tsx:232:                  <Button className="rounded-full bg-red-600 hover:bg-red-700" disabled={connect.isPending || refreshConnect.isPending} onClick={() => isAuthenticated ? connect.mutate() : (window.location.href = getLoginUrl())}>{connect.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ExternalLink className="mr-2 h-4 w-4" />} Continue in Stripe Connect</Button>
+client/src/pages/Marketplace.tsx:249:                  <input className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none focus:border-red-400" placeholder="Listing title" value={listing.title} onChange={event => setListing(current => ({ ...current, title: event.target.value }))} />
+client/src/pages/Marketplace.tsx:251:                    <input className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none focus:border-red-400" placeholder="Category" value={listing.category} onChange={event => setListing(current => ({ ...current, category: event.target.value }))} />
+client/src/pages/Marketplace.tsx:261:                  <textarea className="min-h-24 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none focus:border-red-400" placeholder="Description" value={listing.description} onChange={event => setListing(current => ({ ...current, description: event.target.value }))} />
+client/src/pages/Marketplace.tsx:262:                  <textarea className="min-h-24 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none focus:border-red-400" placeholder="Included files, one per line" value={listing.includedFiles} onChange={event => setListing(current => ({ ...current, includedFiles: event.target.value }))} />
+client/src/pages/Marketplace.tsx:263:                  <textarea className="min-h-20 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none focus:border-red-400" placeholder="License terms" value={listing.licenseTerms} onChange={event => setListing(current => ({ ...current, licenseTerms: event.target.value }))} />
+client/src/pages/Marketplace.tsx:264:                  <Button className="rounded-full bg-red-600 hover:bg-red-700" disabled={submitListing.isPending || !sellerReady} onClick={handleListingSubmit}>{submitListing.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Send className="mr-2 h-4 w-4" />} Submit for admin approval</Button>
+client/src/pages/Marketplace.tsx:302:        <Button className="w-full rounded-full bg-red-600 hover:bg-red-700" disabled={loading} onClick={onBuy}>{loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : isAdmin ? <ShieldCheck className="mr-2 h-4 w-4" /> : <ShoppingCart className="mr-2 h-4 w-4" />} {isAdmin ? "Confirm admin access" : "Buy now"}</Button>
+client/src/pages/Pricing.tsx:194:                <Button className="mt-auto rounded-full bg-red-600 text-white hover:bg-red-700" disabled={checkout.isPending} onClick={() => checkout.mutate({ slug: plan.slug, title: plan.name, priceCents: plan.priceCents, packageType: plan.packageType, description: plan.description })}>
+client/src/pages/AdminDashboard.tsx:117:              <Button variant="outline" className="justify-start rounded-2xl bg-white" disabled={exportBusy} onClick={() => handleExport("sales")}><Download className="mr-2 h-4 w-4" /> Export sales CSV</Button>
+client/src/pages/AdminDashboard.tsx:118:              <Button variant="outline" className="justify-start rounded-2xl bg-white" disabled={exportBusy} onClick={() => handleExport("payouts")}><Download className="mr-2 h-4 w-4" /> Export payout CSV</Button>
+client/src/pages/AdminDashboard.tsx:142:                  <Button className="rounded-full bg-emerald-600 hover:bg-emerald-700" disabled={reviewListing.isPending} onClick={() => reviewListing.mutate({ id: listing.id, decision: "approved" })}><CheckCircle2 className="mr-2 h-4 w-4" /> Approve</Button>
+client/src/pages/AdminDashboard.tsx:143:                  <Button variant="outline" className="rounded-full bg-white" disabled={reviewListing.isPending} onClick={() => reviewListing.mutate({ id: listing.id, decision: "rejected", rejectionReason: "Rejected by admin review." })}><XCircle className="mr-2 h-4 w-4" /> Reject</Button>
+server/index.ts:29:    console.log(`Server running on http://localhost:${port}/`);
+server/_core/index.ts:60:    console.log(`Port ${preferredPort} is busy, using port ${port} instead`);
+server/_core/index.ts:64:    console.log(`Server running on http://localhost:${port}/`);
+server/_core/sdk.ts:33:    console.log("[OAuth] Initialized with baseURL:", ENV.oAuthServerUrl);
+server/_core/voiceTranscription.ts:14: *     console.log(data.text); // Full transcription
+server/_core/voiceTranscription.ts:15: *     console.log(data.language); // Detected language
+server/_core/voiceTranscription.ts:16: *     console.log(data.segments); // Timestamped segments
+server/stripeWebhook.ts:28:      console.log("[Webhook] Test event detected, returning verification response");
+server/stripeWebhook.ts:43:      console.log("[Webhook] Processed", event.type, event.id);
+server/export.quality.test.ts:56:    expect(generatorSource).toContain("disabled={!result}");
+server/export.quality.test.ts:57:    expect(generatorSource).toContain("disabled={!result || saveProduct.isPending}");
+server/retailReadiness.comprehensive.test.ts:14:    expect(generator).toContain("disabled={!result} onClick={() => result && copyToClipboard(result.content)");
+server/retailReadiness.comprehensive.test.ts:15:    expect(generator).toContain("disabled={!result} onClick={() => result && exportToMarkdown(result.content, generatedTitle)}");
+server/retailReadiness.comprehensive.test.ts:16:    expect(generator).toContain("disabled={!result} onClick={() => result && exportToPDF(result.content, generatedTitle, effectiveTargetPlatform)}");
+server/retailReadiness.comprehensive.test.ts:17:    expect(generator).toContain("disabled={!result} onClick={() => result && exportClaudePluginZip");
+server/retailReadiness.comprehensive.test.ts:18:    expect(generator).toContain("disabled={!result} onClick={saveToLocalLibrary}");
+server/retailReadiness.comprehensive.test.ts:19:    expect(generator).toContain("disabled={!result || saveProduct.isPending} onClick={addToMarketplace}");
+
+=== hardcoded external and local storage markers ===
+client/src/components/ErrorBoundary.tsx:43:              onClick={() => window.location.reload()}
+client/src/components/DashboardLayout.tsx:46:    const saved = localStorage.getItem(SIDEBAR_WIDTH_KEY);
+client/src/components/DashboardLayout.tsx:52:    localStorage.setItem(SIDEBAR_WIDTH_KEY, sidebarWidth.toString());
+client/src/components/DashboardLayout.tsx:73:              window.location.href = getLoginUrl();
+client/src/components/AppShell.tsx:93:              <Button className="rounded-full bg-zinc-950 text-white hover:bg-red-700" onClick={() => (window.location.href = getLoginUrl())}>
+client/src/components/AppShell.tsx:133:                  <Button variant="outline" onClick={() => (window.location.href = getLoginUrl())} className="bg-white">
+client/src/const.ts:7:  const redirectUri = `${window.location.origin}/api/oauth/callback`;
+client/src/contexts/ThemeContext.tsx:26:      const stored = localStorage.getItem("theme");
+client/src/contexts/ThemeContext.tsx:41:      localStorage.setItem("theme", theme);
+client/src/lib/export.ts:5:const DOWNLOAD_BRAND = "Freedom One Academy";
+client/src/lib/export.ts:6:const DOWNLOAD_CONTACT = "freedom1.digital.@gmail.com";
+client/src/lib/export.ts:59:  const printWindow = window.open("", "_blank", "noopener,noreferrer,width=960,height=720");
+client/src/main.tsx:21:  window.location.href = getLoginUrl();
+client/src/pages/Generator.tsx:175:    const existing = JSON.parse(localStorage.getItem("skillz-magic-ai-studio-local-assets") || localStorage.getItem("skills-magic-ai-local-assets") || localStorage.getItem("skills-maker-ai-local-assets") || "[]");
+client/src/pages/Generator.tsx:176:    localStorage.setItem("skillz-magic-ai-studio-local-assets", JSON.stringify([item, ...existing]));
+client/src/pages/Generator.tsx:366:                        Download branding: <span className="text-zinc-950">Freedom One Academy</span> · Contact: <span className="text-zinc-950">freedom1.digital.@gmail.com</span>
+client/src/pages/Library.tsx:27:    const generated = JSON.parse(localStorage.getItem("skillz-magic-ai-studio-local-assets") || localStorage.getItem("skills-magic-ai-local-assets") || localStorage.getItem("skills-maker-ai-local-assets") || "[]");
+client/src/pages/Library.tsx:28:    const uploaded = JSON.parse(localStorage.getItem("skillz-magic-ai-studio-uploaded-resources") || localStorage.getItem("skills-magic-ai-uploaded-resources") || localStorage.getItem("skills-maker-ai-uploaded-resources") || "[]");
+client/src/pages/Upload.tsx:45:    const existing = JSON.parse(localStorage.getItem("skillz-magic-ai-studio-uploaded-resources") || localStorage.getItem("skills-magic-ai-uploaded-resources") || localStorage.getItem("skills-maker-ai-uploaded-resources") || "[]");
+client/src/pages/Upload.tsx:46:    localStorage.setItem("skillz-magic-ai-studio-uploaded-resources", JSON.stringify([resource, ...existing]));
+client/src/pages/Marketplace.tsx:58:        window.location.assign(data.onboardingUrl);
+client/src/pages/Marketplace.tsx:95:        window.open(data.checkoutUrl, "_blank", "noopener,noreferrer");
+client/src/pages/Marketplace.tsx:123:    const params = new URLSearchParams(window.location.search);
+client/src/pages/Marketplace.tsx:130:    window.history.replaceState({}, "", `${window.location.pathname}${nextQuery ? `?${nextQuery}` : ""}`);
+client/src/pages/Marketplace.tsx:162:      window.location.href = getLoginUrl();
+client/src/pages/Marketplace.tsx:232:                  <Button className="rounded-full bg-red-600 hover:bg-red-700" disabled={connect.isPending || refreshConnect.isPending} onClick={() => isAuthenticated ? connect.mutate() : (window.location.href = getLoginUrl())}>{connect.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ExternalLink className="mr-2 h-4 w-4" />} Continue in Stripe Connect</Button>
+client/src/pages/Account.tsx:40:                <Button className="w-fit rounded-full bg-red-600 hover:bg-red-700" onClick={() => (window.location.href = getLoginUrl())}><LogIn className="mr-2 h-4 w-4" /> Sign in</Button>
+client/src/pages/Pricing.tsx:143:        window.open(data.checkoutUrl, "_blank", "noopener,noreferrer");
+client/src/pages/AdminDashboard.tsx:51:          <Button className="mt-6 rounded-full bg-red-600 hover:bg-red-700" onClick={() => (window.location.href = getLoginUrl())}>Sign in as admin</Button>
+client/src/_core/hooks/useAuth.ts:45:    localStorage.setItem(
+client/src/_core/hooks/useAuth.ts:68:    if (window.location.pathname === redirectPath) return;
+client/src/_core/hooks/useAuth.ts:70:    window.location.href = redirectPath
+server/index.ts:29:    console.log(`Server running on http://localhost:${port}/`);
+server/_core/cookies.ts:3:const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
+server/_core/index.ts:64:    console.log(`Server running on http://localhost:${port}/`);
+server/export.quality.test.ts:11:    expect(exportSource).toContain('const DOWNLOAD_BRAND = "Freedom One Academy"');
+server/export.quality.test.ts:12:    expect(exportSource).toContain('const DOWNLOAD_CONTACT = "freedom1.digital.@gmail.com"');
+server/export.quality.test.ts:36:    expect(generatorSource).toContain("Freedom One Academy");
+server/export.quality.test.ts:37:    expect(generatorSource).toContain("freedom1.digital.@gmail.com");
+server/export.quality.test.ts:64:  it("documents that Freedom One Academy export changes are scoped only to this project and chat context", () => {
+server/export.quality.test.ts:69:    expect(projectScopeSource).toContain("Freedom One Academy");
+server/export.quality.test.ts:70:    expect(projectScopeSource).toContain("freedom1.digital.@gmail.com");
+server/retailReadiness.comprehensive.test.ts:35:    expect(marketplace).toContain("window.open(data.checkoutUrl");
+server/marketplace.payouts.test.ts:76:    expect(marketplaceSource).toContain("window.location.assign(data.onboardingUrl)");

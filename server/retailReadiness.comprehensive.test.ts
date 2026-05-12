@@ -33,7 +33,22 @@ describe("retail readiness source evidence", () => {
     expect(marketplace).toContain("No completed purchases yet. Buy a product from the catalog to see it here.");
     expect(marketplace).toContain("Sign in to view purchase history and download-ready items.");
     expect(marketplace).toContain("window.open(data.checkoutUrl");
+    expect(marketplace).toContain("downloadPurchaseInfo");
+    expect(marketplace).toContain("Download summary");
+    expect(marketplace).toContain("Purchase summary downloaded.");
     expect(marketplace).toContain("Test card:");
+  });
+
+  it("ensures checkout return routing lands on a dedicated status page with clear guidance", () => {
+    const router = read("server/routers.ts");
+    const success = read("client/src/pages/Success.tsx");
+
+    expect(router).toContain("success_url: `${origin}/success?checkout=success&product=${encodeURIComponent(product.slug)}`");
+    expect(router).toContain("cancel_url: `${origin}/success?checkout=cancelled&product=${encodeURIComponent(product.slug)}`");
+    expect(success).toContain("Purchase received.");
+    expect(success).toContain("Checkout was cancelled.");
+    expect(success).toContain("Product reference:");
+    expect(success).toContain("View purchases");
   });
 
   it("captures broader UX and performance-sensitive surfaces for final QA documentation", () => {
@@ -47,6 +62,10 @@ describe("retail readiness source evidence", () => {
     expect(instructions).toContain("Quality checklist before exporting or selling");
     expect(home).toContain("Custom category generation");
     expect(home).toContain("Marketplace packaging");
+    expect(home).toContain("container grid min-w-0");
+    expect(home).toContain("w-full min-w-0 max-w-[calc(100vw-2rem)]");
+    expect(home).toContain("w-full max-w-[calc(100vw-2rem)] text-[2.08rem]");
+    expect(home).toContain("w-full rounded-full");
 
     expect(generator).toContain("Streamdown");
     expect(generator).toContain("print-area");

@@ -494,8 +494,8 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
               },
             },
           ],
-          success_url: `${origin}/?checkout=success&product=${encodeURIComponent(product.slug)}`,
-          cancel_url: `${origin}/?checkout=cancelled&product=${encodeURIComponent(product.slug)}`,
+          success_url: `${origin}/success?checkout=success&product=${encodeURIComponent(product.slug)}`,
+          cancel_url: `${origin}/success?checkout=cancelled&product=${encodeURIComponent(product.slug)}`,
         });
 
         await createPurchaseRecord({

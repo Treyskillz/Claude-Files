@@ -8,14 +8,14 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="flex items-center gap-2" aria-label="Skillz Magic AI Studio">
+    <div className="flex w-max items-center gap-2" aria-label="Skillz Magic AI Studio">
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-red-600 text-white shadow-sm shadow-red-600/20">
         <Sparkles className="h-5 w-5" />
       </div>
       {!compact && (
-          <div className="leading-none">
-          <div className="text-base font-black tracking-[-0.04em] text-zinc-950">Skillz Magic</div>
-          <div className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-red-600">AI Studio</div>
+        <div className="leading-none">
+          <div className="whitespace-nowrap text-base font-black tracking-[-0.04em] text-zinc-950">Skillz Magic</div>
+          <div className="whitespace-nowrap text-[0.65rem] font-bold uppercase tracking-[0.18em] text-red-600">AI Studio</div>
         </div>
       )}
     </div>
@@ -36,14 +36,14 @@ const mobileNavItems = [{ href: "/", label: "Home" }, ...desktopNavItems];
 function NavLinks({ mobile = false }: { mobile?: boolean }) {
   const [location] = useLocation();
   return (
-    <nav className={mobile ? "grid gap-2" : "hidden min-w-0 items-center justify-center gap-1 lg:flex"}>
+    <nav className={mobile ? "grid gap-2" : "hidden min-w-0 items-center justify-center gap-1 2xl:flex"}>
       {(mobile ? mobileNavItems : desktopNavItems).map(item => {
         const active = location === item.href;
         return (
           <Link
             key={item.href}
             href={item.href}
-            className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+            className={`rounded-full px-3 py-2 text-sm font-semibold transition 2xl:px-4 ${
               active ? "bg-red-600 text-white shadow-sm" : "text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
             }`}
           >
@@ -62,14 +62,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b bg-white/88 backdrop-blur-xl">
-        <div className="container flex h-20 items-center gap-4">
+        <div className="container flex min-h-20 items-center gap-5 py-3">
           <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Skillz Magic AI Studio home">
             <BrandMark />
           </Link>
-          <div className="hidden min-w-0 flex-1 justify-center lg:flex">
+          <div className="hidden min-w-0 flex-1 justify-center 2xl:flex">
             <NavLinks />
           </div>
-          <div className="hidden shrink-0 items-center gap-3 lg:flex">
+          <div className="hidden shrink-0 items-center gap-3 2xl:flex">
             {isAdmin ? (
               <>
                 <Link href="/admin" className="inline-flex items-center rounded-full border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-bold text-red-700 hover:bg-red-100">
@@ -102,7 +102,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="bg-white lg:hidden" aria-label="Open navigation">
+              <Button variant="outline" size="icon" className="ml-auto bg-white 2xl:hidden" aria-label="Open navigation">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>

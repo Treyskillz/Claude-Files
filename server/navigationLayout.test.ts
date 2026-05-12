@@ -16,8 +16,11 @@ describe("AppShell navigation layout", () => {
   });
 
   it("keeps the desktop header from squeezing navigation into the brand area", () => {
+    expect(appShellSource).toContain('className="flex w-max items-center gap-2"');
     expect(appShellSource).toContain('className="flex shrink-0 items-center gap-3"');
-    expect(appShellSource).toContain('className="hidden min-w-0 flex-1 justify-center lg:flex"');
-    expect(appShellSource).toContain('className="hidden shrink-0 items-center gap-3 lg:flex"');
+    expect(appShellSource).toContain('className="hidden min-w-0 flex-1 justify-center 2xl:flex"');
+    expect(appShellSource).toContain('className="hidden shrink-0 items-center gap-3 2xl:flex"');
+    expect(appShellSource).toContain('className="ml-auto bg-white 2xl:hidden"');
+    expect(appShellSource).not.toContain('className="flex min-w-0 items-center gap-2"');
   });
 });

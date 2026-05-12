@@ -1,0 +1,54 @@
+[
+  {
+    "viewport": "mobile-390",
+    "screenshot": "/home/ubuntu/claude-skill-studio/docs/qa-screens/home-mobile-390-cdp.png",
+    "innerWidth": 390,
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "hasHorizontalOverflow": false,
+    "headerRight": 390,
+    "headingRight": 374,
+    "menuButtonVisible": true,
+    "desktopNavVisible": false,
+    "title": "Skillz Magic AI Studio"
+  },
+  {
+    "viewport": "tablet-768",
+    "screenshot": "/home/ubuntu/claude-skill-studio/docs/qa-screens/home-tablet-768-cdp.png",
+    "innerWidth": 768,
+    "clientWidth": 768,
+    "scrollWidth": 768,
+    "hasHorizontalOverflow": false,
+    "headerRight": 768,
+    "headingRight": 600,
+    "menuButtonVisible": true,
+    "desktopNavVisible": false,
+    "title": "Skillz Magic AI Studio"
+  },
+  {
+    "viewport": "laptop-1366",
+    "screenshot": "/home/ubuntu/claude-skill-studio/docs/qa-screens/home-laptop-1366-cdp.png",
+    "innerWidth": 1366,
+    "clientWidth": 1351,
+    "scrollWidth": 1351,
+    "hasHorizontalOverflow": false,
+    "headerRight": 1351,
+    "headingRight": 593,
+    "menuButtonVisible": true,
+    "desktopNavVisible": false,
+    "title": "Skillz Magic AI Studio"
+  },
+  {
+    "viewport": "wide-1600",
+    "screenshot": "/home/ubuntu/claude-skill-studio/docs/qa-screens/home-wide-1600-cdp.png",
+    "innerWidth": 1600,
+    "clientWidth": 1585,
+    "scrollWidth": 1585,
+    "hasHorizontalOverflow": false,
+    "headerRight": 1585,
+    "headingRight": 633,
+    "menuButtonVisible": false,
+    "desktopNavVisible": true,
+    "title": "Skillz Magic AI Studio"
+  }
+]

@@ -363,7 +363,7 @@ export default function Generator() {
                         This {assetLabel} is built for {effectiveProfessionCategory} in {effectiveIndustryCategory} using {effectiveTargetPlatform}. It explains the asset purpose, operating rules, prompts, workflow steps, output expectations, and QA requirements so a buyer understands how to use it before copying it into an AI platform.
                       </p>
                       <p className="mt-3 rounded-2xl bg-zinc-50 p-3 text-xs font-semibold leading-5 text-zinc-700">
-                        Download branding: <span className="text-zinc-950">Freedom One Academy</span> · Contact: <span className="text-zinc-950">freedom1.digital.@gmail.com</span>
+                        Download branding: <span className="text-zinc-950">Skillz Magic AI Studio</span> · Customer-ready usage and platform adaptation guides are included.
                       </p>
                     </div>
                     <div className="rounded-2xl border border-red-100 bg-white p-4 shadow-sm">

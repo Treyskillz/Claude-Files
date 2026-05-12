@@ -134,6 +134,13 @@ export default function Marketplace() {
 
   const buildPackageContent = (product: Product) => `# ${product.title}\n\n## Package Summary\n${product.description}\n\n## Package Type\n${product.packageType.replaceAll("_", " ")}\n\n## Category\n${product.category}\n\n## Included Files\n${product.includedFiles.map(file => `- ${file}`).join("\n")}\n\n## License Terms\n${product.licenseTerms || "Commercial use license for the purchasing customer. Owner/admin access is included for internal use and packaging review."}\n\n## Admin Access Note\nThis package was downloaded from the owner/admin version of Skillz Magic AI Studio. Admin access does not create a Stripe checkout session or customer purchase record. Customer accounts continue to use the normal paid checkout flow.`;
 
+  const downloadPurchaseInfo = (item: NonNullable<typeof purchases.data>[number]) => {
+    const purchasedAt = item.createdAt ? new Date(Number(item.createdAt)).toLocaleString() : "recent";
+    const content = `# Skillz Magic AI Studio Purchase Summary\n\n## Product\n${item.productTitle}\n\n## Package Type\n${item.packageType.replaceAll("_", " ")}\n\n## Fulfillment Status\n${item.fulfillmentStatus}\n\n## Purchase Date\n${purchasedAt}\n\n## Product Reference\n${item.productSlug}\n\n## Customer Guidance\nThis file is a customer-facing order summary for your Skillz Magic AI Studio purchase. When fulfillment status is ready, return to Marketplace > Purchases to access available package information. For payment receipts, use the secure receipt and invoice information provided by Stripe during checkout.`;
+    exportToMarkdown(content, `${item.productTitle} Purchase Summary`);
+    toast.success("Purchase summary downloaded.");
+  };
+
   const downloadAdminPackage = (product: Product, format: "markdown" | "pdf" | "zip") => {
     const content = buildPackageContent(product);
     if (format === "markdown") {
@@ -206,7 +213,7 @@ export default function Marketplace() {
                   <Card key={item.id} className="rounded-3xl bg-white shadow-sm">
                     <CardContent className="flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between">
                       <div><h3 className="font-black text-zinc-950">{item.productTitle}</h3><p className="mt-1 text-sm text-zinc-600">{item.packageType} · {item.fulfillmentStatus} · {item.createdAt ? new Date(Number(item.createdAt)).toLocaleDateString() : "recent"}</p></div>
-                      <Button variant="outline" className="rounded-full bg-white"><Download className="mr-2 h-4 w-4" /> Download info</Button>
+                      <Button variant="outline" className="rounded-full bg-white" onClick={() => downloadPurchaseInfo(item)}><Download className="mr-2 h-4 w-4" /> Download summary</Button>
                     </CardContent>
                   </Card>
                 )) : <p className="rounded-3xl border bg-white p-8 text-zinc-600">No completed purchases yet. Buy a product from the catalog to see it here.</p>}

@@ -76,8 +76,8 @@ export const MARKETPLACE_PRODUCTS: CheckoutProduct[] = [
     licenseTerms: DEFAULT_LICENSE,
   },
   {
-    slug: "skills-magic-pro-monthly",
-    title: "Skills Magic Pro Monthly",
+    slug: "skillz-magic-ai-studio-pro-monthly",
+    title: "Skillz Magic AI Studio Pro Monthly",
     category: "Subscription",
     packageType: "subscription_monthly",
     priceCents: 2900,
@@ -86,8 +86,8 @@ export const MARKETPLACE_PRODUCTS: CheckoutProduct[] = [
     licenseTerms: DEFAULT_LICENSE,
   },
   {
-    slug: "skills-magic-pro-annual",
-    title: "Skills Magic Pro Annual",
+    slug: "skillz-magic-ai-studio-pro-annual",
+    title: "Skillz Magic AI Studio Pro Annual",
     category: "Subscription",
     packageType: "subscription_annual",
     priceCents: 29000,

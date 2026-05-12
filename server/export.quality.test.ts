@@ -8,9 +8,10 @@ const projectScopeSource = readFileSync(resolve(process.cwd(), "PROJECT_SCOPE.md
 
 describe("export quality safeguards", () => {
   it("keeps Markdown, PDF, and ZIP exports branded, platform-aware, installation-ready, and package-complete", () => {
-    expect(exportSource).toContain('const DOWNLOAD_BRAND = "Freedom One Academy"');
-    expect(exportSource).toContain('const DOWNLOAD_CONTACT = "freedom1.digital.@gmail.com"');
-    expect(exportSource).toContain("Generated with Skillz Magic AI Studio for multi-platform AI operating systems");
+    expect(exportSource).toContain('const DOWNLOAD_BRAND = APP_BRAND');
+    expect(exportSource).not.toContain('Freedom One Academy');
+    expect(exportSource).not.toContain('freedom1.digital.@gmail.com');
+    expect(exportSource).toContain("Generated with ${APP_BRAND} for multi-platform AI operating systems");
     expect(exportSource).toContain('targetPlatform = "Multi-platform AI"');
     expect(exportSource).toContain("${targetPlatform} asset generated for copy, PDF archive, buyer delivery, marketplace packaging, and AI platform installation.");
     expect(exportSource).toContain("Usage Guide");
@@ -26,15 +27,17 @@ describe("export quality safeguards", () => {
     expect(exportSource).toContain("USAGE-GUIDE.md");
     expect(exportSource).toContain('generatedBy: "Skillz Magic AI Studio"');
     expect(exportSource).toContain("preparedBy: DOWNLOAD_BRAND");
-    expect(exportSource).toContain("contact: DOWNLOAD_CONTACT");
+    expect(exportSource).not.toContain("contact: DOWNLOAD_CONTACT");
     expect(exportSource).toContain("platformInstallGuide(targetPlatform)");
   });
 
   it("shows inline generated-asset guidance and mobile-friendly Builder export controls", () => {
     expect(generatorSource).toContain("What this asset does");
     expect(generatorSource).toContain("How to add it to your AI");
-    expect(generatorSource).toContain("Freedom One Academy");
-    expect(generatorSource).toContain("freedom1.digital.@gmail.com");
+    expect(generatorSource).toContain("Download branding:");
+    expect(generatorSource).toContain("Customer-ready usage and platform adaptation guides are included.");
+    expect(generatorSource).not.toContain("Freedom One Academy");
+    expect(generatorSource).not.toContain("freedom1.digital.@gmail.com");
     expect(generatorSource).toContain("getPlatformInstallSteps");
     expect(generatorSource).toContain('if (platform === "Claude")');
     expect(generatorSource).toContain('if (platform === "ChatGPT")');
@@ -61,12 +64,12 @@ describe("export quality safeguards", () => {
     expect(generatorSource).toContain("Marketplace listing saved.");
   });
 
-  it("documents that Freedom One Academy export changes are scoped only to this project and chat context", () => {
+  it("documents that export branding is scoped to the Skillz Magic AI Studio project", () => {
     expect(projectScopeSource).toContain("claude-skill-studio");
     expect(projectScopeSource).toContain("Skillz Magic AI Studio");
     expect(projectScopeSource).toContain("scoped to this project and this chat/task context only");
     expect(projectScopeSource).toContain("not instructions for any other user project");
-    expect(projectScopeSource).toContain("Freedom One Academy");
-    expect(projectScopeSource).toContain("freedom1.digital.@gmail.com");
+    expect(projectScopeSource).not.toContain("Freedom One Academy");
+    expect(projectScopeSource).not.toContain("freedom1.digital.@gmail.com");
   });
 });

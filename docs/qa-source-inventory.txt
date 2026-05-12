@@ -1,0 +1,295 @@
+PAGES
+Account.tsx
+AdminDashboard.tsx
+ComponentShowcase.tsx
+Generator.tsx
+Home.tsx
+Instructions.tsx
+Library.tsx
+Marketplace.tsx
+NotFound.tsx
+Pricing.tsx
+Success.tsx
+Upload.tsx
+
+COMPONENTS
+AIChatBox.tsx
+AppShell.tsx
+DashboardLayout.tsx
+DashboardLayoutSkeleton.tsx
+ErrorBoundary.tsx
+ManusDialog.tsx
+Map.tsx
+ui/accordion.tsx
+ui/alert-dialog.tsx
+ui/alert.tsx
+ui/aspect-ratio.tsx
+ui/avatar.tsx
+ui/badge.tsx
+ui/breadcrumb.tsx
+ui/button-group.tsx
+ui/button.tsx
+ui/calendar.tsx
+ui/card.tsx
+ui/carousel.tsx
+ui/chart.tsx
+ui/checkbox.tsx
+ui/collapsible.tsx
+ui/command.tsx
+ui/context-menu.tsx
+ui/dialog.tsx
+ui/drawer.tsx
+ui/dropdown-menu.tsx
+ui/empty.tsx
+ui/field.tsx
+ui/form.tsx
+ui/hover-card.tsx
+ui/input-group.tsx
+ui/input-otp.tsx
+ui/input.tsx
+ui/item.tsx
+ui/kbd.tsx
+ui/label.tsx
+ui/menubar.tsx
+ui/navigation-menu.tsx
+ui/pagination.tsx
+ui/popover.tsx
+ui/progress.tsx
+ui/radio-group.tsx
+ui/resizable.tsx
+ui/scroll-area.tsx
+ui/select.tsx
+ui/separator.tsx
+ui/sheet.tsx
+ui/sidebar.tsx
+ui/skeleton.tsx
+ui/slider.tsx
+ui/sonner.tsx
+ui/spinner.tsx
+ui/switch.tsx
+ui/table.tsx
+ui/tabs.tsx
+ui/textarea.tsx
+ui/toggle-group.tsx
+ui/toggle.tsx
+ui/tooltip.tsx
+
+TESTS
+node_modules/.pnpm/@braintree+sanitize-url@7.1.1/node_modules/@braintree/sanitize-url/src/__tests__/index.test.ts
+node_modules/.pnpm/@radix-ui+react-alert-dialog@1.1.15_@types+react-dom@19.2.1_@types+react@19.2.1__@types_995e746b97dbd5ed20f1aca7534dd7b8/node_modules/@radix-ui/react-alert-dialog/src/alert-dialog.test.tsx
+node_modules/.pnpm/chevrotain-allstar@0.3.1_chevrotain@11.0.3/node_modules/chevrotain-allstar/src/atn.test.ts
+node_modules/.pnpm/entities@6.0.1/node_modules/entities/src/decode.spec.ts
+node_modules/.pnpm/entities@6.0.1/node_modules/entities/src/encode.spec.ts
+node_modules/.pnpm/entities@6.0.1/node_modules/entities/src/escape.spec.ts
+node_modules/.pnpm/entities@6.0.1/node_modules/entities/src/index.spec.ts
+node_modules/.pnpm/style-to-js@1.1.18/node_modules/style-to-js/src/index.test.ts
+node_modules/.pnpm/style-to-js@1.1.18/node_modules/style-to-js/src/utilities.test.ts
+node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/src/accessDeep.test.ts
+node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/src/index.test.ts
+node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/src/is.test.ts
+node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/src/pathstringifier.test.ts
+node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/src/plainer.spec.ts
+node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/src/registry.test.ts
+node_modules/.pnpm/ts-dedent@2.2.0/node_modules/ts-dedent/src/__tests__/index.spec.ts
+node_modules/.pnpm/ts-dedent@2.2.0/node_modules/ts-dedent/src/__tests__/issue-21.spec.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/all-errors.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/anyunknown.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/array.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/async-parsing.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/async-refinements.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/base.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/bigint.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/branded.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/catch.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/coerce.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/complex.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/custom.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/date.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/deepmasking.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/default.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/description.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/discriminated-unions.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/enum.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/error.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/firstparty.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/firstpartyschematypes.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/function.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/generics.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/instanceof.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/intersection.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/language-server.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/literal.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/map.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/masking.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/mocker.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/nan.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/nativeEnum.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/nullable.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/number.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/object-augmentation.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/object-in-es5-env.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/object.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/optional.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/parseUtil.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/parser.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/partials.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/pickomit.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/pipeline.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/preprocess.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/primitive.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/promise.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/readonly.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/record.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/recursive.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/refine.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/safeparse.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/set.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/standard-schema.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/string.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/transformer.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/tuple.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/unions.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/validations.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v3/tests/void.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/anyunknown.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/array.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/assignability.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/async-parsing.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/async-refinements.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/base.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/bigint.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/brand.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/catch.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/coalesce.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/codec-examples.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/codec.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/coerce.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/continuability.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/custom.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/date.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/datetime.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/default.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/description.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/discriminated-unions.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/enum.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/error-utils.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/error.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/file.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/firstparty.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/function.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/generics.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/hash.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/index.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/instanceof.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/intersection.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/json.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/lazy.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/literal.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/map.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/nan.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/nested-refine.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/nonoptional.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/nullable.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/number.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/object.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/optional.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/partial.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/pickomit.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/pipe.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/prefault.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/preprocess.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/primitive.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/promise.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/prototypes.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/readonly.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/record.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/recursive-types.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/refine.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/registries.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/set.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/standard-schema.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/string-formats.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/string.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/stringbool.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/template-literal.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/to-json-schema.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/transform.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/tuple.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/union.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/validations.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/classic/tests/void.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/core/tests/extend.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/core/tests/index.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/core/tests/locales/be.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/core/tests/locales/en.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/core/tests/locales/es.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/core/tests/locales/ru.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/core/tests/locales/tr.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/assignability.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/brand.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/checks.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/codec.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/computed.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/error.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/functions.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/index.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/number.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/object.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/prototypes.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/recursive-types.test.ts
+node_modules/.pnpm/zod@4.1.12/node_modules/zod/src/v4/mini/tests/string.test.ts
+server/adminAccess.test.ts
+server/auth.logout.test.ts
+server/branding.test.ts
+server/dialogAccessibility.test.ts
+server/export.quality.test.ts
+server/generator.customCategories.test.ts
+server/instructions.page.test.ts
+server/marketplace.payouts.test.ts
+server/navigationLayout.test.ts
+server/publicContentSafety.test.ts
+server/retailReadiness.comprehensive.test.ts
+
+ROUTES_AND_LINKS
+client/src/App.tsx:23:        <Route path="/" component={Home} />
+client/src/App.tsx:24:        <Route path="/generator" component={Generator} />
+client/src/App.tsx:25:        <Route path="/instructions" component={Instructions} />
+client/src/App.tsx:26:        <Route path="/library" component={Library} />
+client/src/App.tsx:27:        <Route path="/upload" component={Upload} />
+client/src/App.tsx:28:        <Route path="/marketplace" component={Marketplace} />
+client/src/App.tsx:29:        <Route path="/pricing" component={Pricing} />
+client/src/App.tsx:30:        <Route path="/account" component={Account} />
+client/src/App.tsx:31:        <Route path="/admin" component={AdminDashboard} />
+client/src/App.tsx:32:        <Route path="/success" component={Success} />
+client/src/App.tsx:33:        <Route path="/404" component={NotFound} />
+client/src/App.tsx:34:        <Route component={NotFound} />
+client/src/App.tsx:46:          <Router />
+client/src/components/AppShell.tsx:66:          <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Skillz Magic AI Studio home">
+client/src/components/AppShell.tsx:75:                <Link href="/admin" className="inline-flex items-center rounded-full border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-bold text-red-700 hover:bg-red-100">
+client/src/components/AppShell.tsx:85:                <Link href="/account" className="text-sm font-semibold text-zinc-700 hover:text-red-600">
+client/src/components/AppShell.tsx:98:              <Link href="/generator">
+client/src/components/AppShell.tsx:118:                      <Link href="/admin"><LayoutDashboard className="mr-2 h-4 w-4" /> Admin dashboard</Link>
+client/src/components/AppShell.tsx:126:                  <Link href="/generator">Build an asset</Link>
+client/src/pages/Account.tsx:52:            <MetricCard icon={LibraryBig} label="Saved server assets" value={isAuthenticated ? String(mine.data?.length ?? 0) : "Sign in"} href="/library" />
+client/src/pages/Account.tsx:53:            <MetricCard icon={CreditCard} label={isAdmin ? "Admin checkout bypass" : "Purchase records"} value={isAdmin ? "Included" : isAuthenticated ? String(purchases.data?.length ?? 0) : "Sign in"} href="/marketplace" />
+client/src/pages/Account.tsx:54:            <WorkflowCard title="Generate" text="Create a new skill, prompt, workflow, or bundle." href="/generator" />
+client/src/pages/Account.tsx:55:            <WorkflowCard title="Upload" text="Add your own notes and Claude resources." href="/upload" />
+client/src/pages/AdminDashboard.tsx:62:          <Button asChild variant="outline" className="mt-6 rounded-full bg-white"><Link href="/marketplace">Return to marketplace</Link></Button>
+client/src/pages/AdminDashboard.tsx:88:          <Button asChild className="rounded-full bg-red-600 hover:bg-red-700"><Link href="/generator"><UploadCloud className="mr-2 h-4 w-4" /> Generate and publish package</Link></Button>
+client/src/pages/ComponentShowcase.tsx:850:                        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+client/src/pages/ComponentShowcase.tsx:854:                        <BreadcrumbLink href="/components">
+client/src/pages/Home.tsx:135:                <Link href="/generator">
+client/src/pages/Home.tsx:140:                <Link href="/pricing">View packages</Link>
+client/src/pages/Home.tsx:199:              <Link href="/instructions">See how it works</Link>
+client/src/pages/Home.tsx:229:                  <Link href="/generator">Open generator</Link>
+client/src/pages/Home.tsx:232:                  <Link href="/marketplace">Review marketplace</Link>
+client/src/pages/Instructions.tsx:106:                <Link href="/generator">Open CMOS Builder <ArrowRight className="ml-2 h-4 w-4" /></Link>
+client/src/pages/Instructions.tsx:109:                <Link href="/pricing">View pricing guide</Link>
+client/src/pages/Instructions.tsx:240:                <Link href="/generator">Generate an asset</Link>
+client/src/pages/Instructions.tsx:243:                <Link href="/marketplace">Create a marketplace listing</Link>
+client/src/pages/Instructions.tsx:246:                <Link href="/library">Open library</Link>
+client/src/pages/Pricing.tsx:239:            <Button asChild size="lg" className="rounded-full bg-zinc-950 text-white hover:bg-red-700"><Link href="/generator">Open generator</Link></Button>
+client/src/pages/Success.tsx:18:              <Button asChild size="lg" className="rounded-full bg-red-600 hover:bg-red-700"><Link href="/marketplace"><PackageCheck className="mr-2 h-5 w-5" /> View purchases</Link></Button>
+client/src/pages/Success.tsx:19:              <Button asChild size="lg" variant="outline" className="rounded-full bg-white"><Link href="/library"><LibraryBig className="mr-2 h-5 w-5" /> Open library</Link></Button>
+client/src/pages/Success.tsx:20:              <Button asChild size="lg" variant="outline" className="rounded-full bg-white"><Link href="/generator"><Sparkles className="mr-2 h-5 w-5" /> Generate more</Link></Button>
+client/src/pages/Upload.tsx:62:              <Button asChild variant="outline" className="mt-2 w-fit rounded-full bg-white"><Link href="/library">Open library</Link></Button>

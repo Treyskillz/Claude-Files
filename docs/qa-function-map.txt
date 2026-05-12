@@ -1,0 +1,67 @@
+TRPC PROCEDURE NAMES
+190:    me: publicProcedure.query(opts => withAdminRole(opts.ctx.user)),
+191:    logout: publicProcedure.mutation(({ ctx }) => {
+199:    create: publicProcedure.input(generateInputSchema).mutation(async ({ input, ctx }) => {
+284:    listMine: protectedProcedure.query(({ ctx }) => listGeneratedAssets(ctx.user.id)),
+288:    catalog: publicProcedure.query(async () => {
+292:    sellerStatus: protectedProcedure.query(async ({ ctx }) => {
+302:    startSellerOnboarding: protectedProcedure.mutation(async ({ ctx }) => {
+339:    refreshSellerOnboarding: protectedProcedure.mutation(async ({ ctx }) => {
+367:    saveProduct: protectedProcedure
+401:    sellerListings: protectedProcedure.query(({ ctx }) => listSellerMarketplaceProducts(ctx.user.id)),
+402:    checkout: protectedProcedure
+519:    purchases: protectedProcedure.query(({ ctx }) => listUserPurchases(ctx.user.id)),
+523:    dashboard: protectedProcedure.query(async ({ ctx }) => {
+576:    reviewListing: protectedProcedure
+614:    exportSalesCsv: protectedProcedure.query(async ({ ctx }) => {
+637:    exportPayoutsCsv: protectedProcedure.query(async ({ ctx }) => {
+657:    publishGeneratedAsset: protectedProcedure
+
+PRODUCT SLUGS
+4:  slug: string;
+8:  priceCents: number;
+19:    slug: "skillz-magic-ai-studio-lifetime",
+23:    priceCents: 14900,
+29:    slug: "multi-platform-master-operating-system",
+33:    priceCents: 14900,
+39:    slug: "profession-prompt-pack",
+43:    priceCents: 1900,
+49:    slug: "industry-platform-skill-pack",
+53:    priceCents: 3900,
+59:    slug: "workflow-automation-blueprint",
+63:    priceCents: 4900,
+69:    slug: "profession-business-bundle",
+73:    priceCents: 9900,
+79:    slug: "skills-magic-pro-monthly",
+83:    priceCents: 2900,
+89:    slug: "skills-magic-pro-annual",
+93:    priceCents: 29000,
+100:export function getProductBySlug(slug: string) {
+
+PAGE EXPORTS
+client/src/pages/Home.tsx:68:function ProductPreview() {
+client/src/pages/Home.tsx:118:export default function Home() {
+client/src/pages/NotFound.tsx:6:export default function NotFound() {
+client/src/pages/ComponentShowcase.tsx:176:export default function ComponentsShowcase() {
+client/src/pages/Generator.tsx:75:export default function Generator() {
+client/src/pages/Library.tsx:21:export default function Library() {
+client/src/pages/Library.tsx:50:  const AssetCard = ({ item }: { item: LocalAsset }) => (
+client/src/pages/Library.tsx:122:function EmptyState({ text }: { text: string }) {
+client/src/pages/Upload.tsx:12:export default function Upload() {
+client/src/pages/Marketplace.tsx:44:export default function Marketplace() {
+client/src/pages/Marketplace.tsx:276:function ProductCard({ product, loading, isAdmin, onBuy, onAdminDownload }: { product: Product; loading: boolean; isAdmin: boolean; onBuy: () => void; onAdminDownload: (format: "markdown" | "pdf" | "zip") => void }) {
+client/src/pages/Marketplace.tsx:308:function Loader() {
+client/src/pages/Account.tsx:10:export default function Account() {
+client/src/pages/Account.tsx:63:function MetricCard({ icon: Icon, label, value, href }: { icon: typeof LibraryBig; label: string; value: string; href: string }) {
+client/src/pages/Account.tsx:67:function WorkflowCard({ title, text, href }: { title: string; text: string; href: string }) {
+client/src/pages/Success.tsx:7:export default function Success() {
+client/src/pages/Pricing.tsx:133:export default function Pricing() {
+client/src/pages/Instructions.tsx:81:export default function Instructions() {
+client/src/pages/Instructions.tsx:148:                    const Icon = item.icon;
+client/src/pages/AdminDashboard.tsx:26:export default function AdminDashboard() {
+client/src/pages/AdminDashboard.tsx:161:function StatusCard({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+client/src/pages/AdminDashboard.tsx:173:function Metric({ title, value, detail, icon }: { title: string | number; value: string | number; detail: string; icon: React.ReactNode }) {
+client/src/pages/AdminDashboard.tsx:186:function ActivityList({ title, empty, items }: { title: string; empty: string; items: Array<{ title: string; meta: string; detail: string }> }) {
+client/src/components/AppShell.tsx:9:function BrandMark({ compact = false }: { compact?: boolean }) {
+client/src/components/AppShell.tsx:36:function NavLinks({ mobile = false }: { mobile?: boolean }) {
+client/src/components/AppShell.tsx:58:export function AppShell({ children }: { children: React.ReactNode }) {

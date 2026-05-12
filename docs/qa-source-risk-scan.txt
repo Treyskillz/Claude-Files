@@ -1,0 +1,312 @@
+PRIVATE_OR_OWNER_STRATEGY_TERMS
+client/src/pages/Account.tsx:34:              <CardDescription>{isAuthenticated ? "Your private account tools, library access, and checkout-enabled features are available." : "Local generation still works, but marketplace saves and checkout require login."}</CardDescription>
+server/_core/heartbeat.ts:199: * owner-only via the sandbox CLI (`manus-heartbeat list --user-id <uid>`).
+server/_core/sdk.ts:32:  constructor(private client: ReturnType<typeof axios.create>) {
+server/_core/sdk.ts:41:  private decodeState(state: string): string {
+server/_core/sdk.ts:86:  private readonly client: AxiosInstance;
+server/_core/sdk.ts:87:  private readonly oauthService: OAuthService;
+server/_core/sdk.ts:94:  private deriveLoginMethod(
+server/_core/sdk.ts:148:  private parseCookies(cookieHeader: string | undefined) {
+server/_core/sdk.ts:157:  private getSessionSecret() {
+server/publicContentSafety.test.ts:17:  "business plan",
+server/publicContentSafety.test.ts:18:  "viability study",
+server/publicContentSafety.test.ts:19:  "market viability",
+server/publicContentSafety.test.ts:21:  "market positioning",
+server/publicContentSafety.test.ts:22:  "go-to-market",
+server/publicContentSafety.test.ts:23:  "pricing strategy",
+server/publicContentSafety.test.ts:24:  "sales funnel",
+server/publicContentSafety.test.ts:25:  "owner-only",
+server/publicContentSafety.test.ts:26:  "private handoff",
+server/publicContentSafety.test.ts:30:const privateDocumentReferences = [
+server/publicContentSafety.test.ts:32:  "docs/market_viability_assessment.md",
+server/publicContentSafety.test.ts:34:  "docs/viability_source_notes.md",
+server/publicContentSafety.test.ts:40:  it("keeps owner-only strategy terms and private handoff document links out of public routes", () => {
+server/publicContentSafety.test.ts:52:        expect(content, `${relativePath} should not expose owner-only term: ${term}`).not.toContain(term);
+server/publicContentSafety.test.ts:55:      for (const privateReference of privateDocumentReferences) {
+server/publicContentSafety.test.ts:56:        expect(content, `${relativePath} should not link private handoff document: ${privateReference}`).not.toContain(privateReference.toLowerCase());
+server/publicContentSafety.test.ts:61:  it("records the owner-approval rule in the private handoff package", () => {
+
+PLACEHOLDER_OR_COMING_SOON_TERMS
+client/src/components/ui/accordion.tsx:36:          "focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180",
+client/src/components/ui/breadcrumb.tsx:57:      aria-disabled="true"
+client/src/components/ui/button.tsx:8:  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+client/src/components/ui/calendar.tsx:54:          "size-(--cell-size) aria-disabled:opacity-50 p-0 select-none",
+client/src/components/ui/calendar.tsx:59:          "size-(--cell-size) aria-disabled:opacity-50 p-0 select-none",
+client/src/components/ui/calendar.tsx:118:        disabled: cn(
+client/src/components/ui/calendar.tsx:120:          defaultClassNames.disabled
+client/src/components/ui/carousel.tsx:192:      disabled={!canScrollPrev}
+client/src/components/ui/carousel.tsx:222:      disabled={!canScrollNext}
+client/src/components/ui/checkbox.tsx:15:        "peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+client/src/components/ui/command.tsx:76:          "placeholder:text-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
+client/src/components/ui/command.tsx:150:        "data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/context-menu.tsx:127:        "focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/context-menu.tsx:145:        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/context-menu.tsx:170:        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/dialog.tsx:137:            className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+client/src/components/ui/dropdown-menu.tsx:75:        "focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/dropdown-menu.tsx:93:        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/dropdown-menu.tsx:129:        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/field.tsx:116:        "group/field-label peer/field-label flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50",
+client/src/components/ui/field.tsx:131:        "flex w-fit items-center gap-2 text-sm leading-snug font-medium group-data-[disabled=true]/field:opacity-50",
+client/src/components/ui/input-group.tsx:38:  "text-muted-foreground flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium select-none [&>svg:not([class*='size-'])]:size-4 [&>kbd]:rounded-[calc(var(--radius)-5px)] group-data-[disabled=true]/input-group:opacity-50",
+client/src/components/ui/input-otp.tsx:18:        "flex items-center gap-2 has-disabled:opacity-50",
+client/src/components/ui/input-otp.tsx:21:      className={cn("disabled:cursor-not-allowed", className)}
+client/src/components/ui/input.tsx:57:        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+client/src/components/ui/label.tsx:14:        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+client/src/components/ui/menubar.tsx:104:        "focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/menubar.tsx:122:        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/menubar.tsx:147:        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/navigation-menu.tsx:62:  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-accent data-[state=open]:text-accent-foreground data-[state=open]:focus:bg-accent data-[state=open]:bg-accent/50 focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1"
+client/src/components/ui/radio-group.tsx:28:        "border-input text-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+client/src/components/ui/select.tsx:38:        "border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex w-fit items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/select.tsx:110:        "focus:bg-accent focus:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex w-full cursor-default items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
+client/src/components/ui/sheet.tsx:75:        <SheetPrimitive.Close className="ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
+client/src/components/ui/sidebar.tsx:484:  "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-hidden ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+client/src/components/ui/sidebar.tsx:696:        "text-sidebar-foreground ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground [&>svg]:text-sidebar-accent-foreground flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 outline-hidden focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+client/src/components/ui/slider.tsx:32:        "relative flex w-full touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col",
+client/src/components/ui/slider.tsx:54:          className="border-primary ring-ring/50 block size-4 shrink-0 rounded-full border bg-white shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50"
+client/src/components/ui/switch.tsx:14:        "peer data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+client/src/components/ui/tabs.tsx:43:        "data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+client/src/components/ui/textarea.tsx:56:        "border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+client/src/components/ui/toggle.tsx:8:  "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium hover:bg-muted hover:text-muted-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none transition-[color,box-shadow] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive whitespace-nowrap",
+client/src/components/AIChatBox.tsx:38:  placeholder?: string;
+client/src/components/AIChatBox.tsx:117:  placeholder = "Type your message...",
+client/src/components/AIChatBox.tsx:215:                      disabled={isLoading}
+client/src/components/AIChatBox.tsx:216:                      className="rounded-lg border border-border bg-card px-4 py-2 text-sm transition-colors hover:bg-accent disabled:cursor-not-allowed disabled:opacity-50"
+client/src/components/AIChatBox.tsx:316:          placeholder={placeholder}
+client/src/components/AIChatBox.tsx:323:          disabled={!input.trim() || isLoading}
+client/src/index.css:137:  button:not(:disabled),
+client/src/index.css:138:  [role="button"]:not([aria-disabled="true"]),
+client/src/index.css:139:  [type="button"]:not(:disabled),
+client/src/index.css:140:  [type="submit"]:not(:disabled),
+client/src/index.css:141:  [type="reset"]:not(:disabled),
+client/src/index.css:143:  select:not(:disabled),
+client/src/index.css:144:  input[type="checkbox"]:not(:disabled),
+client/src/index.css:145:  input[type="radio"]:not(:disabled) {
+client/src/pages/ComponentShowcase.tsx:197:    console.log("Dialog submitted with value:", dialogInput);
+client/src/pages/ComponentShowcase.tsx:413:                  <Input id="email" type="email" placeholder="Email" />
+client/src/pages/ComponentShowcase.tsx:419:                    placeholder="Type your message here."
+client/src/pages/ComponentShowcase.tsx:426:                      <SelectValue placeholder="Select a fruit" />
+client/src/pages/ComponentShowcase.tsx:562:                        <CommandInput placeholder="Search frameworks..." />
+client/src/pages/ComponentShowcase.tsx:630:                          <SelectValue placeholder="MM" />
+client/src/pages/ComponentShowcase.tsx:655:                          <SelectValue placeholder="YYYY" />
+client/src/pages/ComponentShowcase.tsx:1039:                            placeholder="Type something..."
+client/src/pages/ComponentShowcase.tsx:1413:                    placeholder="Try sending a message..."
+client/src/pages/Generator.tsx:220:          <Button size="lg" className="w-full justify-center rounded-full bg-red-600 text-white hover:bg-red-700 sm:w-auto" disabled={createAsset.isPending} onClick={() => generate("autonomous")}>
+client/src/pages/Generator.tsx:245:                      <SelectTrigger><SelectValue placeholder="Choose mode" /></SelectTrigger>
+client/src/pages/Generator.tsx:256:                        <SelectTrigger><SelectValue placeholder="Choose platform" /></SelectTrigger>
+client/src/pages/Generator.tsx:260:                        <Input value={customPlatform} onChange={event => setCustomPlatform(event.target.value)} placeholder="Type any AI platform, model, workspace, or tool" />
+client/src/pages/Generator.tsx:265:                      <Input value={businessType} onChange={event => setBusinessType(event.target.value)} placeholder="Agency, solo practice, clinic, local service firm" />
+client/src/pages/Generator.tsx:270:                    <Input value={customAssetCategory} onChange={event => setCustomAssetCategory(event.target.value)} placeholder="Optional: type any product category, department, workflow family, compliance niche, or buyer segment" />
+client/src/pages/Generator.tsx:276:                        <SelectTrigger><SelectValue placeholder="Choose profession" /></SelectTrigger>
+client/src/pages/Generator.tsx:280:                        <Input value={customProfessionCategory} onChange={event => setCustomProfessionCategory(event.target.value)} placeholder="Type any profession, role, or buyer segment" />
+client/src/pages/Generator.tsx:286:                        <SelectTrigger><SelectValue placeholder="Choose industry" /></SelectTrigger>
+client/src/pages/Generator.tsx:290:                        <Input value={customIndustryCategory} onChange={event => setCustomIndustryCategory(event.target.value)} placeholder="Type any industry, market, or niche" />
+client/src/pages/Generator.tsx:309:                    <Input value={title} onChange={event => setTitle(event.target.value)} placeholder="Example: Real Estate Agency Master Operating System" />
+client/src/pages/Generator.tsx:312:                    <div className="grid gap-2"><Label>Specific role</Label><Input value={role} onChange={e => setRole(e.target.value)} placeholder="Agent, broker, office manager" /></div>
+client/src/pages/Generator.tsx:313:                    <div className="grid gap-2"><Label>Specific niche</Label><Input value={industry} onChange={e => setIndustry(e.target.value)} placeholder="Luxury listings, elder care, tax prep" /></div>
+client/src/pages/Generator.tsx:315:                  <div className="grid gap-2"><Label>Audience</Label><Input value={audience} onChange={e => setAudience(e.target.value)} placeholder="Who will use or buy this asset?" /></div>
+client/src/pages/Generator.tsx:316:                  <div className="grid gap-2"><Label>Goal</Label><Textarea value={goal} onChange={e => setGoal(e.target.value)} placeholder="Describe the outcome this asset should create." /></div>
+client/src/pages/Generator.tsx:317:                  <div className="grid gap-2"><Label>Constraints</Label><Textarea value={constraints} onChange={e => setConstraints(e.target.value)} placeholder="Tone, compliance needs, format rules, excluded topics, examples." /></div>
+client/src/pages/Generator.tsx:318:                  <div className="grid gap-2"><Label>Monetization</Label><Input value={monetization} onChange={e => setMonetization(e.target.value)} placeholder="Individual download, bundle, internal SOP, subscription library" /></div>
+client/src/pages/Generator.tsx:319:                  <Button className="w-full rounded-full bg-zinc-950 text-white hover:bg-red-700" disabled={createAsset.isPending} onClick={() => generate()}>
+client/src/pages/Generator.tsx:345:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && copyToClipboard(result.content).then(() => toast.success(`Copied for ${effectiveTargetPlatform}.`))}><Download className="mr-2 h-4 w-4" /> Copy</Button>
+client/src/pages/Generator.tsx:346:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportToMarkdown(result.content, generatedTitle)}><FileDown className="mr-2 h-4 w-4" /> Markdown</Button>
+client/src/pages/Generator.tsx:347:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportToPDF(result.content, generatedTitle, effectiveTargetPlatform)}><FileDown className="mr-2 h-4 w-4" /> PDF</Button>
+client/src/pages/Generator.tsx:348:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportClaudePluginZip({ title: generatedTitle, content: result.content, assetType, manifest: { ...result.manifest, targetPlatform: effectiveTargetPlatform, businessType, customAssetCategory: effectiveAssetCategory } })}><FileArchive className="mr-2 h-4 w-4" /> Platform ZIP</Button>
+client/src/pages/Generator.tsx:349:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={saveToLocalLibrary}><Save className="mr-2 h-4 w-4" /> Save</Button>
+client/src/pages/Generator.tsx:350:                <Button className="justify-center bg-red-600 text-xs hover:bg-red-700 sm:text-sm" disabled={!result || saveProduct.isPending} onClick={addToMarketplace}><PackagePlus className="mr-2 h-4 w-4" /> Add listing</Button>
+client/src/pages/Generator.tsx:352:                  <Button className="justify-center bg-zinc-950 text-xs text-white hover:bg-red-700 sm:text-sm" disabled={!result || publishPackage.isPending} onClick={publishAdminPackage}>
+client/src/pages/Library.tsx:83:            <Input value={query} onChange={event => setQuery(event.target.value)} placeholder="Search assets and resources" className="h-12 rounded-full bg-white pl-10" />
+client/src/pages/Upload.tsx:22:      setContent(`PDF import placeholder for ${file.name}. For best results, paste the key Claude resource text below after reviewing the PDF.`);
+client/src/pages/Upload.tsx:75:            <div className="grid gap-2"><Label>Resource title</Label><Input value={title} onChange={event => setTitle(event.target.value)} placeholder="Example: Sales Call Review Prompt" /></div>
+client/src/pages/Upload.tsx:76:            <div className="grid gap-2"><Label>Resource content</Label><Textarea value={content} onChange={event => setContent(event.target.value)} placeholder="Paste Claude prompt, skill, workflow, or template content here." className="min-h-[360px] font-mono text-sm" /></div>
+client/src/pages/Marketplace.tsx:232:                  <Button className="rounded-full bg-red-600 hover:bg-red-700" disabled={connect.isPending || refreshConnect.isPending} onClick={() => isAuthenticated ? connect.mutate() : (window.location.href = getLoginUrl())}>{connect.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ExternalLink className="mr-2 h-4 w-4" />} Continue in Stripe Connect</Button>
+client/src/pages/Marketplace.tsx:249:                  <input className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none focus:border-red-400" placeholder="Listing title" value={listing.title} onChange={event => setListing(current => ({ ...current, title: event.target.value }))} />
+client/src/pages/Marketplace.tsx:251:                    <input className="rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none focus:border-red-400" placeholder="Category" value={listing.category} onChange={event => setListing(current => ({ ...current, category: event.target.value }))} />
+client/src/pages/Marketplace.tsx:261:                  <textarea className="min-h-24 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none focus:border-red-400" placeholder="Description" value={listing.description} onChange={event => setListing(current => ({ ...current, description: event.target.value }))} />
+client/src/pages/Marketplace.tsx:262:                  <textarea className="min-h-24 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none focus:border-red-400" placeholder="Included files, one per line" value={listing.includedFiles} onChange={event => setListing(current => ({ ...current, includedFiles: event.target.value }))} />
+client/src/pages/Marketplace.tsx:263:                  <textarea className="min-h-20 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm outline-none focus:border-red-400" placeholder="License terms" value={listing.licenseTerms} onChange={event => setListing(current => ({ ...current, licenseTerms: event.target.value }))} />
+client/src/pages/Marketplace.tsx:264:                  <Button className="rounded-full bg-red-600 hover:bg-red-700" disabled={submitListing.isPending || !sellerReady} onClick={handleListingSubmit}>{submitListing.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Send className="mr-2 h-4 w-4" />} Submit for admin approval</Button>
+client/src/pages/Marketplace.tsx:302:        <Button className="w-full rounded-full bg-red-600 hover:bg-red-700" disabled={loading} onClick={onBuy}>{loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : isAdmin ? <ShieldCheck className="mr-2 h-4 w-4" /> : <ShoppingCart className="mr-2 h-4 w-4" />} {isAdmin ? "Confirm admin access" : "Buy now"}</Button>
+client/src/pages/Pricing.tsx:194:                <Button className="mt-auto rounded-full bg-red-600 text-white hover:bg-red-700" disabled={checkout.isPending} onClick={() => checkout.mutate({ slug: plan.slug, title: plan.name, priceCents: plan.priceCents, packageType: plan.packageType, description: plan.description })}>
+client/src/pages/AdminDashboard.tsx:117:              <Button variant="outline" className="justify-start rounded-2xl bg-white" disabled={exportBusy} onClick={() => handleExport("sales")}><Download className="mr-2 h-4 w-4" /> Export sales CSV</Button>
+client/src/pages/AdminDashboard.tsx:118:              <Button variant="outline" className="justify-start rounded-2xl bg-white" disabled={exportBusy} onClick={() => handleExport("payouts")}><Download className="mr-2 h-4 w-4" /> Export payout CSV</Button>
+client/src/pages/AdminDashboard.tsx:142:                  <Button className="rounded-full bg-emerald-600 hover:bg-emerald-700" disabled={reviewListing.isPending} onClick={() => reviewListing.mutate({ id: listing.id, decision: "approved" })}><CheckCircle2 className="mr-2 h-4 w-4" /> Approve</Button>
+client/src/pages/AdminDashboard.tsx:143:                  <Button variant="outline" className="rounded-full bg-white" disabled={reviewListing.isPending} onClick={() => reviewListing.mutate({ id: listing.id, decision: "rejected", rejectionReason: "Rejected by admin review." })}><XCircle className="mr-2 h-4 w-4" /> Reject</Button>
+server/index.ts:29:    console.log(`Server running on http://localhost:${port}/`);
+server/stripeWebhook.ts:28:      console.log("[Webhook] Test event detected, returning verification response");
+server/stripeWebhook.ts:43:      console.log("[Webhook] Processed", event.type, event.id);
+server/export.quality.test.ts:56:    expect(generatorSource).toContain("disabled={!result}");
+server/export.quality.test.ts:57:    expect(generatorSource).toContain("disabled={!result || saveProduct.isPending}");
+server/retailReadiness.comprehensive.test.ts:14:    expect(generator).toContain("disabled={!result} onClick={() => result && copyToClipboard(result.content)");
+server/retailReadiness.comprehensive.test.ts:15:    expect(generator).toContain("disabled={!result} onClick={() => result && exportToMarkdown(result.content, generatedTitle)}");
+server/retailReadiness.comprehensive.test.ts:16:    expect(generator).toContain("disabled={!result} onClick={() => result && exportToPDF(result.content, generatedTitle, effectiveTargetPlatform)}");
+server/retailReadiness.comprehensive.test.ts:17:    expect(generator).toContain("disabled={!result} onClick={() => result && exportClaudePluginZip");
+server/retailReadiness.comprehensive.test.ts:18:    expect(generator).toContain("disabled={!result} onClick={saveToLocalLibrary}");
+server/retailReadiness.comprehensive.test.ts:19:    expect(generator).toContain("disabled={!result || saveProduct.isPending} onClick={addToMarketplace}");
+
+FREEDOM_CONTACT_TERMS
+client/src/lib/export.ts:5:const DOWNLOAD_BRAND = "Freedom One Academy";
+client/src/lib/export.ts:6:const DOWNLOAD_CONTACT = "freedom1.digital.@gmail.com";
+client/src/pages/Generator.tsx:366:                        Download branding: <span className="text-zinc-950">Freedom One Academy</span> · Contact: <span className="text-zinc-950">freedom1.digital.@gmail.com</span>
+server/export.quality.test.ts:11:    expect(exportSource).toContain('const DOWNLOAD_BRAND = "Freedom One Academy"');
+server/export.quality.test.ts:12:    expect(exportSource).toContain('const DOWNLOAD_CONTACT = "freedom1.digital.@gmail.com"');
+server/export.quality.test.ts:36:    expect(generatorSource).toContain("Freedom One Academy");
+server/export.quality.test.ts:37:    expect(generatorSource).toContain("freedom1.digital.@gmail.com");
+server/export.quality.test.ts:64:  it("documents that Freedom One Academy export changes are scoped only to this project and chat context", () => {
+server/export.quality.test.ts:69:    expect(projectScopeSource).toContain("Freedom One Academy");
+server/export.quality.test.ts:70:    expect(projectScopeSource).toContain("freedom1.digital.@gmail.com");
+
+BUTTONS_WITH_WINDOW_OPEN_OR_LOCATION
+client/src/pages/Home.tsx:39:    text: "Move finished work into documents, AI workspaces, client folders, marketplace listings, or buyer-ready download packages.",
+client/src/pages/Home.tsx:44:    text: "Draft product titles, descriptions, included-file lists, usage notes, license language, and checkout-ready offers.",
+client/src/pages/Home.tsx:56:  ["03", "Package and sell", "Export Markdown, PDF, ZIP, and listing copy so the result can be used, delivered, or sold."],
+client/src/pages/Home.tsx:62:  "Stripe-ready checkout foundation for paid offers",
+client/src/pages/Home.tsx:63:  "Markdown, PDF, ZIP, copy, and buyer-ready asset export paths",
+client/src/pages/Home.tsx:131:              <strong>Skillz Magic AI Studio</strong> helps creators, consultants, agencies, and operators generate practical AI assets for real business use: prompts, skills, workflows, Master Operating Systems, usage guides, marketplace copy, and export-ready files.
+client/src/pages/Home.tsx:243:                  <p className="text-sm text-zinc-600">Practical AI asset kits and sellable digital downloads</p>
+client/src/pages/ComponentShowcase.tsx:173:import { toast as sonnerToast } from "sonner";
+client/src/pages/Generator.tsx:13:import { copyToClipboard, exportClaudePluginZip, exportToMarkdown, exportToPDF } from "@/lib/export";
+client/src/pages/Generator.tsx:16:import { toast } from "sonner";
+client/src/pages/Generator.tsx:43:      "Upload or copy SKILL.md, PROMPTS.md, and WORKFLOWS.md as reusable project knowledge.",
+client/src/pages/Generator.tsx:94:  const [monetization, setMonetization] = useState("One-off download or bundled marketplace package");
+client/src/pages/Generator.tsx:100:      toast.success("Asset generated and ready to export.");
+client/src/pages/Generator.tsx:103:      toast.error(error.message || "Generation failed. Please try again.");
+client/src/pages/Generator.tsx:108:      toast.success("Marketplace listing saved.");
+client/src/pages/Generator.tsx:111:      toast.error(error.message || "Sign in to save marketplace listings.");
+client/src/pages/Generator.tsx:116:      toast.success(data.message || "Package published to the marketplace.");
+client/src/pages/Generator.tsx:119:      toast.error(error.message || "Admin package publishing failed.");
+client/src/pages/Generator.tsx:177:    toast.success("Saved to local library.");
+client/src/pages/Generator.tsx:216:                <ShieldCheck className="h-4 w-4" /> Owner/admin mode: Builder generation and all local export downloads are included without checkout.
+client/src/pages/Generator.tsx:318:                  <div className="grid gap-2"><Label>Monetization</Label><Input value={monetization} onChange={e => setMonetization(e.target.value)} placeholder="Individual download, bundle, internal SOP, subscription library" /></div>
+client/src/pages/Generator.tsx:333:                  <CardDescription>Copy into Claude, ChatGPT, Manus, Grok/Groq, or another AI tool; download Markdown/PDF; save locally; or package as a platform-ready ZIP.</CardDescription>
+client/src/pages/Generator.tsx:342:                    <ShieldCheck className="h-4 w-4 shrink-0" /> Admin exports unlocked: Markdown, PDF, and Platform ZIP downloads do not require payment for this owner account.
+client/src/pages/Generator.tsx:345:                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && copyToClipboard(result.content).then(() => toast.success(`Copied for ${effectiveTargetPlatform}.`))}><Download className="mr-2 h-4 w-4" /> Copy</Button>
+client/src/pages/Generator.tsx:363:                        This {assetLabel} is built for {effectiveProfessionCategory} in {effectiveIndustryCategory} using {effectiveTargetPlatform}. It explains the asset purpose, operating rules, prompts, workflow steps, output expectations, and QA requirements so a buyer understands how to use it before copying it into an AI platform.
+client/src/pages/Generator.tsx:379:                      <p className="mt-3 text-xs leading-5 text-zinc-500">The Markdown, PDF, and ZIP downloads also include usage and platform adaptation guidance for customer delivery.</p>
+client/src/pages/Library.tsx:8:import { copyToClipboard, exportToMarkdown, exportToPDF } from "@/lib/export";
+client/src/pages/Library.tsx:10:import { toast } from "sonner";
+client/src/pages/Library.tsx:64:          <Button size="sm" variant="outline" className="bg-white" onClick={() => copyToClipboard(item.content).then(() => toast.success("Copied."))}>Copy</Button>
+client/src/pages/Upload.tsx:9:import { toast } from "sonner";
+client/src/pages/Upload.tsx:23:      toast.info("PDF selected. Paste extracted text into the editor before saving.");
+client/src/pages/Upload.tsx:28:    toast.success("File loaded into the editor.");
+client/src/pages/Upload.tsx:33:      toast.error("Add a title and resource content before saving.");
+client/src/pages/Upload.tsx:47:    toast.success("Resource saved to your local library.");
+client/src/pages/Upload.tsx:61:              <p><strong className="text-zinc-950">Privacy:</strong> Local imports remain in browser storage unless you manually copy them elsewhere.</p>
+client/src/pages/Marketplace.tsx:11:import { toast } from "sonner";
+client/src/pages/Marketplace.tsx:57:        toast.success("Redirecting to secure Stripe Connect setup in this tab. Use the backup link if the redirect is blocked.");
+client/src/pages/Marketplace.tsx:58:        window.location.assign(data.onboardingUrl);
+client/src/pages/Marketplace.tsx:61:      toast.success(data.message || "Stripe Connect onboarding is ready.");
+client/src/pages/Marketplace.tsx:65:      toast.error(error.message || "Unable to start seller onboarding.");
+client/src/pages/Marketplace.tsx:70:      toast.success(data.onboardingStatus === "complete" ? "Stripe Connect onboarding is complete." : "Stripe Connect status refreshed. Finish any remaining Stripe steps before submitting listings.");
+client/src/pages/Marketplace.tsx:74:      toast.error(error.message || "Unable to refresh Stripe Connect status.");
+client/src/pages/Marketplace.tsx:79:      toast.success("Listing submitted for admin review.");
+client/src/pages/Marketplace.tsx:85:      toast.error(error.message || "Unable to submit listing.");
+client/src/pages/Marketplace.tsx:88:  const checkout = trpc.marketplace.checkout.useMutation({
+client/src/pages/Marketplace.tsx:91:        toast.success(data.message || "Admin access confirmed. No checkout required.");
+client/src/pages/Marketplace.tsx:94:      if (data.checkoutUrl) {
+client/src/pages/Marketplace.tsx:95:        window.open(data.checkoutUrl, "_blank", "noopener,noreferrer");
+client/src/pages/Marketplace.tsx:96:        toast.success("Stripe Checkout opened in a new tab.");
+client/src/pages/Marketplace.tsx:100:      toast.error(error.message || "Please sign in before checkout.");
+client/src/pages/Marketplace.tsx:123:    const params = new URLSearchParams(window.location.search);
+client/src/pages/Marketplace.tsx:130:    window.history.replaceState({}, "", `${window.location.pathname}${nextQuery ? `?${nextQuery}` : ""}`);
+client/src/pages/Marketplace.tsx:135:  const buildPackageContent = (product: Product) => `# ${product.title}\n\n## Package Summary\n${product.description}\n\n## Package Type\n${product.packageType.replaceAll("_", " ")}\n\n## Category\n${product.category}\n\n## Included Files\n${product.includedFiles.map(file => `- ${file}`).join("\n")}\n\n## License Terms\n${product.licenseTerms || "Commercial use license for the purchasing customer. Owner/admin access is included for internal use and packaging review."}\n\n## Admin Access Note\nThis package was downloaded from the owner/admin version of Skillz Magic AI Studio. Admin access does not create a Stripe checkout session or customer purchase record. Customer accounts continue to use the normal paid checkout flow.`;
+client/src/pages/Marketplace.tsx:137:  const downloadAdminPackage = (product: Product, format: "markdown" | "pdf" | "zip") => {
+client/src/pages/Marketplace.tsx:162:      window.location.href = getLoginUrl();
+client/src/pages/Marketplace.tsx:177:            <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Sell app access, one-off downloads, subscriptions, and bundles.</h1>
+client/src/pages/Marketplace.tsx:185:                <ShieldCheck className="h-4 w-4" /> Admin marketplace access: download package files without opening Stripe checkout.
+client/src/pages/Marketplace.tsx:199:            {catalog.isLoading ? <Loader /> : <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{products.map(product => <ProductCard key={product.slug} product={product} loading={checkout.isPending} isAdmin={isAdmin} onBuy={() => checkout.mutate({ slug: product.slug, title: product.title, priceCents: product.priceCents, packageType: product.packageType, description: product.description })} onAdminDownload={format => downloadAdminPackage(product, format)} />)}</div>}
+client/src/pages/Marketplace.tsx:202:            {purchases.error ? <p className="rounded-3xl border bg-white p-8 text-zinc-600">Sign in to view purchase history and download-ready items.</p> : null}
+client/src/pages/Marketplace.tsx:232:                  <Button className="rounded-full bg-red-600 hover:bg-red-700" disabled={connect.isPending || refreshConnect.isPending} onClick={() => isAuthenticated ? connect.mutate() : (window.location.href = getLoginUrl())}>{connect.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ExternalLink className="mr-2 h-4 w-4" />} Continue in Stripe Connect</Button>
+client/src/pages/Marketplace.tsx:289:        {isAdmin ? <p className="mb-4 rounded-2xl bg-red-50 p-3 text-sm font-semibold leading-6 text-red-700">Owner/admin accounts can download this package for internal review without creating a customer purchase.</p> : null}
+client/src/pages/Account.tsx:25:              <ShieldCheck className="h-4 w-4" /> Admin workspace active: Builder exports, package downloads, and pricing access are included for this owner account.
+client/src/pages/Account.tsx:34:              <CardDescription>{isAuthenticated ? "Your private account tools, library access, and checkout-enabled features are available." : "Local generation still works, but marketplace saves and checkout require login."}</CardDescription>
+client/src/pages/Account.tsx:40:                <Button className="w-fit rounded-full bg-red-600 hover:bg-red-700" onClick={() => (window.location.href = getLoginUrl())}><LogIn className="mr-2 h-4 w-4" /> Sign in</Button>
+client/src/pages/Account.tsx:53:            <MetricCard icon={CreditCard} label={isAdmin ? "Admin checkout bypass" : "Purchase records"} value={isAdmin ? "Included" : isAuthenticated ? String(purchases.data?.length ?? 0) : "Sign in"} href="/marketplace" />
+client/src/pages/Pricing.tsx:9:import { toast } from "sonner";
+client/src/pages/Pricing.tsx:31:    eyebrow: "Entry download",
+client/src/pages/Pricing.tsx:34:    cadence: "one download",
+client/src/pages/Pricing.tsx:36:    bestFor: "New buyers, lead magnets, low-friction checkout, and niche problem solving.",
+client/src/pages/Pricing.tsx:43:    eyebrow: "Premium download",
+client/src/pages/Pricing.tsx:46:    cadence: "one download",
+client/src/pages/Pricing.tsx:56:    eyebrow: "Operations download",
+client/src/pages/Pricing.tsx:59:    cadence: "one download",
+client/src/pages/Pricing.tsx:71:    cadence: "one download",
+client/src/pages/Pricing.tsx:85:    description: "A packaged set of skills, prompts, workflows, listing copy, and license-ready templates for a specific profession.",
+client/src/pages/Pricing.tsx:87:    features: ["Skill + prompt + workflow set", "Sales-page copy", "License template", "Bundle index and asset map"],
+client/src/pages/Pricing.tsx:136:  const checkout = trpc.marketplace.checkout.useMutation({
+client/src/pages/Pricing.tsx:139:        toast.success(data.message || "Admin access confirmed. No checkout required.");
+client/src/pages/Pricing.tsx:142:      if (data.checkoutUrl) {
+client/src/pages/Pricing.tsx:143:        window.open(data.checkoutUrl, "_blank", "noopener,noreferrer");
+client/src/pages/Pricing.tsx:144:        toast.success("Stripe Checkout opened in a new tab.");
+client/src/pages/Pricing.tsx:148:      toast.error(error.message || "Please sign in before checkout.");
+client/src/pages/Pricing.tsx:160:                Start with a focused download, choose a complete workflow package, or unlock recurring app access when you need to create AI asset kits across multiple professions, industries, and platforms.
+client/src/pages/Pricing.tsx:164:                  <ShieldCheck className="h-4 w-4" /> Owner/admin pricing access is included. Customer pricing and Stripe checkout remain active for non-admin accounts.
+client/src/pages/Pricing.tsx:189:                {isAdmin ? <p className="mb-4 rounded-2xl bg-red-50 p-3 text-sm font-semibold leading-6 text-red-700">This owner/admin account can use this offer without checkout. Customers still see and use the paid Stripe flow.</p> : null}
+client/src/pages/Pricing.tsx:194:                <Button className="mt-auto rounded-full bg-red-600 text-white hover:bg-red-700" disabled={checkout.isPending} onClick={() => checkout.mutate({ slug: plan.slug, title: plan.name, priceCents: plan.priceCents, packageType: plan.packageType, description: plan.description })}>
+client/src/pages/Pricing.tsx:195:                  {checkout.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : isAdmin ? <ShieldCheck className="mr-2 h-4 w-4" /> : null}{isAdmin ? "Confirm admin access" : plan.cta}
+client/src/pages/Instructions.tsx:48:    use: "Store generated and uploaded assets, copy content, and export saved work when you need a clean deliverable.",
+client/src/pages/Instructions.tsx:54:    use: "Package generated assets into sellable listings with a title, category, description, included files, and Stripe checkout preset.",
+client/src/pages/Instructions.tsx:66:  { offer: "Prompt pack", guidance: "Focused download", purpose: "Use when you need a targeted prompt system and quality checklist for one immediate use case." },
+client/src/pages/Instructions.tsx:78:  "Marketplace listings explain the outcome, intended user, included files, and package details before checkout is offered.",
+client/src/pages/Instructions.tsx:185:              <CardTitle>Package and checkout guidance</CardTitle>
+client/src/pages/Instructions.tsx:187:                The app supports one-off downloads, Master Operating Systems, bundles, lifetime access, monthly subscriptions, and annual subscriptions.
+client/src/pages/Instructions.tsx:218:                Run this review before sharing a PDF, ZIP, or marketplace checkout link.
+client/src/pages/AdminDashboard.tsx:14:function downloadCsv(filename: string, csv: string) {
+client/src/pages/AdminDashboard.tsx:19:  anchor.download = filename;
+client/src/pages/AdminDashboard.tsx:39:    if (result.data) downloadCsv(result.data.filename, result.data.csv);
+client/src/pages/AdminDashboard.tsx:51:          <Button className="mt-6 rounded-full bg-red-600 hover:bg-red-700" onClick={() => (window.location.href = getLoginUrl())}>Sign in as admin</Button>
+client/src/pages/AdminDashboard.tsx:95:          <Metric title="Gross sales tracked" value={formatMoney(data?.summary.salesGrossCents ?? 0)} detail="Recorded checkout list price total" icon={<CheckCircle2 className="h-5 w-5" />} />
+client/src/components/ErrorBoundary.tsx:43:              onClick={() => window.location.reload()}
+client/src/components/ui/sonner.tsx:10:      className="toaster group"
+client/src/components/DashboardLayout.tsx:73:              window.location.href = getLoginUrl();
+client/src/components/AppShell.tsx:93:              <Button className="rounded-full bg-zinc-950 text-white hover:bg-red-700" onClick={() => (window.location.href = getLoginUrl())}>
+client/src/components/AppShell.tsx:133:                  <Button variant="outline" onClick={() => (window.location.href = getLoginUrl())} className="bg-white">
+client/src/components/AppShell.tsx:157:            <p>Bundle assets, compare one-time app access, subscriptions, and one-off downloads, then route purchases through Stripe Checkout.</p>
+server/routers.ts:109:    checkoutUrl: null,
+server/routers.ts:115:    message: "Admin access included. No Stripe checkout or purchase record is required for this owner/admin account.",
+server/routers.ts:121:    checkoutUrl: session.url,
+server/routers.ts:165:    return `# ${title}\n\n## Master Operating System Purpose\n\nThis Master Operating System helps ${audience} ${goal}. It is designed for ${platformContext} and can be adapted across Claude, ChatGPT, Manus, Grok/Groq, and general AI workspaces.\n\n## Category Fit\n\nPrioritize the professional, industry, and business needs represented by ${categoryContext}. Specifically, ${assetFocus}.\n\n## Category Map / Recommended Asset Map\n\n| Asset Layer | Recommended Focus |\n| --- | --- |\n| Master Operating System modules | Intake OS, Delivery OS, QA OS, Sales OS, and platform adaptation OS |\n| Skills | Intake diagnosis, client/customer communication, research synthesis, offer packaging, and QA review |\n| Prompts | Strategy prompt, intake prompt, execution prompt, revision prompt, and QA prompt |\n| Workflows | Lead/request intake, research and planning, asset production, review/approval, and packaging/delivery |\n| Monetization package | Markdown export, PDF-ready documentation, platform ZIP package, product listing copy, and usage guide |\n\n## Operating Principles\n\n1. Convert vague business requests into structured AI-ready work orders.\n2. Route work to the right skill, prompt, workflow, SOP, or human review path.\n3. Preserve brand voice, compliance constraints, and quality standards.\n4. Produce reusable outputs that can become digital products, internal SOPs, or client deliverables.\n\n## Core Skills Library\n\n- Intake and diagnosis skill\n- Client or customer communication skill\n- Research and synthesis skill\n- Offer/product packaging skill\n- QA and compliance review skill\n\n## Prompt Library\n\n- Strategy prompt\n- Intake prompt\n- Execution prompt\n- Revision prompt\n- QA prompt\n\n## Workflow Library\n\n- Lead or request intake workflow\n- Research and planning workflow\n- Asset production workflow\n- Review and approval workflow\n- Packaging and delivery workflow\n\n## SOPs\n\nDocument the trigger, owner, inputs, decision rules, output format, escalation points, and completion criteria for each workflow. Apply these constraints: ${constraints}.\n\n## Platform Adaptation Guide\n\n- Claude: use as Projects instructions, SKILL.md, artifacts, and reusable prompt blocks.\n- ChatGPT: use as Custom GPT instructions, project knowledge, prompt templates, and task checklists.\n- Manus: use as agent instructions, project requirements, task plans, and workflow runbooks.\n- Grok/Groq: use as concise system guidance, high-speed prompt patterns, and API workflow instructions.\n- General AI: preserve markdown, role, context, task, constraints, output format, and QA sections.\n\n## Implementation Roadmap\n\n1. Install the operating principles and platform instructions.\n2. Add the core prompt library.\n3. Test the three highest-value workflows.\n4. Create branded export files and product listing copy.\n5. Review outputs against the QA rules before client or customer use.\n\n## QA Rules\n\nOutputs must be specific, useful, safe, non-generic, brand-aware, and directly tied to ${categoryContext}.\n`;
+server/routers.ts:181:    return `# ${title}\n\n## Workflow Goal\n\nHelp ${audience} ${goal}.\n\n## Trigger\n\nA user requests an automation asset, business workflow, or Claude-ready operating procedure.\n\n## Inputs\n\nProfession category, industry category, role, audience, offer, source materials, constraints, tone, quality requirements, and monetization goal.\n\n## Steps\n\n1. Intake and classify the user's request.\n2. Select the best asset type: skill, prompt, workflow, or bundle.\n3. Generate the asset using smart defaults when inputs are missing.\n4. Package the asset with a title, description, included files, license notes, and usage guide.\n5. Run QA for clarity, usability, specificity, and commercial readiness.\n6. Export as Markdown or PDF.\n\n## Decisions\n\nIf the output will be sold, include preview copy and license terms. If it is for internal use, include implementation SOPs and handoff notes.\n\n## Quality Controls\n\nEnsure outputs are practical, non-generic, correctly labeled, and compatible with ${platformContext} usage patterns, with notes for Claude, ChatGPT, Manus, Grok/Groq, and general AI adaptation when relevant.\n`;
+server/routers.ts:184:  return `# ${title}\n\nThis bundle includes a Master Operating System overview, AI skill, prompt system, workflow blueprint, profession and industry category recommendations, platform adaptation notes, product description, license terms, and usage guide for ${audience}.\n\n## Bundle Objective\n\n${goal}\n\n## Included Assets\n\n- SKILL.md\n- Prompt system\n- Workflow blueprint\n- Profession and industry category recommendations\n- Usage guide\n- Product listing copy\n- License terms\n\n## License\n\n${DEFAULT_LICENSE}\n`;
+server/routers.ts:200:      const system = "You are Skillz Magic AI Studio, a senior AI automation product architect. Create retail-ready Master Operating Systems, AI skills, prompts, workflows, and bundles that are practical, specific, copy-ready, and adaptable for Claude, ChatGPT, Manus, Grok/Groq, and general AI platform usage. Return Markdown only.";
+server/routers.ts:214:      const monetization = input.monetization || "package as a downloadable digital product";
+server/routers.ts:402:    checkout: protectedProcedure
+server/routers.ts:454:        const session = await stripe.checkout.sessions.create({
+server/routers.ts:497:          success_url: `${origin}/?checkout=success&product=${encodeURIComponent(product.slug)}`,
+server/routers.ts:498:          cancel_url: `${origin}/?checkout=cancelled&product=${encodeURIComponent(product.slug)}`,
+server/routers.ts:572:          sellerExpectation: "Admin approval should only be granted for customer listings after Stripe Connect onboarding is complete so payout routing is ready before checkout.",
+server/routers.ts:611:          message: input.decision === "approved" ? "Listing approved and eligible for marketplace checkout." : "Listing rejected and hidden from marketplace checkout.",
+server/routers.ts:630:          stripe_checkout_session_id: row.stripeCheckoutSessionId,
+server/routers.ts:652:          stripe_checkout_session_id: row.stripeCheckoutSessionId,
+server/routers.ts:695:          message: "Admin package published to the marketplace. Customer checkout remains paid unless the viewer is an admin.",
+server/products.ts:74:    description: "A curated professional bundle containing Master Operating System notes, skills, prompts, workflows, product listing copy, license-ready packaging templates, and a sellable asset map.",
+server/products.ts:75:    includedFiles: ["bundle-index.md", "MASTER-OS.md", "SKILL.md", "prompt-pack.md", "workflow-library.md", "sales-page-copy.md", "license.md", "category-asset-map.md"],
+server/products.ts:94:    description: "Annual access for creators and small teams building a line of Master Operating Systems, AI skills, prompt systems, workflow products, and bundle downloads. Priced as roughly two months free versus monthly billing.",
+server/stripeWebhook.ts:33:      if (event.type === "checkout.session.completed") {
+server/instructions.page.test.ts:22:    expect(instructions).toContain("Package and checkout guidance");
+server/export.quality.test.ts:15:    expect(exportSource).toContain("${targetPlatform} asset generated for copy, PDF archive, buyer delivery, marketplace packaging, and AI platform installation.");
+server/retailReadiness.comprehensive.test.ts:14:    expect(generator).toContain("disabled={!result} onClick={() => result && copyToClipboard(result.content)");
+server/retailReadiness.comprehensive.test.ts:22:  it("verifies pricing and marketplace paths include premium offers, loading, empty, auth, and checkout UX", () => {
+server/retailReadiness.comprehensive.test.ts:28:    expect(pricing).toContain("checkout.mutate");
+server/retailReadiness.comprehensive.test.ts:30:    expect(pricing).toContain("Please sign in before checkout.");
+server/retailReadiness.comprehensive.test.ts:34:    expect(marketplace).toContain("Sign in to view purchase history and download-ready items.");
+server/retailReadiness.comprehensive.test.ts:35:    expect(marketplace).toContain("window.open(data.checkoutUrl");
+server/adminAccess.test.ts:50:  it("builds a free admin checkout response without Stripe session identifiers", () => {
+server/adminAccess.test.ts:60:      checkoutUrl: null,
+server/adminAccess.test.ts:67:    expect(bypass.message).toContain("No Stripe checkout or purchase record is required");
+server/adminAccess.test.ts:70:  it("returns admin checkout bypass only for admin callers while non-admin callers continue to the paid path", async () => {
+server/adminAccess.test.ts:80:      await expect(adminCaller.marketplace.checkout({ slug: "pro-monthly" })).resolves.toMatchObject({
+server/adminAccess.test.ts:82:        checkoutUrl: null,
+server/adminAccess.test.ts:86:      await expect(customerCaller.marketplace.checkout({ slug: "pro-monthly" })).rejects.toThrow("Stripe is not configured");
+server/adminAccess.test.ts:102:    await expect(anonymousCaller.marketplace.checkout({ slug: "pro-monthly" })).rejects.toThrow("Please login");
+server/adminAccess.test.ts:105:  it("keeps customer checkout copy while exposing admin-only download controls", () => {
+server/adminAccess.test.ts:112:    expect(marketplace).toContain("Admin marketplace access: download package files without opening Stripe checkout.");
+server/adminAccess.test.ts:120:    expect(pricing).toContain("Customer pricing and Stripe checkout remain active for non-admin accounts");
+server/adminAccess.test.ts:124:      expect(generator).toContain("Markdown, PDF, and Platform ZIP downloads do not require payment");
+server/adminAccess.test.ts:241:      expect(result.message).toContain("Customer checkout remains paid unless the viewer is an admin");
+server/marketplace.payouts.test.ts:63:  it("passes Stripe destination-charge transfer data and app-owner platform fees for eligible Connect checkouts", () => {
+server/marketplace.payouts.test.ts:76:    expect(marketplaceSource).toContain("window.location.assign(data.onboardingUrl)");
+server/marketplace.payouts.test.ts:107:        note: "Includes \"quoted\" listing copy",
+server/marketplace.payouts.test.ts:111:    expect(csv).toBe('"purchase_id","product_title","seller_email","note"\n"101","Prompt Pack, Pro","seller@example.com","Includes ""quoted"" listing copy"');
