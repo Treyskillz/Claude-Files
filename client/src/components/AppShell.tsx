@@ -12,9 +12,9 @@ function BrandMark({ compact = false }: { compact?: boolean }) {
         <Sparkles className="h-5 w-5" />
       </div>
       {!compact && (
-        <div className="leading-none">
-          <div className="font-[Sora] text-base font-black tracking-[-0.04em] text-zinc-950">Skills Magic</div>
-          <div className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-red-600">AI</div>
+          <div className="leading-none">
+          <div className="text-base font-black tracking-[-0.04em] text-zinc-950">Skills Magic</div>
+          <div className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-red-600">AI Studio</div>
         </div>
       )}
     </div>
@@ -22,8 +22,8 @@ function BrandMark({ compact = false }: { compact?: boolean }) {
 }
 
 const navItems = [
-  { href: "/", label: "Website" },
-  { href: "/generator", label: "CMOS Builder" },
+  { href: "/", label: "Home" },
+  { href: "/generator", label: "Builder" },
   { href: "/instructions", label: "Instructions" },
   { href: "/library", label: "Library" },
   { href: "/upload", label: "Upload" },
@@ -54,7 +54,7 @@ function NavLinks({ mobile = false }: { mobile?: boolean }) {
 }
 
 export function AppShell({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, user, logout } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -68,7 +68,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             {isAuthenticated ? (
               <>
                 <Link href="/account" className="text-sm font-semibold text-zinc-700 hover:text-red-600">
-                  {user?.name || "Account"}
+                  Account
                 </Link>
                 <Button variant="outline" onClick={() => logout()} className="rounded-full bg-white">
                   Sign out
@@ -81,7 +81,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             )}
             <Button asChild className="rounded-full bg-red-600 text-white hover:bg-red-700">
               <Link href="/generator">
-                  <Sparkles className="mr-2 h-4 w-4" /> Build a CMOS
+                  <Sparkles className="mr-2 h-4 w-4" /> Build an asset
               </Link>
             </Button>
           </div>
@@ -98,7 +98,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               <NavLinks mobile />
               <div className="mt-8 grid gap-3">
                 <Button asChild className="bg-red-600 hover:bg-red-700">
-                  <Link href="/generator">Build a CMOS</Link>
+                  <Link href="/generator">Build an asset</Link>
                 </Button>
                 {isAuthenticated ? (
                   <Button variant="outline" onClick={() => logout()} className="bg-white">
@@ -120,8 +120,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <div>
             <div className="mb-4"><BrandMark /></div>
             <p className="max-w-xl leading-6">
-              Skills Magic AI helps creators, operators, consultants, and teams generate multi-platform Master Operating Systems, skills,
-              prompts, workflows, PDF exports, and marketplace-ready bundles with clear instructions and a professional red, black, grey, and white brand system.
+              Skills Magic AI helps creators, consultants, agencies, and teams generate multi-platform AI operating assets, prompt systems, workflows, PDF exports, and marketplace-ready bundles with clear instructions and a clean professional brand system.
             </p>
           </div>
           <div>

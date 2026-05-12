@@ -8,7 +8,7 @@ import { CheckCircle2, CreditCard, LibraryBig, LogIn, LogOut, UserCircle } from 
 import { Link } from "wouter";
 
 export default function Account() {
-  const { user, isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const purchases = trpc.marketplace.purchases.useQuery(undefined, { retry: false, enabled: isAuthenticated });
   const mine = trpc.generator.listMine.useQuery(undefined, { retry: false, enabled: isAuthenticated });
 
@@ -17,15 +17,15 @@ export default function Account() {
       <div className="container">
         <div className="mb-8">
           <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><UserCircle className="mr-2 h-4 w-4" /> Creator account</Badge>
-          <h1 className="font-[Sora] text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Manage your Skills Magic AI workspace.</h1>
+          <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Manage your Skills Magic AI workspace.</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Sign in to sync server-saved assets, save marketplace listings, start Stripe Checkout, and view completed purchases.</p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <Card className="premium-card rounded-3xl">
             <CardHeader>
-              <CardTitle>{isAuthenticated ? `Signed in as ${user?.name || "creator"}` : "Sign in to unlock synced features"}</CardTitle>
-              <CardDescription>{isAuthenticated ? "Your authenticated workspace is active." : "Local generation still works, but marketplace saves and checkout require login."}</CardDescription>
+              <CardTitle>{isAuthenticated ? "Account workspace active" : "Sign in to unlock synced features"}</CardTitle>
+              <CardDescription>{isAuthenticated ? "Your private account tools, library access, and checkout-enabled features are available." : "Local generation still works, but marketplace saves and checkout require login."}</CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4">
               {isAuthenticated ? (

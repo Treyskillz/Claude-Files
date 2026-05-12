@@ -66,3 +66,14 @@
 - [x] Complete GitHub delivery by either pushing the QA-approved source to the user's repository or documenting a repository-specific export guide with confirmed owner/repo, remote URL, branch, and exact push steps/output evidence.
 - [x] Re-check GitHub access after the user confirmed GitHub is open, then complete repository-specific delivery evidence or update the documented export path.
 - [x] Update GitHub delivery materials with the confirmed Treyskillz account context, known repositories, suggested repository name, and exact next-step export path.
+- [x] Fix jumbled fonts, wording, spacing, button placement, and image/card alignment across the public website and app navigation.
+- [x] Remove personal-name exposure from the public-facing website navigation and replace it with neutral account or sign-in language.
+- [x] Redesign the website with a more modern WordPress-style product-site appearance using clean lines, professional typography, balanced spacing, and retail-ready sales sections.
+- [x] Add or clarify a sellable packaging section explaining the website/app version, downloadable assets, GitHub package, deployment path, and what is included for buyers.
+- [x] Locate, verify, and surface the existing marketing package for the website and app; update it if needed so the user can find and use it immediately.
+- [x] Locate, verify, and surface the existing viability study and market positioning materials so the user can find them from the handoff and, if appropriate, from the website packaging section.
+- [x] Keep the viability study and market positioning analysis out of the public website, and deliver it separately as an owner-facing sales-readiness assessment covering whether the app is viable for sale and which customer pain points it solves.
+- [x] Add source-backed validation for the redesigned public pages by reviewing final Home, shell, account, and dashboard chrome code and rerunning automated validation after the redesign.
+- [x] Capture and verify the final public/account/dashboard chrome code shows neutral account/sign-in labels and no personal-name exposure.
+- [x] Add or update a visible owner handoff document that explicitly lists the website/app package contents, GitHub repo, deployment path, downloadable assets, marketing package path, and viability study path.
+- [x] Document where the owner can immediately find the marketing package and viability study in the final handoff materials.
