@@ -36,6 +36,13 @@
       "when": 1778539298518,
       "tag": "0004_easy_maximus",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1778555450597,
+      "tag": "0005_secret_corsair",
+      "breakpoints": true
     }
   ]
 }

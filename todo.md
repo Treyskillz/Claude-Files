@@ -111,3 +111,9 @@
 - [x] Protect the admin dashboard route and publish actions server-side so non-admin users cannot access the admin version by URL or direct API call.
 - [x] Add customer-facing marketplace guidance that explains seller payouts are not automatic until connected-account payout infrastructure is added.
 - [x] Add regression tests for admin dashboard visibility, protected admin route access, one-click publish behavior, and marketplace payout guidance.
+- [x] Create a reusable Manus skill from the admin marketplace workflow, including protected admin dashboard, payout guidance, one-click publishing, tests, validation, and checkpointing.
+- [x] Add Stripe Connect seller onboarding so customer sellers can start connected-account setup before receiving marketplace payouts.
+- [x] Add customer-submitted marketplace listings with admin approval and rejection controls.
+- [x] Add admin sales and payout reporting exports for marketplace activity.
+- [x] Add regression tests covering Stripe Connect onboarding, listing moderation, and admin report exports.
+- [x] Ensure approved customer-seller listings carry payout split metadata so the seller share and app-owner platform share can be calculated and reported for each sale.

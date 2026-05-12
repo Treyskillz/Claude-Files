@@ -8,11 +8,18 @@ import { systemRouter } from "./_core/systemRouter";
 import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
 import {
   createPurchaseRecord,
+  getMarketplaceProductById,
+  getMarketplaceProductBySlug,
+  getUserById,
+  listApprovedMarketplaceProducts,
   listGeneratedAssets,
   listMarketplaceProducts,
   listRecentPurchases,
+  listSellerMarketplaceProducts,
   listUserPurchases,
+  reviewMarketplaceProduct,
   saveGeneratedAsset,
+  updateUserStripeConnectStatus,
   upsertMarketplaceProduct,
 } from "./db";
 import { DEFAULT_LICENSE, getProductBySlug, MARKETPLACE_PRODUCTS } from "./products";
@@ -21,6 +28,7 @@ const stripe = process.env.STRIPE_SECRET_KEY ? new Stripe(process.env.STRIPE_SEC
 
 const assetTypeSchema = z.enum(["master_os", "skill", "prompt", "workflow", "bundle"]);
 const packageTypeSchema = z.enum(["individual", "bundle", "one_time_app", "subscription_monthly", "subscription_annual"]);
+const DEFAULT_PLATFORM_FEE_BPS = 2000;
 
 const generateInputSchema = z.object({
   assetType: assetTypeSchema.default("skill"),
@@ -57,6 +65,10 @@ type CheckoutProductAccess = {
   description: string;
   packageType: z.infer<typeof packageTypeSchema>;
   priceCents: number;
+  sellerId?: number | null;
+  sellerStripeAccountId?: string | null;
+  payoutMode?: "platform_owned" | "connect_destination";
+  platformFeeBps?: number | null;
 };
 
 export function isAdminUser(user: { role?: string | null; openId?: string | null } | null | undefined) {
@@ -114,6 +126,30 @@ export function buildPaidCheckoutResponse(session: Stripe.Checkout.Session, prod
     packageType: product.packageType,
     message: "Stripe Checkout session created for customer payment.",
   } as const;
+}
+
+export function calculatePayoutSplit(product: Pick<CheckoutProductAccess, "priceCents" | "payoutMode" | "platformFeeBps">) {
+  const platformFeeBps = product.payoutMode === "connect_destination" ? product.platformFeeBps ?? DEFAULT_PLATFORM_FEE_BPS : 10_000;
+  const platformFeeCents = Math.round((product.priceCents * platformFeeBps) / 10_000);
+  const sellerShareCents = product.payoutMode === "connect_destination" ? Math.max(product.priceCents - platformFeeCents, 0) : 0;
+
+  return {
+    platformFeeBps,
+    platformFeeCents,
+    sellerShareCents,
+    payoutStatus: product.payoutMode === "connect_destination" ? ("pending" as const) : ("not_applicable" as const),
+  };
+}
+
+function csvEscape(value: unknown) {
+  const stringValue = value === null || value === undefined ? "" : String(value);
+  return `"${stringValue.replace(/"/g, '""')}"`;
+}
+
+export function toCsv(rows: Array<Record<string, unknown>>) {
+  if (rows.length === 0) return "";
+  const headers = Object.keys(rows[0]);
+  return [headers.map(csvEscape).join(","), ...rows.map(row => headers.map(header => csvEscape(row[header])).join(","))].join("\n");
 }
 
 export function buildFallbackAsset(input: GenerateInput) {
@@ -250,8 +286,83 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
 
   marketplace: router({
     catalog: publicProcedure.query(async () => {
-      const saved = await listMarketplaceProducts();
+      const saved = await listApprovedMarketplaceProducts();
       return { presets: MARKETPLACE_PRODUCTS, saved };
+    }),
+    sellerStatus: protectedProcedure.query(async ({ ctx }) => {
+      const seller = await getUserById(ctx.user.id);
+      return {
+        stripeConnectAccountId: seller?.stripeConnectAccountId ?? null,
+        onboardingStatus: seller?.stripeConnectOnboardingStatus ?? "not_started",
+        chargesEnabled: Boolean(seller?.stripeConnectChargesEnabled),
+        payoutsEnabled: Boolean(seller?.stripeConnectPayoutsEnabled),
+        readyForListings: seller?.stripeConnectOnboardingStatus === "complete" && Boolean(seller?.stripeConnectPayoutsEnabled),
+      } as const;
+    }),
+    startSellerOnboarding: protectedProcedure.mutation(async ({ ctx }) => {
+      if (!stripe) throw new Error("Stripe Connect is not configured yet. Please configure payments in Settings → Payment.");
+
+      const seller = await getUserById(ctx.user.id);
+      const origin = ctx.req.headers.origin || `${ctx.req.protocol}://${ctx.req.headers.host}`;
+      let accountId = seller?.stripeConnectAccountId ?? null;
+
+      if (!accountId) {
+        const account = await stripe.accounts.create({
+          type: "express",
+          email: ctx.user.email || undefined,
+          capabilities: {
+            card_payments: { requested: true },
+            transfers: { requested: true },
+          },
+          metadata: {
+            user_id: ctx.user.id.toString(),
+            user_email: ctx.user.email || "",
+          },
+        });
+        accountId = account.id;
+      }
+
+      await updateUserStripeConnectStatus(ctx.user.id, {
+        stripeConnectAccountId: accountId,
+        stripeConnectOnboardingStatus: "pending",
+      });
+
+      const accountLink = await stripe.accountLinks.create({
+        account: accountId,
+        refresh_url: `${origin}/marketplace?seller_onboarding=refresh`,
+        return_url: `${origin}/marketplace?seller_onboarding=complete`,
+        type: "account_onboarding",
+      });
+
+      return { onboardingUrl: accountLink.url, stripeConnectAccountId: accountId } as const;
+    }),
+    refreshSellerOnboarding: protectedProcedure.mutation(async ({ ctx }) => {
+      if (!stripe) throw new Error("Stripe Connect is not configured yet. Please configure payments in Settings → Payment.");
+      const seller = await getUserById(ctx.user.id);
+      if (!seller?.stripeConnectAccountId) {
+        return {
+          stripeConnectAccountId: null,
+          onboardingStatus: "not_started",
+          chargesEnabled: false,
+          payoutsEnabled: false,
+        } as const;
+      }
+
+      const account = await stripe.accounts.retrieve(seller.stripeConnectAccountId);
+      const onboardingStatus = account.details_submitted && account.payouts_enabled ? "complete" : "pending";
+      await updateUserStripeConnectStatus(ctx.user.id, {
+        stripeConnectAccountId: account.id,
+        stripeConnectOnboardingStatus: onboardingStatus,
+        stripeConnectChargesEnabled: account.charges_enabled ? 1 : 0,
+        stripeConnectPayoutsEnabled: account.payouts_enabled ? 1 : 0,
+      });
+
+      return {
+        stripeConnectAccountId: account.id,
+        onboardingStatus,
+        chargesEnabled: account.charges_enabled,
+        payoutsEnabled: account.payouts_enabled,
+      } as const;
     }),
     saveProduct: protectedProcedure
       .input(
@@ -265,8 +376,12 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
           licenseTerms: z.string().optional(),
         }),
       )
-      .mutation(({ input, ctx }) =>
-        upsertMarketplaceProduct({
+      .mutation(async ({ input, ctx }) => {
+        const admin = isAdminUser(ctx.user);
+        const seller = await getUserById(ctx.user.id);
+        const sellerReady = seller?.stripeConnectOnboardingStatus === "complete" && Boolean(seller?.stripeConnectPayoutsEnabled);
+
+        return upsertMarketplaceProduct({
           ownerId: ctx.user.id,
           title: input.title,
           slug: `${slugify(input.title)}-${Date.now()}`,
@@ -276,8 +391,14 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
           description: input.description,
           includedFilesJson: JSON.stringify(input.includedFiles),
           licenseTerms: input.licenseTerms || DEFAULT_LICENSE,
-        }),
-      ),
+          listingStatus: admin ? "approved" : "pending_review",
+          payoutMode: admin ? "platform_owned" : "connect_destination",
+          sellerStripeAccountId: admin ? null : seller?.stripeConnectAccountId ?? null,
+          platformFeeBps: admin ? 10_000 : DEFAULT_PLATFORM_FEE_BPS,
+          rejectionReason: sellerReady || admin ? null : "Seller payout account is not fully enabled yet. Admin approval should wait until Stripe Connect onboarding is complete.",
+        });
+      }),
+    sellerListings: protectedProcedure.query(({ ctx }) => listSellerMarketplaceProducts(ctx.user.id)),
     checkout: protectedProcedure
       .input(
         z.object({
@@ -289,23 +410,47 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
         }),
       )
       .mutation(async ({ input, ctx }) => {
-        const preset = getProductBySlug(input.slug);
-        const product = {
-          slug: preset?.slug || slugify(input.slug),
-          title: input.title || preset?.title || "Claude Studio Digital Asset",
-          description: input.description || preset?.description || "Downloadable Claude skill, prompt, or workflow asset.",
-          packageType: input.packageType || preset?.packageType || "individual",
-          priceCents: input.priceCents || preset?.priceCents || 2900,
-        } as const;
+        const saved = await getMarketplaceProductBySlug(input.slug);
+        if (saved && saved.listingStatus !== "approved") {
+          throw new TRPCError({ code: "FORBIDDEN", message: "This listing is not approved for sale yet." });
+        }
+
+        const preset = saved ? undefined : getProductBySlug(input.slug);
+        const product: CheckoutProductAccess = saved
+          ? {
+              slug: saved.slug,
+              title: saved.title,
+              description: saved.description || "Downloadable AI skill, prompt, workflow, or operating system asset.",
+              packageType: saved.packageType,
+              priceCents: saved.priceCents,
+              sellerId: saved.ownerId,
+              sellerStripeAccountId: saved.sellerStripeAccountId,
+              payoutMode: saved.payoutMode,
+              platformFeeBps: saved.platformFeeBps,
+            }
+          : {
+              slug: preset?.slug || slugify(input.slug),
+              title: input.title || preset?.title || "Claude Studio Digital Asset",
+              description: input.description || preset?.description || "Downloadable Claude skill, prompt, or workflow asset.",
+              packageType: input.packageType || preset?.packageType || "individual",
+              priceCents: input.priceCents || preset?.priceCents || 2900,
+              payoutMode: "platform_owned",
+              platformFeeBps: 10_000,
+            };
 
         if (isAdminUser(ctx.user)) {
           return buildAdminCheckoutBypass(product);
         }
 
         if (!stripe) throw new Error("Stripe is not configured yet. Please configure payments in Settings → Payment.");
+        if (product.payoutMode === "connect_destination" && !product.sellerStripeAccountId) {
+          throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Seller payout account is not ready. Please contact support or choose another listing." });
+        }
 
+        const payout = calculatePayoutSplit(product);
         const origin = ctx.req.headers.origin || `${ctx.req.protocol}://${ctx.req.headers.host}`;
         const isRecurring = product.packageType === "subscription_monthly" || product.packageType === "subscription_annual";
+        const connectDestination = product.payoutMode === "connect_destination" && product.sellerStripeAccountId ? product.sellerStripeAccountId : undefined;
         const session = await stripe.checkout.sessions.create({
           mode: isRecurring ? "subscription" : "payment",
           allow_promotion_codes: true,
@@ -317,7 +462,23 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
             customer_name: ctx.user.name || "",
             product_slug: product.slug,
             package_type: product.packageType,
+            seller_id: product.sellerId?.toString() || "",
+            payout_mode: product.payoutMode || "platform_owned",
+            platform_fee_cents: payout.platformFeeCents.toString(),
+            seller_share_cents: payout.sellerShareCents.toString(),
           },
+          payment_intent_data: !isRecurring && connectDestination
+            ? {
+                application_fee_amount: payout.platformFeeCents,
+                transfer_data: { destination: connectDestination },
+              }
+            : undefined,
+          subscription_data: isRecurring && connectDestination
+            ? {
+                application_fee_percent: (product.platformFeeBps ?? DEFAULT_PLATFORM_FEE_BPS) / 100,
+                transfer_data: { destination: connectDestination },
+              }
+            : undefined,
           line_items: [
             {
               quantity: 1,
@@ -344,6 +505,12 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
           packageType: product.packageType,
           stripeCheckoutSessionId: session.id,
           stripeCustomerId: typeof session.customer === "string" ? session.customer : null,
+          sellerId: product.sellerId ?? null,
+          sellerStripeAccountId: product.sellerStripeAccountId ?? null,
+          grossAmountCents: product.priceCents,
+          sellerShareCents: payout.sellerShareCents,
+          platformFeeCents: payout.platformFeeCents,
+          payoutStatus: payout.payoutStatus,
           fulfillmentStatus: "pending",
         });
 
@@ -364,7 +531,13 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
 
       const readyPurchases = purchases.filter(purchase => purchase.fulfillmentStatus === "ready" || purchase.fulfillmentStatus === "fulfilled").length;
       const pendingPurchases = purchases.filter(purchase => purchase.fulfillmentStatus === "pending").length;
+      const pendingListings = products.filter(product => product.listingStatus === "pending_review");
+      const rejectedListings = products.filter(product => product.listingStatus === "rejected");
+      const approvedListings = products.filter(product => product.listingStatus === "approved");
       const savedRevenueCents = products.reduce((total, product) => total + (product.priceCents || 0), 0);
+      const salesGrossCents = purchases.reduce((total, purchase) => total + (purchase.grossAmountCents || 0), 0);
+      const sellerShareCents = purchases.reduce((total, purchase) => total + (purchase.sellerShareCents || 0), 0);
+      const platformFeeCents = purchases.reduce((total, purchase) => total + (purchase.platformFeeCents || 0), 0);
       const packageTypeCounts = products.reduce<Record<string, number>>((counts, product) => {
         counts[product.packageType] = (counts[product.packageType] || 0) + 1;
         return counts;
@@ -380,17 +553,106 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
           pendingPurchases,
           generatedAssets: generatedAssets.length,
           catalogListValueCents: savedRevenueCents,
+          pendingListings: pendingListings.length,
+          approvedListings: approvedListings.length,
+          rejectedListings: rejectedListings.length,
+          salesGrossCents,
+          sellerShareCents,
+          platformFeeCents,
           packageTypeCounts,
         },
         products: products.slice(0, 12),
+        pendingListings: pendingListings.slice(0, 24),
         purchases: purchases.slice(0, 12),
         generatedAssets: generatedAssets.slice(0, 12),
         payoutGuidance: {
-          currentStatus: "Marketplace checkout currently sends customer payments to the platform Stripe account; automatic seller payouts are not enabled yet.",
-          requiredNextStep: "To pay customer sellers automatically, add Stripe Connect onboarding, store connected account IDs, and create transfers or destination charges for each paid listing.",
-          sellerExpectation: "Until that payout layer is added, customer-created listings should be treated as admin-reviewed products, not self-serve seller payout products.",
+          currentStatus: "Approved customer-seller listings can use Stripe Connect destination charges when the seller has completed onboarding and payouts are enabled.",
+          requiredNextStep: "Use the moderation queue to approve only Connect-ready seller listings, then export sales and payout reports for reconciliation.",
+          appOwnerRevenue: "The app owner receives the configured platform fee. Customer-sellers receive the remaining sale amount through their connected Stripe account for Connect-enabled listings.",
+          sellerExpectation: "Admin approval should only be granted for customer listings after Stripe Connect onboarding is complete so payout routing is ready before checkout.",
         },
       } as const;
+    }),
+    reviewListing: protectedProcedure
+      .input(
+        z.object({
+          id: z.number().int().positive(),
+          decision: z.enum(["approved", "rejected"]),
+          rejectionReason: z.string().max(1000).optional(),
+        }),
+      )
+      .mutation(async ({ input, ctx }) => {
+        requireAdminAccess(ctx.user);
+        const product = await getMarketplaceProductById(input.id);
+        if (!product) throw new TRPCError({ code: "NOT_FOUND", message: "Marketplace listing was not found." });
+
+        let sellerStripeAccountId = product.sellerStripeAccountId;
+        if (input.decision === "approved" && product.payoutMode === "connect_destination") {
+          const seller = product.ownerId ? await getUserById(product.ownerId) : undefined;
+          const sellerReady = seller?.stripeConnectOnboardingStatus === "complete" && Boolean(seller?.stripeConnectPayoutsEnabled);
+          if (!sellerReady || !seller?.stripeConnectAccountId) {
+            throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Seller Stripe Connect onboarding must be complete before this listing can be approved." });
+          }
+          sellerStripeAccountId = seller.stripeConnectAccountId;
+        }
+
+        const reviewed = await reviewMarketplaceProduct({
+          id: input.id,
+          status: input.decision,
+          reviewedById: ctx.user.id,
+          rejectionReason: input.rejectionReason,
+          sellerStripeAccountId,
+          payoutMode: product.payoutMode,
+          platformFeeBps: product.platformFeeBps || DEFAULT_PLATFORM_FEE_BPS,
+        });
+
+        return {
+          reviewed,
+          message: input.decision === "approved" ? "Listing approved and eligible for marketplace checkout." : "Listing rejected and hidden from marketplace checkout.",
+        } as const;
+      }),
+    exportSalesCsv: protectedProcedure.query(async ({ ctx }) => {
+      requireAdminAccess(ctx.user);
+      const rows = await listRecentPurchases(1000);
+      const csv = toCsv(
+        rows.map(row => ({
+          purchase_id: row.id,
+          created_at: row.createdAt?.toISOString?.() ?? row.createdAt,
+          product_slug: row.productSlug,
+          product_title: row.productTitle,
+          buyer_user_id: row.userId,
+          seller_user_id: row.sellerId,
+          gross_amount_usd: ((row.grossAmountCents || 0) / 100).toFixed(2),
+          platform_fee_usd: ((row.platformFeeCents || 0) / 100).toFixed(2),
+          seller_share_usd: ((row.sellerShareCents || 0) / 100).toFixed(2),
+          payout_status: row.payoutStatus,
+          fulfillment_status: row.fulfillmentStatus,
+          stripe_checkout_session_id: row.stripeCheckoutSessionId,
+          stripe_payment_intent_id: row.stripePaymentIntentId,
+          stripe_subscription_id: row.stripeSubscriptionId,
+        })),
+      );
+      return { filename: `sales-report-${Date.now()}.csv`, mimeType: "text/csv", csv } as const;
+    }),
+    exportPayoutsCsv: protectedProcedure.query(async ({ ctx }) => {
+      requireAdminAccess(ctx.user);
+      const rows = (await listRecentPurchases(1000)).filter(row => (row.sellerShareCents || 0) > 0 || row.sellerStripeAccountId);
+      const csv = toCsv(
+        rows.map(row => ({
+          purchase_id: row.id,
+          created_at: row.createdAt?.toISOString?.() ?? row.createdAt,
+          seller_user_id: row.sellerId,
+          seller_stripe_account_id: row.sellerStripeAccountId,
+          product_slug: row.productSlug,
+          gross_amount_usd: ((row.grossAmountCents || 0) / 100).toFixed(2),
+          seller_share_usd: ((row.sellerShareCents || 0) / 100).toFixed(2),
+          app_owner_platform_fee_usd: ((row.platformFeeCents || 0) / 100).toFixed(2),
+          payout_status: row.payoutStatus,
+          stripe_transfer_id: row.stripeTransferId,
+          stripe_checkout_session_id: row.stripeCheckoutSessionId,
+        })),
+      );
+      return { filename: `payout-report-${Date.now()}.csv`, mimeType: "text/csv", csv } as const;
     }),
     publishGeneratedAsset: protectedProcedure
       .input(

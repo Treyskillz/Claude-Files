@@ -38,7 +38,7 @@ export async function upsertUser(user: InsertUser): Promise<void> {
   try {
     const values: InsertUser = { openId: user.openId };
     const updateSet: Record<string, unknown> = {};
-    const textFields = ["name", "email", "loginMethod", "stripeCustomerId"] as const;
+    const textFields = ["name", "email", "loginMethod", "stripeCustomerId", "stripeConnectAccountId"] as const;
     type TextField = (typeof textFields)[number];
 
     const assignNullable = (field: TextField) => {
@@ -51,6 +51,18 @@ export async function upsertUser(user: InsertUser): Promise<void> {
 
     textFields.forEach(assignNullable);
 
+    if (user.stripeConnectOnboardingStatus !== undefined) {
+      values.stripeConnectOnboardingStatus = user.stripeConnectOnboardingStatus;
+      updateSet.stripeConnectOnboardingStatus = user.stripeConnectOnboardingStatus;
+    }
+    if (user.stripeConnectChargesEnabled !== undefined) {
+      values.stripeConnectChargesEnabled = user.stripeConnectChargesEnabled;
+      updateSet.stripeConnectChargesEnabled = user.stripeConnectChargesEnabled;
+    }
+    if (user.stripeConnectPayoutsEnabled !== undefined) {
+      values.stripeConnectPayoutsEnabled = user.stripeConnectPayoutsEnabled;
+      updateSet.stripeConnectPayoutsEnabled = user.stripeConnectPayoutsEnabled;
+    }
     if (user.lastSignedIn !== undefined) {
       values.lastSignedIn = user.lastSignedIn;
       updateSet.lastSignedIn = user.lastSignedIn;
@@ -83,6 +95,28 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
+export async function getUserById(userId: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(users).where(eq(users.id, userId)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function updateUserStripeConnectStatus(
+  userId: number,
+  details: {
+    stripeConnectAccountId?: string | null;
+    stripeConnectOnboardingStatus?: "not_started" | "pending" | "complete";
+    stripeConnectChargesEnabled?: number;
+    stripeConnectPayoutsEnabled?: number;
+  },
+) {
+  const db = await getDb();
+  if (!db) return undefined;
+  await db.update(users).set(details).where(eq(users.id, userId));
+  return getUserById(userId);
+}
+
 export async function saveGeneratedAsset(asset: InsertGeneratedAsset) {
   const db = await getDb();
   if (!db) return undefined;
@@ -113,6 +147,13 @@ export async function upsertMarketplaceProduct(product: InsertMarketplaceProduct
       licenseTerms: product.licenseTerms,
       stripeProductId: product.stripeProductId,
       stripePriceId: product.stripePriceId,
+      listingStatus: product.listingStatus,
+      rejectionReason: product.rejectionReason,
+      reviewedById: product.reviewedById,
+      reviewedAt: product.reviewedAt,
+      payoutMode: product.payoutMode,
+      sellerStripeAccountId: product.sellerStripeAccountId,
+      platformFeeBps: product.platformFeeBps,
     },
   });
   const rows = await db.select().from(marketplaceProducts).where(eq(marketplaceProducts.slug, product.slug)).limit(1);
@@ -125,6 +166,58 @@ export async function listMarketplaceProducts() {
   return db.select().from(marketplaceProducts).orderBy(desc(marketplaceProducts.createdAt)).limit(100);
 }
 
+export async function listApprovedMarketplaceProducts() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(marketplaceProducts).where(eq(marketplaceProducts.listingStatus, "approved")).orderBy(desc(marketplaceProducts.createdAt)).limit(100);
+}
+
+export async function listSellerMarketplaceProducts(ownerId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(marketplaceProducts).where(eq(marketplaceProducts.ownerId, ownerId)).orderBy(desc(marketplaceProducts.createdAt)).limit(50);
+}
+
+export async function getMarketplaceProductBySlug(slug: string) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const rows = await db.select().from(marketplaceProducts).where(eq(marketplaceProducts.slug, slug)).limit(1);
+  return rows[0];
+}
+
+export async function getMarketplaceProductById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const rows = await db.select().from(marketplaceProducts).where(eq(marketplaceProducts.id, id)).limit(1);
+  return rows[0];
+}
+
+export async function reviewMarketplaceProduct(details: {
+  id: number;
+  status: "approved" | "rejected";
+  reviewedById: number;
+  rejectionReason?: string | null;
+  sellerStripeAccountId?: string | null;
+  payoutMode?: "platform_owned" | "connect_destination";
+  platformFeeBps?: number;
+}) {
+  const db = await getDb();
+  if (!db) return undefined;
+  await db
+    .update(marketplaceProducts)
+    .set({
+      listingStatus: details.status,
+      reviewedById: details.reviewedById,
+      reviewedAt: new Date(),
+      rejectionReason: details.status === "rejected" ? details.rejectionReason ?? "Listing rejected by admin review." : null,
+      sellerStripeAccountId: details.sellerStripeAccountId,
+      payoutMode: details.payoutMode,
+      platformFeeBps: details.platformFeeBps,
+    })
+    .where(eq(marketplaceProducts.id, details.id));
+  return getMarketplaceProductById(details.id);
+}
+
 export async function createPurchaseRecord(purchase: InsertPurchase) {
   const db = await getDb();
   if (!db) return undefined;
@@ -135,6 +228,14 @@ export async function createPurchaseRecord(purchase: InsertPurchase) {
       packageType: purchase.packageType,
       stripeCustomerId: purchase.stripeCustomerId,
       stripePaymentIntentId: purchase.stripePaymentIntentId,
+      stripeSubscriptionId: purchase.stripeSubscriptionId,
+      sellerId: purchase.sellerId,
+      sellerStripeAccountId: purchase.sellerStripeAccountId,
+      grossAmountCents: purchase.grossAmountCents,
+      sellerShareCents: purchase.sellerShareCents,
+      platformFeeCents: purchase.platformFeeCents,
+      stripeTransferId: purchase.stripeTransferId,
+      payoutStatus: purchase.payoutStatus,
       fulfillmentStatus: purchase.fulfillmentStatus,
     },
   });

@@ -147,8 +147,8 @@ describe("admin free access", () => {
 
       await expect(adminCaller.admin.dashboard()).resolves.toMatchObject({
         payoutGuidance: expect.objectContaining({
-          currentStatus: expect.stringContaining("platform Stripe account"),
-          requiredNextStep: expect.stringContaining("Stripe Connect"),
+          currentStatus: expect.stringContaining("Stripe Connect destination charges"),
+          requiredNextStep: expect.stringContaining("moderation queue"),
         }),
       });
     } finally {
@@ -168,8 +168,8 @@ describe("admin free access", () => {
     const shell = readProjectFile("client/src/components/AppShell.tsx");
 
     expect(marketplace).toContain("Seller payout status");
-    expect(marketplace).toContain("automatic customer-seller payouts are not enabled yet");
-    expect(marketplace).toContain("Stripe Connect onboarding");
+    expect(marketplace).toContain("Approved Connect listings are prepared for destination-charge payout routing");
+    expect(marketplace).toContain("Stripe Connect seller onboarding");
     expect(adminDashboard).toContain("This page is visible only to owner/admin accounts");
     expect(adminDashboard).toContain("Saved listings");
     expect(adminDashboard).toContain("Recent purchases");
