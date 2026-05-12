@@ -140,12 +140,12 @@
 - [x] Fix header logo/navigation crowding so Builder and Instructions links do not sit under or overlap the logo
 - [x] Perform responsive visual QA of the header at desktop, tablet, and mobile widths before reporting completion
 - [x] Add or update regression coverage for header spacing and responsive navigation behavior
-- [ ] Re-run tests, production build, runtime health check, checkpoint, and GitHub push for the corrected header QA fix
+- [x] Re-run tests, production build, runtime health check, checkpoint, and GitHub push for the corrected header QA fix
 
 - [x] Complete a full retail-readiness QA audit across public pages, app workflows, marketplace flows, exports, admin separation, customer guidance, responsive layout, accessibility basics, and visible polish
 - [x] Fix verified site/app defects discovered during the retail-readiness QA audit
 - [x] Validate core functionality: generator, instructions, library, upload, marketplace, pricing, account/admin visibility, exports/downloads, and payment-gated flows where possible without owner Stripe login
-- [ ] Document QA evidence and remaining owner-side launch blockers after tests, build, runtime health check, checkpoint, and GitHub push
+- [x] Document QA evidence and remaining owner-side launch blockers after tests, build, runtime health check, checkpoint, and GitHub push
 
 - [x] Fix mobile homepage horizontal overflow so hero text and CTAs are fully readable on small phones
 
