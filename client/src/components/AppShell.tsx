@@ -22,8 +22,7 @@ function BrandMark({ compact = false }: { compact?: boolean }) {
   );
 }
 
-const navItems = [
-  { href: "/", label: "Home" },
+const desktopNavItems = [
   { href: "/generator", label: "Builder" },
   { href: "/instructions", label: "Instructions" },
   { href: "/library", label: "Library" },
@@ -32,11 +31,13 @@ const navItems = [
   { href: "/pricing", label: "Pricing" },
 ];
 
+const mobileNavItems = [{ href: "/", label: "Home" }, ...desktopNavItems];
+
 function NavLinks({ mobile = false }: { mobile?: boolean }) {
   const [location] = useLocation();
   return (
-    <nav className={mobile ? "grid gap-2" : "hidden items-center gap-1 lg:flex"}>
-      {navItems.map(item => {
+    <nav className={mobile ? "grid gap-2" : "hidden min-w-0 items-center justify-center gap-1 lg:flex"}>
+      {(mobile ? mobileNavItems : desktopNavItems).map(item => {
         const active = location === item.href;
         return (
           <Link
@@ -61,12 +62,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b bg-white/88 backdrop-blur-xl">
-        <div className="container flex h-20 items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-3" aria-label="Skillz Magic AI Studio home">
+        <div className="container flex h-20 items-center gap-4">
+          <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Skillz Magic AI Studio home">
             <BrandMark />
           </Link>
-          <NavLinks />
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden min-w-0 flex-1 justify-center lg:flex">
+            <NavLinks />
+          </div>
+          <div className="hidden shrink-0 items-center gap-3 lg:flex">
             {isAdmin ? (
               <>
                 <Link href="/admin" className="inline-flex items-center rounded-full border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-bold text-red-700 hover:bg-red-100">

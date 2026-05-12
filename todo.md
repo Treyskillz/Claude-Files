@@ -135,3 +135,5 @@
 - [x] Change marketplace Stripe Connect seller onboarding behavior so the button provides a clear working action instead of appearing to do nothing
 - [x] Add validation or regression coverage for the revised seller onboarding behavior
 - [x] Run tests, build, health check, checkpoint, and GitHub push for seller onboarding behavior change
+- [x] Fix misplaced Home navigation button alignment in the public webpage header
+
