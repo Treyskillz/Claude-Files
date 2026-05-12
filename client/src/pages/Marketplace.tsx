@@ -58,7 +58,7 @@ export default function Marketplace() {
         <div className="mb-8 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><Store className="mr-2 h-4 w-4" /> Stripe-ready digital asset marketplace</Badge>
-            <h1 className="font-[Sora] text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Sell app access, one-off downloads, subscriptions, and bundles.</h1>
+            <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Sell app access, one-off downloads, subscriptions, and bundles.</h1>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Browse preset pricing offers and generated listings. Checkout opens securely through Stripe, while purchase records track fulfillment and download readiness for one-time app access, subscriptions, and category-specific assets.</p>
           </div>
           <div className="rounded-3xl border bg-white p-4 text-sm text-zinc-600 shadow-sm"><strong className="text-zinc-950">Test card:</strong> 4242 4242 4242 4242</div>

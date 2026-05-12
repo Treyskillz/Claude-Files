@@ -75,7 +75,7 @@ export default function Library() {
         <div className="mb-8 grid gap-5 md:grid-cols-[1fr_360px] md:items-end">
           <div>
             <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><LibraryBig className="mr-2 h-4 w-4" /> Searchable resource library</Badge>
-            <h1 className="font-[Sora] text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Keep every Claude asset organized.</h1>
+            <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Keep every Claude asset organized.</h1>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Browse generated assets, imported resources, and official Anthropic references with clear source labels and export actions.</p>
           </div>
           <div className="relative">

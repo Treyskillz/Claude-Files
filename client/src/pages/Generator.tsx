@@ -138,7 +138,7 @@ export default function Generator() {
         <div className="mb-8 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><Wand2 className="mr-2 h-4 w-4" /> Multi-platform Master Operating Systems</Badge>
-            <h1 className="font-[Sora] text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Create Master Operating Systems by profession, industry, and AI platform.</h1>
+            <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Create Master Operating Systems by profession, industry, and AI platform.</h1>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
               Generate Master Operating Systems, skills, prompt systems, workflow blueprints, or bundles for Claude, ChatGPT, Manus, Grok/Groq, and general AI use. The app recommends the operating systems, skills, prompts, workflows, and pricing structure those buyers are most likely to need.
             </p>

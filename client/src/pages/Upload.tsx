@@ -52,7 +52,7 @@ export default function Upload() {
       <div className="container grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><UploadCloud className="mr-2 h-4 w-4" /> User upload library</Badge>
-          <h1 className="font-[Sora] text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Import your own Claude resources.</h1>
+          <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Import your own Claude resources.</h1>
           <p className="mt-4 text-lg leading-8 text-zinc-600">Upload or paste prompts, skills, workflows, templates, and notes. Skills Magic AI stores them in your browser so they can be searched, copied, and exported from the library without extra backend complexity.</p>
           <Card className="mt-8 rounded-3xl bg-white shadow-sm">
             <CardHeader><CardTitle>Supported resources</CardTitle><CardDescription>Markdown and plain text files load directly. PDF files can be cataloged, then refined by pasting extracted text.</CardDescription></CardHeader>

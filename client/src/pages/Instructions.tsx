@@ -87,7 +87,7 @@ export default function Instructions() {
             <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100">
               <FileArchive className="mr-2 h-4 w-4" /> User instructions
             </Badge>
-            <h1 className="font-[Sora] text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">
+            <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">
               How to use Skills Magic AI from idea to sellable asset.
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-600">

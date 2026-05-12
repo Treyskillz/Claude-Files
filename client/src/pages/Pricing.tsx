@@ -148,7 +148,7 @@ export default function Pricing() {
         <section className="mb-10 grid gap-6 lg:grid-cols-[1fr_0.7fr] lg:items-end">
           <div>
             <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><Tags className="mr-2 h-4 w-4" /> Competitive pricing model</Badge>
-            <h1 className="font-[Sora] text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Sell the app, sell subscriptions, and sell one-off downloads.</h1>
+            <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Sell the app, sell subscriptions, and sell one-off downloads.</h1>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
               Skills Magic AI uses a hybrid monetization model: affordable one-off downloads for quick purchases, a higher-value bundle tier, a one-time app access offer for subscription-resistant buyers, and monthly or annual subscriptions for recurring creation.
             </p>
@@ -220,7 +220,7 @@ export default function Pricing() {
         <section className="mt-10 rounded-3xl border bg-white p-6 shadow-sm md:p-8">
           <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <h2 className="font-[Sora] text-3xl font-black tracking-[-0.04em] text-zinc-950">Build priced assets from the generator.</h2>
+              <h2 className="text-3xl font-black tracking-[-0.04em] text-zinc-950">Build priced assets from the generator.</h2>
               <p className="mt-2 max-w-2xl text-zinc-600">Choose a preset profession and industry or enter custom category context, generate a platform-ready asset, then package it as a marketplace listing with suggested price metadata.</p>
             </div>
             <Button asChild size="lg" className="rounded-full bg-zinc-950 text-white hover:bg-red-700"><Link href="/generator">Open generator</Link></Button>
