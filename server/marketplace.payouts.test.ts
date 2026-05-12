@@ -60,6 +60,16 @@ describe("Stripe Connect seller onboarding and listing moderation flow", () => {
     expect(routerSource).toContain('type: "account_onboarding"');
   });
 
+  it("passes Stripe destination-charge transfer data and app-owner platform fees for eligible Connect checkouts", () => {
+    const routerSource = projectFile("server/routers.ts");
+
+    expect(routerSource).toContain("const connectDestination = product.payoutMode === \"connect_destination\" && product.sellerStripeAccountId ? product.sellerStripeAccountId : undefined");
+    expect(routerSource).toContain("application_fee_amount: payout.platformFeeCents");
+    expect(routerSource).toContain("transfer_data: { destination: connectDestination }");
+    expect(routerSource).toContain("application_fee_percent: (product.platformFeeBps ?? DEFAULT_PLATFORM_FEE_BPS) / 100");
+    expect(routerSource).toContain("Seller payout account is not ready");
+  });
+
   it("submits customer seller listings as pending Connect destination-charge listings for admin review", () => {
     const routerSource = projectFile("server/routers.ts");
     const marketplaceSource = projectFile("client/src/pages/Marketplace.tsx");

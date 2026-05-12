@@ -117,17 +117,17 @@
 - [x] Add admin sales and payout reporting exports for marketplace activity.
 - [x] Add regression tests covering Stripe Connect onboarding, listing moderation, and admin report exports.
 - [x] Ensure approved customer-seller listings carry payout split metadata so the seller share and app-owner platform share can be calculated and reported for each sale.
-- [ ] Verify whether Stripe Checkout currently creates destination charges with seller connected-account transfer data and an app-owner platform fee.
-- [ ] Complete real Stripe Connect payout splitting for approved customer-seller sales if the current checkout only records payout metadata.
-- [ ] Add or update regression tests proving seller transfer destination and app-owner platform fee are passed to Stripe for eligible listings.
-- [ ] Re-run tests, production build, health check, and save a checkpoint after payout split verification/completion.
+- [x] Verify whether Stripe Checkout currently creates destination charges with seller connected-account transfer data and an app-owner platform fee.
+- [x] Complete real Stripe Connect payout splitting for approved customer-seller sales if the current checkout only records payout metadata.
+- [x] Add or update regression tests proving seller transfer destination and app-owner platform fee are passed to Stripe for eligible listings.
+- [x] Re-run tests, production build, health check, and save a checkpoint after payout split verification/completion.
 - [ ] Confirm or claim the Stripe sandbox before publishing.
 - [ ] Test a seller onboarding flow with a real admin or owner account.
 - [ ] Run a test checkout using Stripe test card 4242 4242 4242 4242.
 - [ ] Verify the checkout creates the intended Connect payout split for eligible approved customer-seller listings.
-- [ ] Use secure owner login or existing browser authentication for Stripe sandbox access; do not retrieve Stripe login credentials from GitHub, source files, or prior projects.
+- [x] Use secure owner login or existing browser authentication for Stripe sandbox access; do not retrieve Stripe login credentials from GitHub, source files, or prior projects.
 - [x] Finalize current project state for GitHub delivery
 - [x] Run final validation: test suite, production build, and app health check
 - [x] Commit and push all current Claude Skill Studio project files to the selected GitHub repository
-- [ ] Save final Manus checkpoint after GitHub delivery validation
+- [x] Save final Manus checkpoint after GitHub delivery validation
 - [ ] Report Stripe sandbox owner-login blocker and remaining owner-side test steps in final handoff
