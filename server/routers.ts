@@ -1,5 +1,6 @@
 import { COOKIE_NAME } from "@shared/const";
 import Stripe from "stripe";
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { invokeLLM } from "./_core/llm";
@@ -9,6 +10,7 @@ import {
   createPurchaseRecord,
   listGeneratedAssets,
   listMarketplaceProducts,
+  listRecentPurchases,
   listUserPurchases,
   saveGeneratedAsset,
   upsertMarketplaceProduct,
@@ -64,6 +66,30 @@ export function isAdminUser(user: { role?: string | null; openId?: string | null
 function withAdminRole<TUser extends { role?: string | null; openId?: string | null } | null | undefined>(user: TUser) {
   if (!user || !isAdminUser(user)) return user;
   return { ...user, role: "admin" as const };
+}
+
+function requireAdminAccess(user: { role?: string | null; openId?: string | null } | null | undefined) {
+  if (!isAdminUser(user)) {
+    throw new TRPCError({ code: "FORBIDDEN", message: "Admin access is reserved for the project owner/admin account." });
+  }
+}
+
+function inferCategoryFromAsset(assetType: z.infer<typeof assetTypeSchema>, title: string) {
+  if (assetType === "skill") return "Claude Skills";
+  if (assetType === "prompt") return "Prompt Systems";
+  if (assetType === "workflow") return "Workflow Blueprints";
+  if (assetType === "master_os") return "Master Operating Systems";
+  if (title.toLowerCase().includes("bundle")) return "Bundles";
+  return "Digital Asset Packages";
+}
+
+function buildIncludedFilesFromAsset(title: string, assetType: z.infer<typeof assetTypeSchema>) {
+  const slug = slugify(title) || "ai-asset-package";
+  if (assetType === "skill") return [`${slug}/SKILL.md`, `${slug}/usage-guide.md`, `${slug}/license.md`];
+  if (assetType === "prompt") return [`${slug}/prompt-system.md`, `${slug}/variations.md`, `${slug}/license.md`];
+  if (assetType === "workflow") return [`${slug}/workflow-blueprint.md`, `${slug}/sop.md`, `${slug}/license.md`];
+  if (assetType === "master_os") return [`${slug}/master-operating-system.md`, `${slug}/skills-library.md`, `${slug}/prompt-library.md`, `${slug}/workflow-sops.md`, `${slug}/license.md`];
+  return [`${slug}/bundle-index.md`, `${slug}/assets.md`, `${slug}/usage-guide.md`, `${slug}/license.md`];
 }
 
 export function buildAdminCheckoutBypass(product: CheckoutProductAccess) {
@@ -324,6 +350,89 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
         return buildPaidCheckoutResponse(session, product);
       }),
     purchases: protectedProcedure.query(({ ctx }) => listUserPurchases(ctx.user.id)),
+  }),
+
+  admin: router({
+    dashboard: protectedProcedure.query(async ({ ctx }) => {
+      requireAdminAccess(ctx.user);
+
+      const [products, purchases, generatedAssets] = await Promise.all([
+        listMarketplaceProducts(),
+        listRecentPurchases(100),
+        listGeneratedAssets(),
+      ]);
+
+      const readyPurchases = purchases.filter(purchase => purchase.fulfillmentStatus === "ready" || purchase.fulfillmentStatus === "fulfilled").length;
+      const pendingPurchases = purchases.filter(purchase => purchase.fulfillmentStatus === "pending").length;
+      const savedRevenueCents = products.reduce((total, product) => total + (product.priceCents || 0), 0);
+      const packageTypeCounts = products.reduce<Record<string, number>>((counts, product) => {
+        counts[product.packageType] = (counts[product.packageType] || 0) + 1;
+        return counts;
+      }, {});
+
+      return {
+        admin: withAdminRole(ctx.user),
+        summary: {
+          savedProducts: products.length,
+          presetProducts: MARKETPLACE_PRODUCTS.length,
+          recentPurchases: purchases.length,
+          readyPurchases,
+          pendingPurchases,
+          generatedAssets: generatedAssets.length,
+          catalogListValueCents: savedRevenueCents,
+          packageTypeCounts,
+        },
+        products: products.slice(0, 12),
+        purchases: purchases.slice(0, 12),
+        generatedAssets: generatedAssets.slice(0, 12),
+        payoutGuidance: {
+          currentStatus: "Marketplace checkout currently sends customer payments to the platform Stripe account; automatic seller payouts are not enabled yet.",
+          requiredNextStep: "To pay customer sellers automatically, add Stripe Connect onboarding, store connected account IDs, and create transfers or destination charges for each paid listing.",
+          sellerExpectation: "Until that payout layer is added, customer-created listings should be treated as admin-reviewed products, not self-serve seller payout products.",
+        },
+      } as const;
+    }),
+    publishGeneratedAsset: protectedProcedure
+      .input(
+        z.object({
+          title: z.string().min(3),
+          assetType: assetTypeSchema.default("bundle"),
+          content: z.string().min(20),
+          summary: z.string().optional(),
+          priceCents: z.number().int().min(50).max(500000).default(2900),
+          packageType: packageTypeSchema.default("individual"),
+          licenseTerms: z.string().optional(),
+        }),
+      )
+      .mutation(async ({ input, ctx }) => {
+        requireAdminAccess(ctx.user);
+
+        const timestamp = Date.now();
+        const slug = `${slugify(input.title) || "admin-package"}-${timestamp}`;
+        const category = inferCategoryFromAsset(input.assetType, input.title);
+        const includedFiles = buildIncludedFilesFromAsset(input.title, input.assetType);
+        const description = input.summary?.trim() || `${input.title} is an admin-published ${category.toLowerCase()} package generated inside Skillz Magic AI Studio and prepared for marketplace sale.`;
+
+        const product = await upsertMarketplaceProduct({
+          ownerId: ctx.user.id,
+          title: input.title,
+          slug,
+          category,
+          packageType: input.packageType,
+          priceCents: input.priceCents,
+          description,
+          includedFilesJson: JSON.stringify(includedFiles),
+          licenseTerms: input.licenseTerms || DEFAULT_LICENSE,
+        });
+
+        return {
+          published: true,
+          product,
+          slug,
+          includedFiles,
+          message: "Admin package published to the marketplace. Customer checkout remains paid unless the viewer is an admin.",
+        } as const;
+      }),
   }),
 });
 

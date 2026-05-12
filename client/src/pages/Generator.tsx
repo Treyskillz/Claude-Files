@@ -111,6 +111,14 @@ export default function Generator() {
       toast.error(error.message || "Sign in to save marketplace listings.");
     },
   });
+  const publishPackage = trpc.admin.publishGeneratedAsset.useMutation({
+    onSuccess(data) {
+      toast.success(data.message || "Package published to the marketplace.");
+    },
+    onError(error) {
+      toast.error(error.message || "Admin package publishing failed.");
+    },
+  });
 
   const generatedTitle = result?.title || title || "Skillz Magic AI Studio asset";
   const promptHint = useMemo(() => quickIdeas[Math.floor(Math.random() * quickIdeas.length)], []);
@@ -178,6 +186,18 @@ export default function Generator() {
       priceCents: suggestedPrice,
       description: `${effectiveTargetPlatform} ${effectiveAssetCategory || (assetType === "master_os" ? "Master Operating System" : assetType)} for ${effectiveProfessionCategory} in ${effectiveIndustryCategory}. Includes recommended operating systems, skills, prompts, workflows, platform adaptation notes, Markdown, PDF-ready content, manifest, and usage guidance.`,
       includedFiles: ["MASTER-OPERATING-SYSTEM.md", "SKILL.md", "PROMPTS.md", "WORKFLOWS.md", "manifest.json", "USAGE-GUIDE.md", "CATEGORY-ASSET-MAP.md", "PLATFORM-ADAPTATION-GUIDE.md", `${result.title}.pdf`],
+    });
+  };
+
+  const publishAdminPackage = async () => {
+    if (!result || !isAdmin) return;
+    await publishPackage.mutateAsync({
+      title: result.title,
+      assetType,
+      content: result.content,
+      summary: `${effectiveTargetPlatform} ${effectiveAssetCategory || assetLabel} for ${effectiveProfessionCategory} in ${effectiveIndustryCategory}. Includes operating guidance, prompt systems, workflow steps, install guidance, and customer-ready packaging notes.`,
+      priceCents: suggestedPrice,
+      packageType: assetType === "bundle" || assetType === "master_os" ? "bundle" : "individual",
     });
   };
 
@@ -328,6 +348,11 @@ export default function Generator() {
                 <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportClaudePluginZip({ title: generatedTitle, content: result.content, assetType, manifest: { ...result.manifest, targetPlatform: effectiveTargetPlatform, businessType, customAssetCategory: effectiveAssetCategory } })}><FileArchive className="mr-2 h-4 w-4" /> Platform ZIP</Button>
                 <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={saveToLocalLibrary}><Save className="mr-2 h-4 w-4" /> Save</Button>
                 <Button className="justify-center bg-red-600 text-xs hover:bg-red-700 sm:text-sm" disabled={!result || saveProduct.isPending} onClick={addToMarketplace}><PackagePlus className="mr-2 h-4 w-4" /> Add listing</Button>
+                {isAdmin ? (
+                  <Button className="justify-center bg-zinc-950 text-xs text-white hover:bg-red-700 sm:text-sm" disabled={!result || publishPackage.isPending} onClick={publishAdminPackage}>
+                    {publishPackage.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ShieldCheck className="mr-2 h-4 w-4" />} Publish package
+                  </Button>
+                ) : null}
               </div>
               {result && (
                 <div className="no-print border-b bg-red-50/50 p-4 sm:p-5">

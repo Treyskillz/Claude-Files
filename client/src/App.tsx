@@ -5,6 +5,7 @@ import { AppShell } from "./components/AppShell";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Account from "./pages/Account";
+import AdminDashboard from "./pages/AdminDashboard";
 import Generator from "./pages/Generator";
 import Home from "./pages/Home";
 import Instructions from "./pages/Instructions";
@@ -27,6 +28,7 @@ function Router() {
         <Route path="/marketplace" component={Marketplace} />
         <Route path="/pricing" component={Pricing} />
         <Route path="/account" component={Account} />
+        <Route path="/admin" component={AdminDashboard} />
         <Route path="/success" component={Success} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />

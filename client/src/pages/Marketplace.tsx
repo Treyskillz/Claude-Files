@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { exportClaudePluginZip, exportToMarkdown, exportToPDF } from "@/lib/export";
 import { trpc } from "@/lib/trpc";
-import { CheckCircle2, Download, FileArchive, FileDown, Loader2, Package, ShieldCheck, ShoppingCart, Store } from "lucide-react";
+import { AlertTriangle, CheckCircle2, Download, FileArchive, FileDown, Loader2, Package, ShieldCheck, ShoppingCart, Store } from "lucide-react";
 import { toast } from "sonner";
 
 type Product = {
@@ -93,6 +93,10 @@ export default function Marketplace() {
             <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><Store className="mr-2 h-4 w-4" /> Stripe-ready digital asset marketplace</Badge>
             <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Sell app access, one-off downloads, subscriptions, and bundles.</h1>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Browse preset pricing offers and generated listings. Checkout opens securely through Stripe, while purchase records track fulfillment and download readiness for one-time app access, subscriptions, and category-specific assets.</p>
+            <div className="mt-5 max-w-3xl rounded-3xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
+              <p className="flex gap-2 font-bold"><AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" /> Seller payout status</p>
+              <p className="mt-2">Customer-created marketplace listings can be saved for admin review, but automatic customer-seller payouts are not enabled yet. Today, Stripe Checkout routes payments to the platform account. To pay outside sellers automatically, the app needs Stripe Connect onboarding, seller connected-account IDs, and transfer/destination-charge logic.</p>
+            </div>
             {isAdmin ? (
               <div className="mt-5 flex w-fit items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-bold text-red-700">
                 <ShieldCheck className="h-4 w-4" /> Admin marketplace access: download package files without opening Stripe checkout.

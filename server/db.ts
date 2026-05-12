@@ -186,3 +186,9 @@ export async function listUserPurchases(userId: number) {
   if (!db) return [];
   return db.select().from(purchases).where(eq(purchases.userId, userId)).orderBy(desc(purchases.createdAt)).limit(50);
 }
+
+export async function listRecentPurchases(limit = 100) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(purchases).orderBy(desc(purchases.createdAt)).limit(limit);
+}

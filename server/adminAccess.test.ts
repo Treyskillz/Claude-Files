@@ -120,9 +120,128 @@ describe("admin free access", () => {
     expect(pricing).toContain("Customer pricing and Stripe checkout remain active for non-admin accounts");
     expect(pricing).toContain("plan.cta");
 
-    expect(generator).toContain("Admin exports unlocked");
-    expect(generator).toContain("Markdown, PDF, and Platform ZIP downloads do not require payment");
-    expect(account).toContain("Admin workspace active");
-    expect(shell).toContain("Admin access enabled");
+      expect(generator).toContain("Admin exports unlocked");
+      expect(generator).toContain("Markdown, PDF, and Platform ZIP downloads do not require payment");
+      expect(generator).toContain("Publish package");
+      expect(generator).toContain("trpc.admin.publishGeneratedAsset.useMutation");
+      expect(account).toContain("Admin workspace active");
+      expect(shell).toContain("Admin access enabled");
+      expect(shell).toContain("isAdmin ?");
+      expect(shell).toContain("/admin");
+  });
+
+  it("protects admin dashboard and one-click publish procedures from customer and anonymous callers", async () => {
+    const originalStripeKey = process.env.STRIPE_SECRET_KEY;
+    delete process.env.STRIPE_SECRET_KEY;
+    vi.resetModules();
+
+    try {
+      const { appRouter } = await import("./routers");
+      const anonymousCaller = appRouter.createCaller(createContext(null));
+      const customerCaller = appRouter.createCaller(createContext({ ...userBase, id: 4, role: "user" }));
+      const adminCaller = appRouter.createCaller(createContext({ ...userBase, id: 5, openId: "admin-open-id", role: "admin" }));
+
+      await expect(anonymousCaller.admin.dashboard()).rejects.toThrow("Please login");
+      await expect(customerCaller.admin.dashboard()).rejects.toThrow("reserved for the project owner/admin account");
+      await expect(customerCaller.admin.publishGeneratedAsset({ title: "Customer Asset", assetType: "skill", content: "Blocked customer publish content with enough length", summary: "Blocked", priceCents: 1900, packageType: "individual" })).rejects.toThrow("reserved for the project owner/admin account");
+
+      await expect(adminCaller.admin.dashboard()).resolves.toMatchObject({
+        payoutGuidance: expect.objectContaining({
+          currentStatus: expect.stringContaining("platform Stripe account"),
+          requiredNextStep: expect.stringContaining("Stripe Connect"),
+        }),
+      });
+    } finally {
+      if (originalStripeKey === undefined) {
+        delete process.env.STRIPE_SECRET_KEY;
+      } else {
+        process.env.STRIPE_SECRET_KEY = originalStripeKey;
+      }
+      vi.resetModules();
+    }
+  });
+
+  it("documents marketplace payout limits and renders source-backed admin dashboard sections", () => {
+    const marketplace = readProjectFile("client/src/pages/Marketplace.tsx");
+    const adminDashboard = readProjectFile("client/src/pages/AdminDashboard.tsx");
+    const app = readProjectFile("client/src/App.tsx");
+    const shell = readProjectFile("client/src/components/AppShell.tsx");
+
+    expect(marketplace).toContain("Seller payout status");
+    expect(marketplace).toContain("automatic customer-seller payouts are not enabled yet");
+    expect(marketplace).toContain("Stripe Connect onboarding");
+    expect(adminDashboard).toContain("This page is visible only to owner/admin accounts");
+    expect(adminDashboard).toContain("Saved listings");
+    expect(adminDashboard).toContain("Recent purchases");
+    expect(adminDashboard).toContain("Builder assets");
+    expect(adminDashboard).toContain("Recent saved marketplace listings");
+    expect(adminDashboard).toContain("Recent purchase records");
+    expect(adminDashboard).toContain("Recent Builder assets");
+    expect(adminDashboard).toContain("Customer accounts cannot view dashboard data or publish marketplace packages by typing the URL");
+    expect(adminDashboard).toContain("One-click publish workflow");
+    expect(app).toContain("/admin");
+    expect(shell).toContain("isAdmin ?");
+    expect(shell).toContain("Admin dashboard");
+  });
+
+  it("successfully publishes an admin-generated package with derived marketplace metadata", async () => {
+    const upsertMarketplaceProduct = vi.fn(async input => ({
+      id: 77,
+      ...input,
+      createdAt: new Date("2026-05-11T00:00:00.000Z"),
+      updatedAt: new Date("2026-05-11T00:00:00.000Z"),
+    }));
+
+    vi.resetModules();
+    vi.doMock("./db", () => ({
+      createPurchaseRecord: vi.fn(),
+      listGeneratedAssets: vi.fn(async () => []),
+      listMarketplaceProducts: vi.fn(async () => []),
+      listRecentPurchases: vi.fn(async () => []),
+      listUserPurchases: vi.fn(async () => []),
+      saveGeneratedAsset: vi.fn(),
+      upsertMarketplaceProduct,
+    }));
+
+    try {
+      const { appRouter } = await import("./routers");
+      const adminCaller = appRouter.createCaller(createContext({ ...userBase, id: 9, openId: "admin-open-id", role: "admin" }));
+
+      const result = await adminCaller.admin.publishGeneratedAsset({
+        title: "Healthcare Intake Automation Skill",
+        assetType: "skill",
+        content: "# Healthcare Intake Automation Skill\n\nThis generated package content is long enough to represent a real Builder output.",
+        summary: "A ready-to-sell intake automation skill package.",
+        priceCents: 4900,
+        packageType: "individual",
+      });
+
+      expect(result).toMatchObject({
+        published: true,
+        product: expect.objectContaining({
+          ownerId: 9,
+          title: "Healthcare Intake Automation Skill",
+          category: "Claude Skills",
+          packageType: "individual",
+          priceCents: 4900,
+          description: "A ready-to-sell intake automation skill package.",
+        }),
+        includedFiles: expect.arrayContaining([
+          "healthcare-intake-automation-skill/SKILL.md",
+          "healthcare-intake-automation-skill/usage-guide.md",
+          "healthcare-intake-automation-skill/license.md",
+        ]),
+      });
+      expect(upsertMarketplaceProduct).toHaveBeenCalledWith(expect.objectContaining({
+        ownerId: 9,
+        title: "Healthcare Intake Automation Skill",
+        category: "Claude Skills",
+        includedFilesJson: expect.stringContaining("SKILL.md"),
+      }));
+      expect(result.message).toContain("Customer checkout remains paid unless the viewer is an admin");
+    } finally {
+      vi.doUnmock("./db");
+      vi.resetModules();
+    }
   });
 });

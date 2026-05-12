@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getLoginUrl } from "@/const";
 import { Link, useLocation } from "wouter";
-import { Menu, ShieldCheck, Sparkles } from "lucide-react";
+import { LayoutDashboard, Menu, ShieldCheck, Sparkles } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
@@ -68,9 +68,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <NavLinks />
           <div className="hidden items-center gap-3 lg:flex">
             {isAdmin ? (
-              <Badge variant="outline" className="rounded-full border-red-200 bg-red-50 px-3 py-1.5 text-red-700">
-                <ShieldCheck className="mr-1.5 h-4 w-4" /> Admin access
-              </Badge>
+              <>
+                <Link href="/admin" className="inline-flex items-center rounded-full border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-bold text-red-700 hover:bg-red-100">
+                  <LayoutDashboard className="mr-1.5 h-4 w-4" /> Admin dashboard
+                </Link>
+                <Badge variant="outline" className="rounded-full border-red-200 bg-red-50 px-3 py-1.5 text-red-700">
+                  <ShieldCheck className="mr-1.5 h-4 w-4" /> Admin access
+                </Badge>
+              </>
             ) : null}
             {isAuthenticated ? (
               <>
@@ -105,9 +110,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               <NavLinks mobile />
               <div className="mt-8 grid gap-3">
                 {isAdmin ? (
-                  <Badge variant="outline" className="w-fit rounded-full border-red-200 bg-red-50 px-3 py-1.5 text-red-700">
-                    <ShieldCheck className="mr-1.5 h-4 w-4" /> Admin access enabled
-                  </Badge>
+                  <>
+                    <Button asChild variant="outline" className="justify-start rounded-full border-red-200 bg-red-50 text-red-700 hover:bg-red-100">
+                      <Link href="/admin"><LayoutDashboard className="mr-2 h-4 w-4" /> Admin dashboard</Link>
+                    </Button>
+                    <Badge variant="outline" className="w-fit rounded-full border-red-200 bg-red-50 px-3 py-1.5 text-red-700">
+                      <ShieldCheck className="mr-1.5 h-4 w-4" /> Admin access enabled
+                    </Badge>
+                  </>
                 ) : null}
                 <Button asChild className="bg-red-600 hover:bg-red-700">
                   <Link href="/generator">Build an asset</Link>

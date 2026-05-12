@@ -104,3 +104,10 @@
 - [x] Preserve normal payment/subscription gates for non-admin users so customer monetization remains intact.
 - [x] Add admin-facing copy or badges that make free admin access clear without exposing it as a customer option.
 - [x] Add regression tests for admin free downloads, non-admin separation, and protected paid access behavior.
+- [x] Explain current marketplace operation, customer seller payout limitations, and what payment infrastructure is needed for customer payouts.
+- [x] Add a protected admin dashboard that summarizes marketplace packages, purchase activity, admin access status, and publishing controls.
+- [x] Add a one-click publish package workflow so an admin can publish generated assets to the marketplace without manually re-entering product metadata.
+- [x] Ensure the admin dashboard/button is only visible to admin or project-owner accounts and is not presented as a customer-facing option.
+- [x] Protect the admin dashboard route and publish actions server-side so non-admin users cannot access the admin version by URL or direct API call.
+- [x] Add customer-facing marketplace guidance that explains seller payouts are not automatic until connected-account payout infrastructure is added.
+- [x] Add regression tests for admin dashboard visibility, protected admin route access, one-click publish behavior, and marketplace payout guidance.
