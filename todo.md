@@ -126,8 +126,8 @@
 - [ ] Run a test checkout using Stripe test card 4242 4242 4242 4242.
 - [ ] Verify the checkout creates the intended Connect payout split for eligible approved customer-seller listings.
 - [ ] Use secure owner login or existing browser authentication for Stripe sandbox access; do not retrieve Stripe login credentials from GitHub, source files, or prior projects.
-- [ ] Finalize current project state for GitHub delivery
+- [x] Finalize current project state for GitHub delivery
 - [x] Run final validation: test suite, production build, and app health check
-- [ ] Commit and push all current Claude Skill Studio project files to the selected GitHub repository
+- [x] Commit and push all current Claude Skill Studio project files to the selected GitHub repository
 - [ ] Save final Manus checkpoint after GitHub delivery validation
 - [ ] Report Stripe sandbox owner-login blocker and remaining owner-side test steps in final handoff
