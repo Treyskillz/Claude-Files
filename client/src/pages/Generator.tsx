@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { trpc } from "@/lib/trpc";
 import { buildRecommendedAssetFocus, getAssetNeedProfile, getSuggestedAssetPrice, industryCategories, professionCategories } from "@/lib/categoryStrategy";
 import { copyToClipboard, exportClaudePluginZip, exportToMarkdown, exportToPDF } from "@/lib/export";
-import { BriefcaseBusiness, Download, FileArchive, FileDown, Loader2, PackagePlus, Save, Sparkles, Wand2 } from "lucide-react";
+import { BriefcaseBusiness, CheckCircle2, Download, FileArchive, FileDown, Info, Loader2, PackagePlus, Save, Sparkles, Wand2 } from "lucide-react";
 import { Streamdown } from "streamdown";
 import { toast } from "sonner";
 
@@ -26,6 +26,50 @@ const platformOptions = ["All Platforms", "Claude", "ChatGPT", "Manus", "Grok/Gr
 type TargetPlatform = (typeof platformOptions)[number];
 type AssetType = "master_os" | "skill" | "prompt" | "workflow" | "bundle";
 type Mode = "autonomous" | "assisted";
+
+const assetTypeLabels: Record<AssetType, string> = {
+  master_os: "Master Operating System",
+  skill: "AI skill",
+  prompt: "prompt system",
+  workflow: "workflow blueprint",
+  bundle: "asset bundle",
+};
+
+function getPlatformInstallSteps(platform: string) {
+  if (platform === "Claude") {
+    return [
+      "Create or open a Claude Project and paste the master instructions into Project instructions.",
+      "Upload or copy SKILL.md, PROMPTS.md, and WORKFLOWS.md as reusable project knowledge.",
+      "Run one real buyer task and refine examples, compliance notes, and output format rules.",
+    ];
+  }
+  if (platform === "ChatGPT") {
+    return [
+      "Paste the master instructions into a Custom GPT or ChatGPT Project instruction area.",
+      "Add PROMPTS.md as conversation starters and WORKFLOWS.md as repeatable action checklists.",
+      "Test with one realistic customer scenario before selling, sharing, or publishing the package.",
+    ];
+  }
+  if (platform === "Manus") {
+    return [
+      "Use the master document as project instructions and the workflows as agent runbooks.",
+      "Keep the prompt templates available as repeatable task starters inside the project workspace.",
+      "Treat the QA rules as the completion checklist for every generated business deliverable.",
+    ];
+  }
+  if (platform === "Grok/Groq") {
+    return [
+      "Use PROMPTS.md as concise high-speed prompt patterns and keep longer SOPs in a reference file.",
+      "Adapt the master instructions into system guidance or API-side orchestration notes.",
+      "Run a speed-focused test and shorten any instructions that are too long for the selected workflow.",
+    ];
+  }
+  return [
+    "Read the master document first so you understand the asset purpose, rules, and intended buyer outcome.",
+    "Paste the master instructions into the selected AI tool's project, custom-instruction, system, or workspace guidance area.",
+    "Add the prompt and workflow files as reusable templates, then run one realistic test before customer delivery.",
+  ];
+}
 
 export default function Generator() {
   const [assetType, setAssetType] = useState<AssetType>("master_os");
@@ -75,6 +119,8 @@ export default function Generator() {
   const recommendedNeeds = getAssetNeedProfile(effectiveProfessionCategory, effectiveIndustryCategory, customCategoryContext);
   const recommendedAssetFocus = useMemo(() => buildRecommendedAssetFocus(recommendedNeeds), [recommendedNeeds]);
   const suggestedPrice = getSuggestedAssetPrice(assetType, recommendedNeeds);
+  const assetLabel = assetTypeLabels[assetType];
+  const installSteps = getPlatformInstallSteps(effectiveTargetPlatform);
 
   const generate = async (forcedMode?: Mode) => {
     const selectedMode = forcedMode ?? mode;
@@ -133,17 +179,17 @@ export default function Generator() {
   };
 
   return (
-    <div className="bg-zinc-50 py-10 md:py-14">
+    <div className="bg-zinc-50 py-6 sm:py-8 md:py-14">
       <div className="container">
         <div className="mb-8 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><Wand2 className="mr-2 h-4 w-4" /> Multi-platform Master Operating Systems</Badge>
-            <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Create Master Operating Systems by profession, industry, and AI platform.</h1>
+            <h1 className="text-3xl font-black tracking-[-0.05em] text-zinc-950 sm:text-4xl md:text-6xl">Create Master Operating Systems by profession, industry, and AI platform.</h1>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
               Generate Master Operating Systems, skills, prompt systems, workflow blueprints, or bundles for Claude, ChatGPT, Manus, Grok/Groq, and general AI use. The app recommends the operating systems, skills, prompts, workflows, and package structure those buyers are most likely to need.
             </p>
           </div>
-          <Button size="lg" className="rounded-full bg-red-600 text-white hover:bg-red-700" disabled={createAsset.isPending} onClick={() => generate("autonomous")}>
+          <Button size="lg" className="w-full justify-center rounded-full bg-red-600 text-white hover:bg-red-700 sm:w-auto" disabled={createAsset.isPending} onClick={() => generate("autonomous")}>
             {createAsset.isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Sparkles className="mr-2 h-5 w-5" />}
             Generate instantly
           </Button>
@@ -157,12 +203,12 @@ export default function Generator() {
             </CardHeader>
             <CardContent>
                   <Tabs value={assetType} onValueChange={value => setAssetType(value as AssetType)}>
-                <TabsList className="grid w-full grid-cols-5">
-                  <TabsTrigger value="master_os">Master OS</TabsTrigger>
-                  <TabsTrigger value="skill">Skill</TabsTrigger>
-                  <TabsTrigger value="prompt">Prompt</TabsTrigger>
-                  <TabsTrigger value="workflow">Workflow</TabsTrigger>
-                  <TabsTrigger value="bundle">Bundle</TabsTrigger>
+                <TabsList className="grid h-auto w-full grid-cols-2 gap-1 rounded-2xl bg-zinc-100 p-1 sm:grid-cols-3 lg:grid-cols-5">
+                  <TabsTrigger className="text-xs sm:text-sm" value="master_os">Master OS</TabsTrigger>
+                  <TabsTrigger className="text-xs sm:text-sm" value="skill">Skill</TabsTrigger>
+                  <TabsTrigger className="text-xs sm:text-sm" value="prompt">Prompt</TabsTrigger>
+                  <TabsTrigger className="text-xs sm:text-sm" value="workflow">Workflow</TabsTrigger>
+                  <TabsTrigger className="text-xs sm:text-sm" value="bundle">Bundle</TabsTrigger>
                 </TabsList>
                 <TabsContent value={assetType} className="mt-6 grid gap-5">
                   <div className="grid gap-2">
@@ -262,22 +308,49 @@ export default function Generator() {
               </div>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="no-print flex flex-wrap gap-2 border-b bg-white p-4">
-                <Button variant="outline" className="bg-white" disabled={!result} onClick={() => result && copyToClipboard(result.content).then(() => toast.success(`Copied for ${effectiveTargetPlatform}.`))}><Download className="mr-2 h-4 w-4" /> Copy</Button>
-                <Button variant="outline" className="bg-white" disabled={!result} onClick={() => result && exportToMarkdown(result.content, generatedTitle)}><FileDown className="mr-2 h-4 w-4" /> Markdown</Button>
-                <Button variant="outline" className="bg-white" disabled={!result} onClick={() => result && exportToPDF(result.content, generatedTitle, effectiveTargetPlatform)}><FileDown className="mr-2 h-4 w-4" /> PDF</Button>
-                <Button variant="outline" className="bg-white" disabled={!result} onClick={() => result && exportClaudePluginZip({ title: generatedTitle, content: result.content, assetType, manifest: { ...result.manifest, targetPlatform: effectiveTargetPlatform, businessType, customAssetCategory: effectiveAssetCategory } })}><FileArchive className="mr-2 h-4 w-4" /> Platform ZIP</Button>
-                <Button variant="outline" className="bg-white" disabled={!result} onClick={saveToLocalLibrary}><Save className="mr-2 h-4 w-4" /> Save</Button>
-                <Button className="bg-red-600 hover:bg-red-700" disabled={!result || saveProduct.isPending} onClick={addToMarketplace}><PackagePlus className="mr-2 h-4 w-4" /> Add listing</Button>
+              <div className="no-print grid grid-cols-2 gap-2 border-b bg-white p-3 sm:flex sm:flex-wrap sm:p-4">
+                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && copyToClipboard(result.content).then(() => toast.success(`Copied for ${effectiveTargetPlatform}.`))}><Download className="mr-2 h-4 w-4" /> Copy</Button>
+                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportToMarkdown(result.content, generatedTitle)}><FileDown className="mr-2 h-4 w-4" /> Markdown</Button>
+                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportToPDF(result.content, generatedTitle, effectiveTargetPlatform)}><FileDown className="mr-2 h-4 w-4" /> PDF</Button>
+                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportClaudePluginZip({ title: generatedTitle, content: result.content, assetType, manifest: { ...result.manifest, targetPlatform: effectiveTargetPlatform, businessType, customAssetCategory: effectiveAssetCategory } })}><FileArchive className="mr-2 h-4 w-4" /> Platform ZIP</Button>
+                <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={saveToLocalLibrary}><Save className="mr-2 h-4 w-4" /> Save</Button>
+                <Button className="justify-center bg-red-600 text-xs hover:bg-red-700 sm:text-sm" disabled={!result || saveProduct.isPending} onClick={addToMarketplace}><PackagePlus className="mr-2 h-4 w-4" /> Add listing</Button>
               </div>
-              <div className="print-area print-surface min-h-[640px] p-7">
+              {result && (
+                <div className="no-print border-b bg-red-50/50 p-4 sm:p-5">
+                  <div className="grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
+                    <div className="rounded-2xl border border-red-100 bg-white p-4 shadow-sm">
+                      <p className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.18em] text-red-700"><Info className="h-4 w-4" /> What this asset does</p>
+                      <p className="mt-3 text-sm leading-6 text-zinc-700">
+                        This {assetLabel} is built for {effectiveProfessionCategory} in {effectiveIndustryCategory} using {effectiveTargetPlatform}. It explains the asset purpose, operating rules, prompts, workflow steps, output expectations, and QA requirements so a buyer understands how to use it before copying it into an AI platform.
+                      </p>
+                      <p className="mt-3 rounded-2xl bg-zinc-50 p-3 text-xs font-semibold leading-5 text-zinc-700">
+                        Download branding: <span className="text-zinc-950">Freedom One Academy</span> · Contact: <span className="text-zinc-950">freedom1.digital.@gmail.com</span>
+                      </p>
+                    </div>
+                    <div className="rounded-2xl border border-red-100 bg-white p-4 shadow-sm">
+                      <p className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.18em] text-red-700"><CheckCircle2 className="h-4 w-4" /> How to add it to your AI</p>
+                      <ol className="mt-3 grid gap-3 text-sm leading-6 text-zinc-700">
+                        {installSteps.map(step => (
+                          <li key={step} className="flex gap-3">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-red-600" />
+                            <span>{step}</span>
+                          </li>
+                        ))}
+                      </ol>
+                      <p className="mt-3 text-xs leading-5 text-zinc-500">The Markdown, PDF, and ZIP downloads also include usage and platform adaptation guidance for customer delivery.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div className="print-area print-surface min-h-[520px] p-4 sm:min-h-[640px] sm:p-6 lg:p-7">
                 {result ? (
                   <article className="prose prose-zinc max-w-none">
-                    <h2 className="mb-4 text-3xl font-black tracking-[-0.04em] text-zinc-950">{result.title}</h2>
+                    <h2 className="mb-4 text-2xl font-black tracking-[-0.04em] text-zinc-950 sm:text-3xl">{result.title}</h2>
                     <Streamdown>{result.content}</Streamdown>
                   </article>
                 ) : (
-                  <div className="flex min-h-[520px] flex-col items-center justify-center text-center">
+                  <div className="flex min-h-[420px] flex-col items-center justify-center text-center sm:min-h-[520px]">
                     <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-3xl bg-red-100 text-red-700"><Sparkles className="h-8 w-8" /></div>
                     <h2 className="text-2xl font-black text-zinc-950">Your generated asset will appear here.</h2>
                     <p className="mt-3 max-w-xl leading-7 text-zinc-600">Choose an AI platform, profession, industry, or business type, then generate a category-specific Master Operating System, skill, prompt, workflow, or bundle with clear package details.</p>

@@ -93,3 +93,8 @@
 - [x] Provide a plain-language recommendation on whether the Skillz spelling is advisable for the public brand.
 - [x] Apply the confirmed professional branding rule: use Skillz Magic AI Studio for the brand name, but keep generic product terms like skills, AI skills, and Claude skills spelled normally.
 - [x] Fix the `/generator` accessibility error by ensuring every DialogContent has an accessible DialogTitle, visible or screen-reader-only as appropriate.
+- [x] Add an inline generated-asset guidance panel explaining what the asset does and how to install it in Claude, ChatGPT, Manus, Grok/Groq, and general AI tools.
+- [x] Update PDF exports to include usage guidance and platform installation instructions, not only the raw generated content.
+- [x] Polish the Builder page mobile layout for narrow screens, including form controls, tabs, export actions, and generated-output readability.
+- [x] Update downloadable materials to use Freedom One Academy branding and contact email freedom1.digital.@gmail.com.
+- [x] Confirm these Builder/export branding changes are limited to this claude-skill-studio project and this chat context only, with no cross-project or cross-chat application.
