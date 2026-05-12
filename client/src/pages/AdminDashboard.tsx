@@ -11,6 +11,69 @@ function formatMoney(cents = 0) {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(cents / 100);
 }
 
+function formatAssetType(raw: string): string {
+  const map: Record<string, string> = {
+    master_os: "Master OS",
+    skill: "Skill",
+    prompt: "Prompt",
+    workflow: "Workflow",
+    bundle: "Bundle",
+    resource: "Resource",
+  };
+  return map[raw] || raw.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function formatPayoutStatus(raw: string): string {
+  const map: Record<string, string> = {
+    not_applicable: "No payout needed",
+    pending: "Payout pending",
+    paid: "Paid out",
+    failed: "Payout failed",
+  };
+  return map[raw] || raw.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function formatFulfillmentStatus(raw: string): string {
+  const map: Record<string, string> = {
+    pending: "Processing",
+    ready: "Ready",
+    fulfilled: "Fulfilled",
+    refunded: "Refunded",
+  };
+  return map[raw] || raw.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function formatPackageType(raw: string): string {
+  const map: Record<string, string> = {
+    individual: "Individual",
+    bundle: "Bundle",
+    one_time_app: "One-time",
+    subscription_monthly: "Monthly",
+    subscription_annual: "Annual",
+  };
+  return map[raw] || raw.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function formatSource(raw: string): string {
+  const map: Record<string, string> = {
+    autonomous: "AI Generated",
+    assisted: "AI Assisted",
+    uploaded: "Uploaded",
+    official_reference: "Official",
+  };
+  return map[raw] || raw.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function formatListingStatus(raw: string): string {
+  const map: Record<string, string> = {
+    draft: "Draft",
+    pending_review: "Pending review",
+    approved: "Approved",
+    rejected: "Rejected",
+  };
+  return map[raw] || raw.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+}
+
 function downloadCsv(filename: string, csv: string) {
   const blob = new Blob([csv || ""], { type: "text/csv;charset=utf-8" });
   const url = URL.createObjectURL(blob);
@@ -132,7 +195,7 @@ export default function AdminDashboard() {
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="font-bold text-zinc-950">{listing.title}</p>
-                    <Badge variant="outline" className="rounded-full bg-white">{listing.packageType}</Badge>
+                    <Badge variant="outline" className="rounded-full bg-white">{formatPackageType(listing.packageType)}</Badge>
                     <Badge className="rounded-full bg-amber-100 text-amber-800 hover:bg-amber-100">Pending review</Badge>
                   </div>
                   <p className="mt-1 text-sm text-zinc-600">{listing.category} · {formatMoney(listing.priceCents)} · seller account {listing.sellerStripeAccountId ? "captured" : "not captured"}</p>
@@ -149,9 +212,9 @@ export default function AdminDashboard() {
         </Card>
 
         <div className="grid gap-6 xl:grid-cols-3">
-          <ActivityList title="Recent saved marketplace listings" empty="No saved listings yet." items={(data?.products || []).map(product => ({ title: product.title, meta: `${product.packageType} · ${formatMoney(product.priceCents)}`, detail: `${product.category} · ${product.listingStatus}` }))} />
-          <ActivityList title="Recent purchase records" empty="No purchase records yet." items={(data?.purchases || []).map(purchase => ({ title: purchase.productTitle, meta: `${purchase.packageType} · ${purchase.fulfillmentStatus}`, detail: `${formatMoney(purchase.grossAmountCents)} gross · ${purchase.payoutStatus}` }))} />
-          <ActivityList title="Recent Builder assets" empty="No generated assets yet." items={(data?.generatedAssets || []).map(asset => ({ title: asset.title, meta: `${asset.assetType} · ${asset.source}`, detail: asset.createdAt ? new Date(asset.createdAt).toLocaleString() : "Recent" }))} />
+          <ActivityList title="Recent saved marketplace listings" empty="No saved listings yet." items={(data?.products || []).map(product => ({ title: product.title, meta: `${formatPackageType(product.packageType)} · ${formatMoney(product.priceCents)}`, detail: `${product.category} · ${formatListingStatus(product.listingStatus)}` }))} />
+          <ActivityList title="Recent purchase records" empty="No purchase records yet." items={(data?.purchases || []).map(purchase => ({ title: purchase.productTitle, meta: `${formatPackageType(purchase.packageType)} · ${formatFulfillmentStatus(purchase.fulfillmentStatus)}`, detail: `${formatMoney(purchase.grossAmountCents)} gross · ${formatPayoutStatus(purchase.payoutStatus)}` }))} />
+          <ActivityList title="Recent Builder assets" empty="No generated assets yet." items={(data?.generatedAssets || []).map(asset => ({ title: asset.title, meta: `${formatAssetType(asset.assetType)} · ${formatSource(asset.source)}`, detail: asset.createdAt ? new Date(asset.createdAt).toLocaleString() : "Recent" }))} />
         </div>
       </div>
     </div>

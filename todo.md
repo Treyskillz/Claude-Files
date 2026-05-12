@@ -155,4 +155,11 @@
 - [x] Add useful footer links (Instructions, Marketplace, Pricing, Generator)
 - [x] Update the QA findings document with accurate pass/fail statuses for all 13 audit areas
 - [x] Run tests, production build, and visual verification after all fixes
-- [ ] Save checkpoint and push corrected state to GitHub (in progress)
+- [x] Save checkpoint and push corrected state to GitHub
+- [x] Fix admin dashboard: format "NOT_APPLICABLE" as human-readable label instead of raw enum value
+- [x] Fix admin dashboard: format "master_os" asset type as "Master OS" instead of raw slug
+- [x] Fix admin dashboard: clarify admin-access purchases with appropriate status label instead of "pending"
+- [x] Fix admin dashboard: clean up redundant date display in Recent Builder assets titles (title is stored from generation)
+- [x] Fix admin dashboard: improve purchase record display to distinguish admin free access from customer purchases
+- [x] Run tests, build, visual verification after dashboard corrections
+- [ ] Save checkpoint and push dashboard corrections to GitHub
