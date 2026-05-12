@@ -1,9 +1,10 @@
+import { useAuth } from "@/_core/hooks/useAuth";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc";
 import { assetNeedMap, defaultNeeds } from "@/lib/categoryStrategy";
-import { CheckCircle2, Crown, Download, Layers3, Loader2, Sparkles, Tags } from "lucide-react";
+import { CheckCircle2, Crown, Download, Layers3, Loader2, ShieldCheck, Sparkles, Tags } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 
@@ -130,8 +131,14 @@ function formatPrice(cents: number, cadence: string) {
 }
 
 export default function Pricing() {
+  const { user } = useAuth();
+  const isAdmin = user?.role === "admin";
   const checkout = trpc.marketplace.checkout.useMutation({
     onSuccess(data) {
+      if (data.adminFreeAccess) {
+        toast.success(data.message || "Admin access confirmed. No checkout required.");
+        return;
+      }
       if (data.checkoutUrl) {
         window.open(data.checkoutUrl, "_blank", "noopener,noreferrer");
         toast.success("Stripe Checkout opened in a new tab.");
@@ -149,10 +156,15 @@ export default function Pricing() {
           <div>
             <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><Tags className="mr-2 h-4 w-4" /> Simple package options</Badge>
             <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Choose the Skillz Magic AI Studio package that fits your workflow.</h1>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
-              Start with a focused download, choose a complete workflow package, or unlock recurring app access when you need to create AI asset kits across multiple professions, industries, and platforms.
-            </p>
-          </div>
+              <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
+                Start with a focused download, choose a complete workflow package, or unlock recurring app access when you need to create AI asset kits across multiple professions, industries, and platforms.
+              </p>
+              {isAdmin ? (
+                <div className="mt-5 flex w-fit items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-bold text-red-700">
+                  <ShieldCheck className="h-4 w-4" /> Owner/admin pricing access is included. Customer pricing and Stripe checkout remain active for non-admin accounts.
+                </div>
+              ) : null}
+            </div>
           <Card className="rounded-3xl border-red-100 bg-white shadow-sm">
             <CardHeader>
               <CardTitle className="flex items-center gap-2"><Crown className="h-5 w-5 text-red-600" /> Popular choice</CardTitle>
@@ -173,13 +185,14 @@ export default function Pricing() {
                 <CardDescription className="leading-6">{plan.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex grow flex-col">
-                <div className="mb-4 text-4xl font-black tracking-[-0.04em] text-zinc-950">{formatPrice(plan.priceCents, plan.cadence)}</div>
+                <div className="mb-4 text-4xl font-black tracking-[-0.04em] text-zinc-950">{isAdmin ? "Admin included" : formatPrice(plan.priceCents, plan.cadence)}</div>
+                {isAdmin ? <p className="mb-4 rounded-2xl bg-red-50 p-3 text-sm font-semibold leading-6 text-red-700">This owner/admin account can use this offer without checkout. Customers still see and use the paid Stripe flow.</p> : null}
                 <p className="mb-5 rounded-2xl bg-zinc-50 p-4 text-sm leading-6 text-zinc-700"><strong className="text-zinc-950">Best for:</strong> {plan.bestFor}</p>
                 <div className="mb-6 grid gap-2 text-sm text-zinc-600">
                   {plan.features.map(feature => <p key={feature} className="flex gap-2"><CheckCircle2 className="h-4 w-4 shrink-0 text-red-600" /> {feature}</p>)}
                 </div>
                 <Button className="mt-auto rounded-full bg-red-600 text-white hover:bg-red-700" disabled={checkout.isPending} onClick={() => checkout.mutate({ slug: plan.slug, title: plan.name, priceCents: plan.priceCents, packageType: plan.packageType, description: plan.description })}>
-                  {checkout.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}{plan.cta}
+                  {checkout.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : isAdmin ? <ShieldCheck className="mr-2 h-4 w-4" /> : null}{isAdmin ? "Confirm admin access" : plan.cta}
                 </Button>
               </CardContent>
             </Card>

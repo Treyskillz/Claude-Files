@@ -49,6 +49,47 @@ function slugify(value: string) {
     .slice(0, 160);
 }
 
+type CheckoutProductAccess = {
+  slug: string;
+  title: string;
+  description: string;
+  packageType: z.infer<typeof packageTypeSchema>;
+  priceCents: number;
+};
+
+export function isAdminUser(user: { role?: string | null; openId?: string | null } | null | undefined) {
+  return user?.role === "admin" || Boolean(process.env.OWNER_OPEN_ID && user?.openId === process.env.OWNER_OPEN_ID);
+}
+
+function withAdminRole<TUser extends { role?: string | null; openId?: string | null } | null | undefined>(user: TUser) {
+  if (!user || !isAdminUser(user)) return user;
+  return { ...user, role: "admin" as const };
+}
+
+export function buildAdminCheckoutBypass(product: CheckoutProductAccess) {
+  return {
+    checkoutUrl: null,
+    sessionId: null,
+    adminFreeAccess: true,
+    productSlug: product.slug,
+    productTitle: product.title,
+    packageType: product.packageType,
+    message: "Admin access included. No Stripe checkout or purchase record is required for this owner/admin account.",
+  } as const;
+}
+
+export function buildPaidCheckoutResponse(session: Stripe.Checkout.Session, product: CheckoutProductAccess) {
+  return {
+    checkoutUrl: session.url,
+    sessionId: session.id,
+    adminFreeAccess: false,
+    productSlug: product.slug,
+    productTitle: product.title,
+    packageType: product.packageType,
+    message: "Stripe Checkout session created for customer payment.",
+  } as const;
+}
+
 export function buildFallbackAsset(input: GenerateInput) {
   const categoryContext = [input.professionCategory, input.industryCategory, input.businessType, input.industry, input.customCategoryContext].filter(Boolean).join(" / ") || "AI Automation";
   const platformContext = input.targetPlatform || "All Platforms";
@@ -84,7 +125,7 @@ Prioritize the professional and industry needs represented by ${categoryContext}
 export const appRouter = router({
   system: systemRouter,
   auth: router({
-    me: publicProcedure.query(opts => opts.ctx.user),
+    me: publicProcedure.query(opts => withAdminRole(opts.ctx.user)),
     logout: publicProcedure.mutation(({ ctx }) => {
       const cookieOptions = getSessionCookieOptions(ctx.req);
       ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 });
@@ -222,7 +263,6 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
         }),
       )
       .mutation(async ({ input, ctx }) => {
-        if (!stripe) throw new Error("Stripe is not configured yet. Please configure payments in Settings → Payment.");
         const preset = getProductBySlug(input.slug);
         const product = {
           slug: preset?.slug || slugify(input.slug),
@@ -231,6 +271,12 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
           packageType: input.packageType || preset?.packageType || "individual",
           priceCents: input.priceCents || preset?.priceCents || 2900,
         } as const;
+
+        if (isAdminUser(ctx.user)) {
+          return buildAdminCheckoutBypass(product);
+        }
+
+        if (!stripe) throw new Error("Stripe is not configured yet. Please configure payments in Settings → Payment.");
 
         const origin = ctx.req.headers.origin || `${ctx.req.protocol}://${ctx.req.headers.host}`;
         const isRecurring = product.packageType === "subscription_monthly" || product.packageType === "subscription_annual";
@@ -275,7 +321,7 @@ Before the main asset, include a brief "Category Fit" section explaining why thi
           fulfillmentStatus: "pending",
         });
 
-        return { checkoutUrl: session.url, sessionId: session.id };
+        return buildPaidCheckoutResponse(session, product);
       }),
     purchases: protectedProcedure.query(({ ctx }) => listUserPurchases(ctx.user.id)),
   }),

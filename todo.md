@@ -98,3 +98,9 @@
 - [x] Polish the Builder page mobile layout for narrow screens, including form controls, tabs, export actions, and generated-output readability.
 - [x] Update downloadable materials to use Freedom One Academy branding and contact email freedom1.digital.@gmail.com.
 - [x] Confirm these Builder/export branding changes are limited to this claude-skill-studio project and this chat context only, with no cross-project or cross-chat application.
+- [x] Create a reusable Manus skill from this project workflow for scoped Builder/export improvements, validation, checkpointing, and final reporting.
+- [x] Add an admin-only app experience that identifies the project owner/admin and clearly separates admin access from customer/subscriber access.
+- [x] Allow admin users to generate Builder assets and download Markdown, PDF, and ZIP packages without payment or subscription restrictions.
+- [x] Preserve normal payment/subscription gates for non-admin users so customer monetization remains intact.
+- [x] Add admin-facing copy or badges that make free admin access clear without exposing it as a customer option.
+- [x] Add regression tests for admin free downloads, non-admin separation, and protected paid access behavior.

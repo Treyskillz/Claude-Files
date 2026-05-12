@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
-import { CheckCircle2, CreditCard, LibraryBig, LogIn, LogOut, UserCircle } from "lucide-react";
+import { CheckCircle2, CreditCard, LibraryBig, LogIn, LogOut, ShieldCheck, UserCircle } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Account() {
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout, user } = useAuth();
+  const isAdmin = user?.role === "admin";
   const purchases = trpc.marketplace.purchases.useQuery(undefined, { retry: false, enabled: isAuthenticated });
   const mine = trpc.generator.listMine.useQuery(undefined, { retry: false, enabled: isAuthenticated });
 
@@ -19,6 +20,11 @@ export default function Account() {
           <Badge className="mb-4 rounded-full bg-red-100 text-red-700 hover:bg-red-100"><UserCircle className="mr-2 h-4 w-4" /> Creator account</Badge>
           <h1 className="text-4xl font-black tracking-[-0.05em] text-zinc-950 md:text-6xl">Manage your Skillz Magic AI Studio workspace.</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Sign in to sync server-saved assets, save marketplace listings, start Stripe Checkout, and view completed purchases.</p>
+          {isAdmin ? (
+            <div className="mt-5 flex w-fit items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-bold text-red-700">
+              <ShieldCheck className="h-4 w-4" /> Admin workspace active: Builder exports, package downloads, and pricing access are included for this owner account.
+            </div>
+          ) : null}
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
@@ -37,13 +43,14 @@ export default function Account() {
                 <p className="flex gap-2"><CheckCircle2 className="h-4 w-4 shrink-0 text-red-600" /> Local browser library for saved and uploaded resources.</p>
                 <p className="flex gap-2"><CheckCircle2 className="h-4 w-4 shrink-0 text-red-600" /> Server-backed generated assets after login.</p>
                 <p className="flex gap-2"><CheckCircle2 className="h-4 w-4 shrink-0 text-red-600" /> Stripe Checkout for marketplace purchases.</p>
+                {isAdmin ? <p className="flex gap-2 font-semibold text-red-700"><ShieldCheck className="h-4 w-4 shrink-0" /> Owner/admin bypass confirms free internal access without changing customer purchase gates.</p> : null}
               </div>
             </CardContent>
           </Card>
 
           <div className="grid gap-5 md:grid-cols-2">
             <MetricCard icon={LibraryBig} label="Saved server assets" value={isAuthenticated ? String(mine.data?.length ?? 0) : "Sign in"} href="/library" />
-            <MetricCard icon={CreditCard} label="Purchase records" value={isAuthenticated ? String(purchases.data?.length ?? 0) : "Sign in"} href="/marketplace" />
+            <MetricCard icon={CreditCard} label={isAdmin ? "Admin checkout bypass" : "Purchase records"} value={isAdmin ? "Included" : isAuthenticated ? String(purchases.data?.length ?? 0) : "Sign in"} href="/marketplace" />
             <WorkflowCard title="Generate" text="Create a new skill, prompt, workflow, or bundle." href="/generator" />
             <WorkflowCard title="Upload" text="Add your own notes and Claude resources." href="/upload" />
           </div>

@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useAuth } from "@/_core/hooks/useAuth";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { trpc } from "@/lib/trpc";
 import { buildRecommendedAssetFocus, getAssetNeedProfile, getSuggestedAssetPrice, industryCategories, professionCategories } from "@/lib/categoryStrategy";
 import { copyToClipboard, exportClaudePluginZip, exportToMarkdown, exportToPDF } from "@/lib/export";
-import { BriefcaseBusiness, CheckCircle2, Download, FileArchive, FileDown, Info, Loader2, PackagePlus, Save, Sparkles, Wand2 } from "lucide-react";
+import { BriefcaseBusiness, CheckCircle2, Download, FileArchive, FileDown, Info, Loader2, PackagePlus, Save, ShieldCheck, Sparkles, Wand2 } from "lucide-react";
 import { Streamdown } from "streamdown";
 import { toast } from "sonner";
 
@@ -72,6 +73,8 @@ function getPlatformInstallSteps(platform: string) {
 }
 
 export default function Generator() {
+  const { user } = useAuth();
+  const isAdmin = user?.role === "admin";
   const [assetType, setAssetType] = useState<AssetType>("master_os");
   const [mode, setMode] = useState<Mode>("autonomous");
   const [title, setTitle] = useState("");
@@ -188,6 +191,11 @@ export default function Generator() {
             <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
               Generate Master Operating Systems, skills, prompt systems, workflow blueprints, or bundles for Claude, ChatGPT, Manus, Grok/Groq, and general AI use. The app recommends the operating systems, skills, prompts, workflows, and package structure those buyers are most likely to need.
             </p>
+            {isAdmin ? (
+              <div className="mt-5 flex w-fit items-center gap-2 rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-bold text-red-700">
+                <ShieldCheck className="h-4 w-4" /> Owner/admin mode: Builder generation and all local export downloads are included without checkout.
+              </div>
+            ) : null}
           </div>
           <Button size="lg" className="w-full justify-center rounded-full bg-red-600 text-white hover:bg-red-700 sm:w-auto" disabled={createAsset.isPending} onClick={() => generate("autonomous")}>
             {createAsset.isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Sparkles className="mr-2 h-5 w-5" />}
@@ -309,6 +317,11 @@ export default function Generator() {
             </CardHeader>
             <CardContent className="p-0">
               <div className="no-print grid grid-cols-2 gap-2 border-b bg-white p-3 sm:flex sm:flex-wrap sm:p-4">
+                {isAdmin ? (
+                  <div className="col-span-2 flex w-full items-center gap-2 rounded-2xl border border-red-100 bg-red-50 px-4 py-3 text-xs font-bold text-red-700 sm:text-sm">
+                    <ShieldCheck className="h-4 w-4 shrink-0" /> Admin exports unlocked: Markdown, PDF, and Platform ZIP downloads do not require payment for this owner account.
+                  </div>
+                ) : null}
                 <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && copyToClipboard(result.content).then(() => toast.success(`Copied for ${effectiveTargetPlatform}.`))}><Download className="mr-2 h-4 w-4" /> Copy</Button>
                 <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportToMarkdown(result.content, generatedTitle)}><FileDown className="mr-2 h-4 w-4" /> Markdown</Button>
                 <Button variant="outline" className="justify-center bg-white text-xs sm:text-sm" disabled={!result} onClick={() => result && exportToPDF(result.content, generatedTitle, effectiveTargetPlatform)}><FileDown className="mr-2 h-4 w-4" /> PDF</Button>

@@ -1,8 +1,9 @@
 import { useAuth } from "@/_core/hooks/useAuth";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getLoginUrl } from "@/const";
 import { Link, useLocation } from "wouter";
-import { Menu, Sparkles } from "lucide-react";
+import { Menu, ShieldCheck, Sparkles } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
@@ -54,7 +55,8 @@ function NavLinks({ mobile = false }: { mobile?: boolean }) {
 }
 
 export function AppShell({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout, user } = useAuth();
+  const isAdmin = user?.role === "admin";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -65,6 +67,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </Link>
           <NavLinks />
           <div className="hidden items-center gap-3 lg:flex">
+            {isAdmin ? (
+              <Badge variant="outline" className="rounded-full border-red-200 bg-red-50 px-3 py-1.5 text-red-700">
+                <ShieldCheck className="mr-1.5 h-4 w-4" /> Admin access
+              </Badge>
+            ) : null}
             {isAuthenticated ? (
               <>
                 <Link href="/account" className="text-sm font-semibold text-zinc-700 hover:text-red-600">
@@ -97,6 +104,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               </div>
               <NavLinks mobile />
               <div className="mt-8 grid gap-3">
+                {isAdmin ? (
+                  <Badge variant="outline" className="w-fit rounded-full border-red-200 bg-red-50 px-3 py-1.5 text-red-700">
+                    <ShieldCheck className="mr-1.5 h-4 w-4" /> Admin access enabled
+                  </Badge>
+                ) : null}
                 <Button asChild className="bg-red-600 hover:bg-red-700">
                   <Link href="/generator">Build an asset</Link>
                 </Button>
