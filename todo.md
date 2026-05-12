@@ -92,3 +92,4 @@
 - [x] Change appropriate brand references from Skills to Skillz while preserving technical terms where “skills” means generic AI skill files or user-created assets.
 - [x] Provide a plain-language recommendation on whether the Skillz spelling is advisable for the public brand.
 - [x] Apply the confirmed professional branding rule: use Skillz Magic AI Studio for the brand name, but keep generic product terms like skills, AI skills, and Claude skills spelled normally.
+- [x] Fix the `/generator` accessibility error by ensuring every DialogContent has an accessible DialogTitle, visible or screen-reader-only as appropriate.
